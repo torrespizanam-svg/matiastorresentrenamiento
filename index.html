@@ -23,7 +23,7 @@
   header .wrap{max-width:1320px}
   .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;flex-shrink:0}
-  .brand img{display:block;max-width:150px;height:auto;max-height:68px;object-fit:contain}.brand b{font-size:16px}
+  .brand img{display:block;height:84px;width:auto;max-width:none;object-fit:contain}.brand svg.lockup{display:block;width:180px;height:70px;flex:0 0 auto}@media(max-width:480px){.brand img{height:56px}.brand svg.lockup{width:118px;height:46px}}.brand b{font-size:16px}
   .brand svg{display:block;width:46px;height:46px;flex:0 0 46px}
   .brand span{display:block;max-width:190px}
   .brand b{font-family:'Oswald';font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--yellow);display:block;line-height:1.1}
@@ -601,7 +601,7 @@
   <div class="wrap nav">
     <a class="brand" href="#inicio">
       <img src="escudo-original.png" alt="Escudo de Matías Torres">
-      <span><b>Matías Torres</b><small>Entrenamiento personal en Orihuela</small></span>
+      <svg class="lockup" viewBox="0 0 200 78" role="img" aria-label="Matías Torres, entrenamiento personal en Orihuela"><text x="0" y="32" textLength="200" lengthAdjust="spacing" fill="#FFD51F" font-family="Oswald,sans-serif" font-weight="600" font-size="30">MATÍAS TORRES</text><text x="0" y="52" textLength="200" lengthAdjust="spacing" fill="#fff" font-family="Oswald,sans-serif" font-weight="500" font-size="17">ENTRENAMIENTO PERSONAL</text><text x="0" y="77" textLength="200" lengthAdjust="spacing" fill="#fff" font-family="Oswald,sans-serif" font-weight="500" font-size="24">EN ORIHUELA</text></svg>
     </a>
     <button class="burger" id="burger" aria-label="Menú">☰</button>
     <nav id="nav">
