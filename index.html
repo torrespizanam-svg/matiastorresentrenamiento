@@ -591,6 +591,65 @@
   @media(max-width:700px){#admin .top{padding:12px 16px}#admin .top .who{display:none}#admin .top h1{font-size:19px;min-width:0}}
   #admin .logout{background:transparent;color:var(--yellow);border:1px solid var(--yellow);border-radius:8px;padding:8px 12px;font:500 12px 'Poppins';cursor:pointer;white-space:nowrap}
   #admin .logout:hover{background:var(--yellow);color:#000}
+
+  /* ---------- test interactivo ---------- */
+  .qz-sec{background:var(--bg);padding:70px 0}
+  #test,#qz{scroll-margin-top:120px}
+  .qz-head{text-align:center;max-width:640px;margin:0 auto 28px}
+  .qz-head h2{font-size:clamp(28px,4.4vw,42px)}
+  .qz-head h2 span{background:var(--yellow);padding:0 .18em}
+  .qz-head p{color:var(--muted);margin:12px 0 0}
+  .qz{max-width:720px;margin:0 auto;background:var(--black);color:#fff;border-radius:22px;padding:26px 24px 28px;box-shadow:0 24px 60px -24px rgba(0,0,0,.45);position:relative;overflow:hidden}
+  .qz::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:#262626}
+  .qz-bar{position:absolute;top:0;left:0;height:5px;width:0;background:var(--yellow);transition:width .45s cubic-bezier(.2,.8,.2,1)}
+  .qz-top{display:flex;justify-content:space-between;align-items:center;min-height:34px;margin-bottom:8px}
+  .qz-back{background:none;border:0;color:#bdbdb5;font:500 14px 'Poppins';cursor:pointer;padding:6px 0;visibility:hidden}
+  .qz-back:hover{color:var(--yellow)}
+  .qz-count{font:600 13px 'Oswald';letter-spacing:.14em;color:var(--yellow);text-transform:uppercase}
+  .qz-step{display:none}
+  .qz-step.on{display:block;animation:qzIn .4s cubic-bezier(.2,.8,.2,1)}
+  @keyframes qzIn{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:none}}
+  .qz-q{font-family:'Oswald';text-transform:uppercase;font-size:clamp(22px,3.6vw,30px);letter-spacing:.02em;line-height:1.15;margin:4px 0 6px}
+  .qz-hint{color:#a9a9a1;font-size:14px;margin:0 0 18px}
+  .qz-opts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .qz-opts.one{grid-template-columns:1fr}
+  .qz-opt{display:flex;align-items:center;gap:14px;text-align:left;background:#181818;border:2px solid #2c2c2c;color:#fff;border-radius:14px;padding:16px;min-height:72px;font:500 15.5px 'Poppins';cursor:pointer;transition:border-color .2s,transform .15s,background .2s}
+  .qz-opt:hover{border-color:var(--yellow);transform:translateY(-2px)}
+  .qz-opt:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+  .qz-opt .e{font-size:28px;line-height:1;flex:0 0 auto}
+  .qz-opt small{display:block;color:#a9a9a1;font-size:12.5px;font-weight:400;margin-top:2px}
+  .qz-opt.sel{background:var(--yellow);border-color:var(--yellow);color:#000;animation:qzPop .3s}
+  .qz-opt.sel small{color:#3a3a3a}
+  @keyframes qzPop{50%{transform:scale(1.04)}}
+  @media(max-width:560px){.qz-opts{grid-template-columns:1fr}.qz{padding:22px 16px 24px;border-radius:18px}.qz-sec{padding:50px 0}}
+  .qz-form label{color:#fff}
+  .qz-form input[type=text],.qz-form input[type=tel],.qz-form input[type=email]{background:#181818;border-color:#333;color:#fff;font-size:16px;padding:14px}
+  .qz-form input:focus{outline:none;border-color:var(--yellow)}
+  .qz-form .chk{color:#cfcfc7}
+  .qz-form .chk a{color:var(--yellow)}
+  .qz-err{color:#ff8a8a;font-size:13.5px;min-height:20px;margin:-4px 0 10px}
+  .qz-lock{display:flex;gap:8px;align-items:center;color:#a9a9a1;font-size:12.5px;margin-top:12px}
+  .qz .btn{width:100%;font-size:15px;padding:16px}
+  .qz-res .badge{display:inline-block;background:var(--yellow);color:#000;font:600 12px 'Oswald';letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:6px}
+  .qz-res h3{font-size:clamp(24px,4vw,34px);margin:12px 0 6px;color:#fff}
+  .qz-res h3 span{color:var(--yellow)}
+  .qz-res .sub{color:#cfcfc7;margin:0 0 18px}
+  .qz-tips{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:10px}
+  .qz-tips li{display:flex;gap:12px;background:#181818;border-left:4px solid var(--yellow);border-radius:10px;padding:12px 14px;font-size:14.5px;line-height:1.5;opacity:0;animation:qzUp .45s forwards}
+  .qz-tips li .e{font-size:20px;flex:0 0 auto}
+  .qz-tips li:nth-child(2){animation-delay:.12s}.qz-tips li:nth-child(3){animation-delay:.24s}.qz-tips li:nth-child(4){animation-delay:.36s}
+  @keyframes qzUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .qz-gift{background:linear-gradient(135deg,#1d1a07,#121212);border:1.5px solid var(--yellow);border-radius:14px;padding:16px;margin-bottom:16px}
+  .qz-gift b{font-family:'Oswald';text-transform:uppercase;letter-spacing:.05em;color:var(--yellow);display:block;font-size:17px;margin-bottom:4px}
+  .qz-gift p{margin:0;font-size:14px;color:#dcdcd4}
+  .qz-ctas{display:grid;gap:10px}
+  .qz-ctas .btn.wa{background:#25D366;color:#000}
+  .qz-ctas .btn.wa:hover{background:#1fb457}
+  .qz-again{background:none;border:0;color:#a9a9a1;font:500 13px 'Poppins';cursor:pointer;margin-top:14px;text-decoration:underline}
+  .qz-note{font-size:12px;color:#8d8d86;margin:14px 0 0}
+  .qz-hero-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:rgba(0,0,0,.45);border:1.5px solid var(--yellow);color:var(--yellow);border-radius:999px;padding:9px 16px;font:600 13.5px 'Poppins';cursor:pointer;backdrop-filter:blur(4px)}
+  .qz-hero-link:hover{background:var(--yellow);color:#000}
+  @media(prefers-reduced-motion:reduce){.qz-step.on,.qz-opt.sel,.qz-tips li{animation:none;opacity:1}.qz-bar{transition:none}}
 </style>
 </head>
 <body>
@@ -636,6 +695,7 @@
     <h1>Rehabilita. Recompón. <span>Vuelve a moverte sin miedo.</span></h1>
     <p>Un centro privado donde solo entrenas tú y tu entrenador. Readaptación tras lesiones y cirugías, y recomposición corporal con un plan hecho a tu medida y seguimiento real.</p>
     <div class="cta"><a class="btn" href="#reservar">Reserva tu cita orientativa</a><a class="btn out" href="#metodologia">Cómo trabajamos</a></div>
+    <button type="button" class="qz-hero-link" data-qz-open>🧭 ¿No sabes por dónde empezar? Haz el test (1 min)</button>
   </div></div>
   <div class="stats"><div class="wrap">
     <div><b>1 a 1</b><span>Un cliente cada vez</span></div>
@@ -643,6 +703,95 @@
     <div><b>4 sem.</b><span>Revisión de progreso</span></div>
     <div><b>100%</b><span>Plan personalizado</span></div>
   </div></div>
+
+
+  <!-- ============ TEST INTERACTIVO ============ -->
+  <section class="qz-sec" id="test"><div class="wrap">
+    <div class="qz-head">
+      <div class="eyebrow">Test gratuito · 1 minuto</div>
+      <h2>¿Qué entrenamiento <span>necesitas tú?</span></h2>
+      <p>Responde 5 preguntas con un toque y te digo por dónde empezar. Sin rollos.</p>
+    </div>
+    <div class="qz" id="qz" aria-live="polite">
+      <div class="qz-bar" id="qzBar"></div>
+      <div class="qz-top"><button type="button" class="qz-back" id="qzBack">← Atrás</button><span class="qz-count" id="qzCount">Pregunta 1 de 5</span></div>
+
+      <div class="qz-step on" data-k="objetivo">
+        <div class="qz-q">¿Qué quieres conseguir?</div>
+        <p class="qz-hint">Elige lo que más te importe ahora mismo.</p>
+        <div class="qz-opts">
+          <button type="button" class="qz-opt" data-v="Perder grasa"><span class="e">🔥</span><span>Perder grasa<small>Verme y sentirme mejor</small></span></button>
+          <button type="button" class="qz-opt" data-v="Ganar fuerza y músculo"><span class="e">💪</span><span>Ganar fuerza<small>Y algo de músculo</small></span></button>
+          <button type="button" class="qz-opt" data-v="Quitarme el dolor o recuperarme"><span class="e">🩹</span><span>Quitarme el dolor<small>O recuperarme de una lesión</small></span></button>
+          <button type="button" class="qz-opt" data-v="Salud y moverme mejor"><span class="e">❤️</span><span>Salud y energía<small>Moverme mejor en el día a día</small></span></button>
+        </div>
+      </div>
+
+      <div class="qz-step" data-k="dolor">
+        <div class="qz-q">¿Te duele algo o tienes alguna patología?</div>
+        <p class="qz-hint">Así adaptamos todo a ti desde el primer día.</p>
+        <div class="qz-opts">
+          <button type="button" class="qz-opt" data-v="Nada"><span class="e">✅</span><span>Nada, estoy bien</span></button>
+          <button type="button" class="qz-opt" data-v="Espalda"><span class="e">🦴</span><span>Espalda<small>Lumbar, dorsal o cervical</small></span></button>
+          <button type="button" class="qz-opt" data-v="Articulaciones"><span class="e">🦵</span><span>Rodilla, cadera u hombro</span></button>
+          <button type="button" class="qz-opt" data-v="Lesión u operación reciente"><span class="e">🏥</span><span>Lesión u operación<small>Reciente o mal recuperada</small></span></button>
+          <button type="button" class="qz-opt" data-v="Condición médica"><span class="e">🩺</span><span>Otra condición<small>Tensión, diabetes, embarazo…</small></span></button>
+        </div>
+      </div>
+
+      <div class="qz-step" data-k="dias">
+        <div class="qz-q">¿Cuántos días a la semana puedes entrenar?</div>
+        <p class="qz-hint">Sé realista. Mejor poco y siempre que mucho y nunca.</p>
+        <div class="qz-opts">
+          <button type="button" class="qz-opt" data-v="1 día"><span class="e">1️⃣</span><span>1 día</span></button>
+          <button type="button" class="qz-opt" data-v="2 días"><span class="e">2️⃣</span><span>2 días</span></button>
+          <button type="button" class="qz-opt" data-v="3 días"><span class="e">3️⃣</span><span>3 días</span></button>
+          <button type="button" class="qz-opt" data-v="4 o más días"><span class="e">🚀</span><span>4 o más</span></button>
+        </div>
+      </div>
+
+      <div class="qz-step" data-k="experiencia">
+        <div class="qz-q">¿Has entrenado fuerza antes?</div>
+        <p class="qz-hint">No hace falta estar en forma para empezar.</p>
+        <div class="qz-opts one">
+          <button type="button" class="qz-opt" data-v="Nunca"><span class="e">🌱</span><span>Nunca o casi nunca</span></button>
+          <button type="button" class="qz-opt" data-v="Hace tiempo"><span class="e">⏳</span><span>Sí, pero hace tiempo que lo dejé</span></button>
+          <button type="button" class="qz-opt" data-v="Entreno ahora"><span class="e">🏋️</span><span>Sí, entreno ahora</span></button>
+        </div>
+      </div>
+
+      <div class="qz-step" data-k="edad">
+        <div class="qz-q">¿Qué edad tienes?</div>
+        <p class="qz-hint">El cuerpo cambia con los años, y el plan también.</p>
+        <div class="qz-opts">
+          <button type="button" class="qz-opt" data-v="Menos de 30"><span class="e">⚡</span><span>Menos de 30</span></button>
+          <button type="button" class="qz-opt" data-v="30-44"><span class="e">🎯</span><span>30 a 44</span></button>
+          <button type="button" class="qz-opt" data-v="45-59"><span class="e">🧭</span><span>45 a 59</span></button>
+          <button type="button" class="qz-opt" data-v="60 o más"><span class="e">🌟</span><span>60 o más</span></button>
+        </div>
+      </div>
+
+      <div class="qz-step" data-k="contacto">
+        <div class="qz-q">¡Listo! ¿A quién le envío tu resultado?</div>
+        <p class="qz-hint">Te lo enseño ahora mismo en pantalla.</p>
+        <form class="qz-form" id="qzForm" novalidate>
+          <label for="qzNombre">Nombre y apellidos</label>
+          <input type="text" id="qzNombre" name="nombre" autocomplete="name" maxlength="120" required>
+          <label for="qzTel">Móvil</label>
+          <input type="tel" id="qzTel" name="telefono" autocomplete="tel" inputmode="tel" placeholder="6XX XXX XXX" maxlength="20" required>
+          <label for="qzEmail">Email</label>
+          <input type="email" id="qzEmail" name="email" autocomplete="email" inputmode="email" maxlength="200" required>
+          <div class="hp" aria-hidden="true"><label>Web</label><input name="web" tabindex="-1" autocomplete="off"></div>
+          <label class="chk"><input type="checkbox" id="qzOk"> <span>Acepto la <a href="#" data-dlg="d-priv">política de privacidad</a> y que Matías Torres use mis respuestas (incluidas las de salud) para preparar mi valoración y contactarme.</span></label>
+          <div class="qz-err" id="qzErr"></div>
+          <button class="btn" type="submit" id="qzSend">Ver mi resultado →</button>
+          <div class="qz-lock">🔒 Sin spam. Solo te escribimos para tu valoración gratuita.</div>
+        </form>
+      </div>
+
+      <div class="qz-step qz-res" data-k="resultado" id="qzRes"></div>
+    </div>
+  </div></section>
 
   <section class="dark-sec meet" id="matias"><div class="wrap">
     <figure class="meet-ph">
@@ -1946,6 +2095,133 @@ $("#fPago").addEventListener("submit",async e=>{
 $("#pgFecha").value=hoy();
 
 route();
+</script>
+
+<script>
+/* ============ TEST INTERACTIVO (guarda en Supabase: tabla leads_test) ============ */
+(function(){
+  const box=document.getElementById("qz"); if(!box) return;
+  const WA="34686728907";
+  const steps=[...box.querySelectorAll(".qz-step")];
+  const Q=5; // preguntas antes de los datos
+  const ans={}; let cur=0;
+  const bar=document.getElementById("qzBar"), cnt=document.getElementById("qzCount"), back=document.getElementById("qzBack");
+  const e=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  function show(i){
+    cur=i;
+    steps.forEach((s,n)=>s.classList.toggle("on",n===i));
+    bar.style.width=Math.min(100,(i/(steps.length-1))*100)+"%";
+    cnt.textContent=i<Q?"Pregunta "+(i+1)+" de "+Q:(i===Q?"Último paso":"Tu resultado");
+    back.style.visibility=(i>0&&i<steps.length-1)?"visible":"hidden";
+    if(i>0){const r=box.getBoundingClientRect(); if(r.top<0||r.top>innerHeight*.4) box.scrollIntoView({behavior:"smooth",block:"start"})}
+    if(i===Q) setTimeout(()=>document.getElementById("qzNombre").focus({preventScroll:true}),350);
+  }
+  steps.forEach((s,i)=>s.querySelectorAll(".qz-opt").forEach(b=>b.addEventListener("click",()=>{
+    s.querySelectorAll(".qz-opt").forEach(x=>x.classList.remove("sel"));
+    b.classList.add("sel"); ans[s.dataset.k]=b.dataset.v;
+    setTimeout(()=>show(i+1),260);
+  })));
+  back.addEventListener("click",()=>cur>0&&show(cur-1));
+  document.querySelectorAll("[data-qz-open]").forEach(b=>b.addEventListener("click",()=>document.getElementById("test").scrollIntoView({behavior:"smooth"})));
+
+  /* ---- cálculo del resultado ---- */
+  function perfil(a){
+    const old=a.edad==="60 o más";
+    if(a.dolor==="Lesión u operación reciente") return {k:"read",t:"Readaptación",h:"Volver a moverte <span>sin miedo</span>",link:"#servicios",prog:"Readaptación tras lesión o cirugía"};
+    if(a.dolor==="Espalda") return {k:"esp",t:"Espalda en Forma",h:"Una espalda <span>fuerte no duele igual</span>",link:"#programas/espalda",prog:"Programa Espalda en Forma"};
+    if(old) return {k:"55",t:"Programa +55",h:"Fuerza para <span>seguir haciendo tu vida</span>",link:"#programas/mas55",prog:"Programa +55"};
+    if(a.objetivo==="Quitarme el dolor o recuperarme"||a.dolor==="Articulaciones") return {k:"art",t:"Fuerza sin dolor",h:"Fortalecer para <span>que deje de doler</span>",link:"#servicios",prog:"Entrenamiento personal con readaptación"};
+    if(a.objetivo==="Perder grasa") return {k:"peso",t:"Pérdida de grasa",h:"Perder grasa <span>sin perder músculo</span>",link:"#programas/peso",prog:"Programa de Pérdida de Peso"};
+    if(a.objetivo==="Ganar fuerza y músculo") return {k:"fuerza",t:"Fuerza y músculo",h:"Más fuerte <span>cada 4 semanas</span>",link:"#programas/fit",prog:"Programa FIT"};
+    return {k:"salud",t:"Salud integral",h:"Energía y salud <span>para años</span>",link:"#programas/fit",prog:"Programa FIT"};
+  }
+  function consejos(a,p){
+    const t=[];
+    const main={
+      read:["🩹","Tras una lesión, lo que más ayuda es volver a cargar el cuerpo poco a poco y con control. Medimos dónde estás y subimos solo cuando toca."],
+      esp:["🦴","Para el dolor de espalda, el ejercicio bien dosificado es de lo que más funciona. El reposo total suele empeorarlo."],
+      "55":["🌟","Después de los 60, la fuerza y el equilibrio son tu seguro de vida: menos caídas y más autonomía."],
+      art:["🦵","Fortalecer los músculos que rodean la articulación suele reducir el dolor. La clave es elegir bien los ejercicios y la carga."],
+      peso:["🔥","Para perder grasa de verdad: entrenar fuerza para no perder músculo y comer bien la mayor parte de los días. Sin dietas milagro."],
+      fuerza:["💪","Para ganar fuerza: pocos ejercicios, bien hechos, y subir la carga un poquito cada semana."],
+      salud:["❤️","Fuerza 2 días por semana y moverte a diario es lo que más años de buena salud te da."]
+    }[p.k]; t.push(main);
+    const d={"1 día":["📅","Con 1 día a la semana ya se puede progresar si la sesión está bien hecha. Te daremos tareas cortas para casa."],
+      "2 días":["📅","2 días de fuerza a la semana es justo el mínimo que recomienda la OMS. Perfecto para empezar."],
+      "3 días":["📅","3 días es un punto ideal: tiempo para progresar y para descansar."],
+      "4 o más días":["📅","Con 4 días o más hay que vigilar el descanso. Combinaremos fuerza, cardio y recuperación para que no te pases."]}[a.dias];
+    if(d) t.push(d);
+    if(a.experiencia==="Nunca") t.push(["🌱","Empezamos aprendiendo bien la técnica. Al ser 1 a 1, nadie te mira y vas a tu ritmo."]);
+    else if(a.experiencia==="Hace tiempo") t.push(["⏳","Tu cuerpo recuerda más de lo que crees. Volverás rápido, pero empezando por debajo de lo que hacías."]);
+    else t.push(["🏋️","Ya entrenas: buscaremos qué te frena y afinaremos técnica, cargas y descanso."]);
+    if(a.dolor==="Condición médica") t.push(["🩺","Con una condición médica, el ejercicio suele ayudar mucho, pero hay que ajustarlo bien. Lo valoramos contigo y, si hace falta, con tu médico."]);
+    else if(a.dolor!=="Nada"&&p.k!=="read"&&p.k!=="esp"&&p.k!=="art") t.push(["🤝","En el centro tienes también fisioterapia, por si tu caso lo necesita."]);
+    else if(a.objetivo==="Perder grasa") t.push(["🥗","Y si quieres ayuda con la comida, en el centro tienes también nutrición."]);
+    else t.push(["😴","Dormir 7 a 9 horas es la mitad del resultado. En la valoración también hablamos de sueño y descanso."]);
+    return t.slice(0,4);
+  }
+  function pinta(a,saved){
+    const p=perfil(a), first=(a.nombre||"").split(" ")[0];
+    const msg="Hola Matías, soy "+a.nombre+". He hecho el test de la web (resultado: "+p.t+") y quiero mi valoración gratuita.";
+    document.getElementById("qzRes").innerHTML=
+      '<span class="badge">Tu plan: '+e(p.t)+'</span>'+
+      '<h3>'+(first?e(first)+', ':'')+p.h+'</h3>'+
+      '<p class="sub">Lo que más te encaja es <b>'+e(p.prog)+'</b>. Esto es lo que haríamos contigo:</p>'+
+      '<ul class="qz-tips">'+consejos(a,p).map(x=>'<li><span class="e">'+x[0]+'</span><span>'+e(x[1])+'</span></li>').join("")+'</ul>'+
+      '<div class="qz-gift"><b>🎁 Tu valoración inicial es gratis</b><p>Hablamos de tu caso, vemos cómo te mueves y sales con tu plan. Sin compromiso, 1 a 1, en nuestro centro de Orihuela.</p></div>'+
+      '<div class="qz-ctas"><button type="button" class="btn" id="qzBook">Elegir día y hora →</button>'+
+      '<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/'+WA+'?text='+encodeURIComponent(msg)+'">Prefiero escribir por WhatsApp</a>'+
+      '<a class="btn out" href="'+p.link+'">Ver el '+e(p.prog.startsWith("Programa")?"programa":"servicio")+'</a></div>'+
+      (saved?'':'<p class="qz-note">No hemos podido guardar tus datos. Escríbenos por WhatsApp y te atendemos igual.</p>')+
+      '<p class="qz-note">Este resultado es orientativo y no sustituye a una valoración médica.</p>'+
+      '<button type="button" class="qz-again" id="qzAgain">Repetir el test</button>';
+    show(steps.length-1);
+    document.getElementById("qzBook").onclick=()=>{
+      try{sessionStorage.setItem("qzPrefill",JSON.stringify({nombre:a.nombre,email:a.email,telefono:a.telefono,
+        motivo:(p.k==="read"||p.k==="esp"||p.k==="art")?"Rehabilitación":"Entrenamiento",
+        mensaje:"Vengo del test de la web. Mi objetivo: "+a.objetivo.toLowerCase()+". Puedo entrenar "+a.dias+" a la semana."}))}catch(_){}
+      location.hash="#reservar";
+    };
+    document.getElementById("qzAgain").onclick=()=>{steps.forEach(s=>s.querySelectorAll(".sel").forEach(x=>x.classList.remove("sel")));show(0)};
+  }
+
+  /* ---- envío a Supabase ---- */
+  const form=document.getElementById("qzForm"), err=document.getElementById("qzErr"), send=document.getElementById("qzSend");
+  form.addEventListener("submit",async ev=>{
+    ev.preventDefault(); err.textContent="";
+    const nombre=form.nombre.value.trim().replace(/\s+/g," "), tel=form.telefono.value.replace(/[^\d+]/g,""), email=form.email.value.trim().toLowerCase();
+    if(nombre.length<2) return err.textContent="Escribe tu nombre.",form.nombre.focus();
+    if(tel.replace(/\D/g,"").length<9) return err.textContent="Revisa el móvil: necesitamos 9 cifras.",form.telefono.focus();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return err.textContent="Revisa el email.",form.email.focus();
+    if(!document.getElementById("qzOk").checked) return err.textContent="Marca la casilla de privacidad para continuar.";
+    Object.assign(ans,{nombre,telefono:tel,email});
+    if(form.web.value){pinta(ans,true);return} // robot
+    send.disabled=true; send.textContent="Preparando tu resultado…";
+    let ok=false;
+    try{
+      const r=await fetch(BASE+"/rest/v1/leads_test",{method:"POST",headers:{...H,Prefer:"return=minimal"},body:JSON.stringify({
+        nombre_completo:nombre,telefono:tel,email,objetivo:ans.objetivo,dolor:ans.dolor,dias_semana:ans.dias,
+        experiencia:ans.experiencia,edad:ans.edad,perfil_resultado:perfil(ans).t,acepta_privacidad:true})});
+      ok=r.ok;
+    }catch(_){}
+    send.disabled=false; send.textContent="Ver mi resultado →";
+    pinta(ans,ok);
+  });
+
+  /* ---- rellenar la reserva con los datos del test ---- */
+  function prefill(){
+    if(location.hash!=="#reservar") return;
+    let d; try{d=JSON.parse(sessionStorage.getItem("qzPrefill")||"null")}catch(_){}
+    if(!d) return;
+    const set=(id,v)=>{const el=document.getElementById(id); if(el&&!el.value&&v){el.value=v; el.dispatchEvent(new Event("input",{bubbles:true})); el.dispatchEvent(new Event("change",{bubbles:true}))}};
+    set("rNombre",d.nombre); set("rEmail",d.email); set("rTel",d.telefono); set("rMensaje",d.mensaje);
+    const m=document.getElementById("rMotivo"); if(m&&d.motivo) m.value=d.motivo;
+    try{sessionStorage.removeItem("qzPrefill")}catch(_){}
+  }
+  addEventListener("hashchange",()=>setTimeout(prefill,50)); prefill();
+  show(0);
+})();
 </script>
 </body>
 </html>
