@@ -502,6 +502,7 @@
   #admin .sol-meta .when{color:var(--ink);font-weight:600}
   #admin .sol-msg{margin-top:8px;font-size:13.5px;background:#faf9f4;border-left:3px solid var(--yellow);padding:6px 10px;border-radius:0 8px 8px 0;color:#444}
   #admin .sol-act{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+  #admin a.abtn{text-decoration:none;color:inherit}
   #admin .abtn{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:7px;padding:5px 10px;font:500 11.5px 'Poppins';cursor:pointer;transition:.15s;white-space:nowrap;background:#fff;color:#6b6b66}
   #admin .abtn svg{width:13px;height:13px;flex:none}
   #admin .abtn:hover{color:#000}
@@ -1241,6 +1242,7 @@
     <button data-page="clientes" class="on"><span class="ic">👥</span>Clientes</button>
     <button data-page="citas"><span class="ic">📅</span>Citas</button>
     <button data-page="solicitudes"><span class="ic">📨</span>Solicitudes<b class="bdg" id="solBadge" hidden></b></button>
+    <button data-page="test"><span class="ic">🧭</span>Test web<b class="bdg" id="testBadge" hidden></b></button>
     <button data-page="correo"><span class="ic">✉️</span>Correo Electrónico</button>
     <button data-page="contabilidad"><span class="ic">💶</span>Contabilidad</button>
   </div>
@@ -1321,6 +1323,19 @@
         <button id="solReload" type="button">↻ Actualizar</button>
       </div>
       <div id="sollist"></div>
+    </div>
+  </div>
+
+  <div class="page" id="p-test">
+    <div class="card">
+      <h2>Contactos del test</h2><p class="sub">Personas que han hecho el test de la portada. Llámalas o escríbeles por WhatsApp para cerrar la valoración gratuita, y márcalas como contactadas.</p>
+      <div class="solchips" id="testChips">
+        <button data-f="pend" class="on">📞 Por contactar <span id="nTestPend"></span></button>
+        <button data-f="hechos">✔ Contactados</button>
+        <button data-f="todos">Todos</button>
+        <button id="testReload" type="button">↻ Actualizar</button>
+      </div>
+      <div id="testlist"></div>
     </div>
   </div>
 
@@ -1455,8 +1470,8 @@ const IC={
 
 /* ============ router ============ */
 const VIEWS=["inicio","sobre","equipo","metodologia","servicios","programas","tarifas","faq","reservar","contacto"];
-const ADMIN=["clientes","citas","solicitudes","correo","contabilidad"];
-const TITLES={clientes:"Clientes",citas:"Citas",solicitudes:"Solicitudes de cita",correo:"Correo Electrónico",contabilidad:"Contabilidad"};
+const ADMIN=["clientes","citas","solicitudes","test","correo","contabilidad"];
+const TITLES={clientes:"Clientes",citas:"Citas",solicitudes:"Solicitudes de cita",test:"Contactos del test",correo:"Correo Electrónico",contabilidad:"Contabilidad"};
 
 function route(){
   const parts=(location.hash||"#inicio").slice(1).split("/"), name=parts[0];
@@ -1657,8 +1672,8 @@ function openAdmin(p){
   $$("#admin .page").forEach(x=>x.classList.toggle("on",x.id==="p-"+p));
   $("#ptitle").textContent=TITLES[p];
   if(p==="citas"){ if(!citKeep) citClient=null; citKeep=false }
-  if(p==="clientes")loadClients(); if(p==="citas")loadCitas(); if(p==="solicitudes")loadSolicitudes(); if(p==="contabilidad")loadPagos(); if(p==="correo")renderMail();
-  if(p!=="solicitudes")refreshSolBadge();
+  if(p==="clientes")loadClients(); if(p==="citas")loadCitas(); if(p==="solicitudes")loadSolicitudes(); if(p==="contabilidad")loadPagos(); if(p==="correo")renderMail(); if(p==="test")loadLeads();
+  if(p!=="solicitudes")refreshSolBadge(); if(p!=="test")refreshTestBadge();
 }
 let citClient=null, citKeep=false;
 $$("#admin .menu button").forEach(b=>b.addEventListener("click",()=>{
@@ -1853,6 +1868,60 @@ window.delCita=async id=>{if(!confirm("¿Borrar esta cita?"))return;try{await ap
 $("#citFilX").addEventListener("click",()=>{citClient=null;loadCitas()});
 $("#fCita").addEventListener("submit",async e=>{e.preventDefault();const d=clean(e.target);d.fecha_hora=new Date(d.fecha_hora).toISOString();try{await api("/citas",{method:"POST",...MIN,body:JSON.stringify(d)});e.target.reset();toast("Cita guardada ✓");loadCitas()}catch(er){toast("Error: "+er.message,true)}});
 
+
+/* contactos del test de la portada (tabla leads_test) */
+let leads=[], leadFilter="pend";
+async function refreshTestBadge(){
+  try{const r=await api("/leads_test?select=id&contactado=eq.false"); const b=$("#testBadge"); b.textContent=r.length; b.hidden=!r.length}catch(_){}
+}
+async function loadLeads(){
+  try{ leads=await api("/leads_test?select=*&order=created_at.desc"); renderLeads(); refreshTestBadge() }
+  catch(e){toast("Error al cargar el test: "+e.message,true)}
+}
+function renderLeads(){
+  const pend=leads.filter(l=>!l.contactado).length;
+  $("#nTestPend").textContent=pend?"("+pend+")":"";
+  $$("#testChips button[data-f]").forEach(b=>b.classList.toggle("on",b.dataset.f===leadFilter));
+  const rows=leads.filter(l=>leadFilter==="todos"||(leadFilter==="pend"?!l.contactado:l.contactado));
+  $("#testlist").innerHTML=rows.length?rows.map(l=>{
+    const d=String(l.telefono||"").replace(/\D/g,""), wa=d.length===9?"34"+d:d, first=String(l.nombre_completo||"").split(" ")[0];
+    const msg="Hola "+first+", soy Matías Torres. He visto tu test en la web ("+(l.perfil_resultado||"")+"). ¿Cuándo te viene bien venir a tu valoración gratuita?";
+    const pill=l.contactado?'<span class="pill p-ok">✔ Contactado</span>':'<span class="pill p-pen">📞 Por contactar</span>';
+    return `<div class="sol" data-id="${l.id}">
+      <div class="sol-main">
+        <div class="sol-top"><span class="sol-name">${esc(l.nombre_completo)}</span>${pill}<span class="pill p-done">🧭 ${esc(l.perfil_resultado)}</span></div>
+        <div class="sol-meta">
+          <span>${IC.phone}<a href="tel:${esc(l.telefono)}">${esc(l.telefono)}</a></span>
+          <span>${IC.mail}<a href="mailto:${esc(l.email)}">${esc(l.email)}</a></span>
+          <span title="Recibido">🕓 ${esc(fCorta(l.created_at))}</span>
+        </div>
+        <div class="sol-msg">🎯 ${esc(l.objetivo)} · 🩺 ${esc(l.dolor)} · 📅 ${esc(l.dias_semana)} · 🏋️ ${esc(l.experiencia)} · 🎂 ${esc(l.edad)}</div>
+      </div>
+      <div class="sol-act">
+        <a class="abtn ok" target="_blank" rel="noopener" href="https://wa.me/${wa}?text=${encodeURIComponent(msg)}" title="Abrir WhatsApp con un mensaje ya escrito">💬 WhatsApp</a>
+        <button class="abtn resend" data-a="toggle">${l.contactado?"↩ Marcar pendiente":IC.ok+"Contactado"}</button>
+        <button class="abtn del" data-a="del" title="Eliminar">${IC.trash}</button>
+      </div>
+    </div>`}).join(""):`<div class="empty">${leads.length?"No hay contactos en este filtro.":"Todavía nadie ha hecho el test."}</div>`;
+}
+$("#testChips").addEventListener("click",e=>{
+  const b=e.target.closest("button"); if(!b) return;
+  if(b.id==="testReload") return loadLeads();
+  leadFilter=b.dataset.f; renderLeads();
+});
+$("#testlist").addEventListener("click",async e=>{
+  const b=e.target.closest("button[data-a]"); if(!b) return;
+  const id=b.closest(".sol").dataset.id, l=leads.find(x=>x.id===id); if(!l) return;
+  try{
+    if(b.dataset.a==="toggle"){
+      await api("/leads_test?id=eq."+id,{method:"PATCH",body:JSON.stringify({contactado:!l.contactado}),...MIN});
+      toast(l.contactado?"Marcado como pendiente":"Marcado como contactado"); loadLeads();
+    }
+    if(b.dataset.a==="del"&&await askConfirm({title:"¿Eliminar este contacto?",html:"Se borrará <b>"+esc(l.nombre_completo)+"</b> y sus respuestas del test. No se puede deshacer.",ok:"Eliminar",danger:true,icon:"🗑️"})){
+      await api("/leads_test?id=eq."+id,{method:"DELETE",...MIN}); toast("Contacto eliminado"); loadLeads();
+    }
+  }catch(err){toast("No se pudo guardar: "+err.message,true)}
+});
 /* solicitudes de cita */
 const TZM="Europe/Madrid";
 const cap=t=>t.charAt(0).toUpperCase()+t.slice(1);
