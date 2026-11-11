@@ -13,13 +13,14 @@
 <meta property="og:site_name" content="Matías Torres · Entrenamiento personal en Orihuela">
 <meta property="og:title" content="Entrenador personal en Orihuela | Matías Torres · Valoración gratis">
 <meta property="og:description" content="Entrenamiento personal privado en Orihuela. Máximo dos clientes en toda la sala, cada uno con su entrenador. 134 reseñas de 5 estrellas en Google. Reserva tu valoración gratis.">
-<meta property="og:image" content="fotos/sala.webp">
+<meta property="og:image" content="fotos/sala.webp?v=7">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ExerciseGym","name":"Matías Torres Entrenador Personal Orihuela","description":"Centro de entrenamiento personal 1 a 1 en Orihuela: readaptación de lesiones, fuerza, pérdida de peso y salud.","telephone":"+34686728907","email":"coach@matiastorres.es","image":"fotos/sala.webp","logo":"escudo.webp","address":{"@type":"PostalAddress","streetAddress":"C. José Ávila, N3, Bajo A1","postalCode":"03300","addressLocality":"Orihuela","addressRegion":"Alicante","addressCountry":"ES"},"areaServed":["Orihuela","Vega Baja del Segura","Provincia de Alicante","Región de Murcia"],"sameAs":["https://www.instagram.com/matiastorresep/","https://www.facebook.com/matiastorresEP"]}
+{"@context":"https://schema.org","@type":"ExerciseGym","name":"Matías Torres Entrenador Personal Orihuela","description":"Centro de entrenamiento personal 1 a 1 en Orihuela: readaptación de lesiones, fuerza, pérdida de peso y salud.","telephone":"+34686728907","email":"coach@matiastorres.es","image":"fotos/sala.webp","logo":"escudo.webp","address":{"@type":"PostalAddress","streetAddress":"Travesía José Ávila, s/n, bajo (Gym)","postalCode":"03300","addressLocality":"Orihuela","addressRegion":"Alicante","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":38.0818313,"longitude":-0.9405525},"hasMap":"https://www.google.com/maps/search/?api=1&query_place_id=ChIJwRFDZdWZYw0RTnxexASuOUs&query=Mat%C3%ADas%20Torres","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"13:00"}],"founder":{"@type":"Person","name":"Matías Torres"},"areaServed":["Orihuela","Vega Baja del Segura","Provincia de Alicante","Región de Murcia"],"sameAs":["https://www.instagram.com/matiastorresep/","https://www.facebook.com/matiastorresEP"]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="escudo.webp">
+<link rel="preload" as="image" href="fotos/sala.webp?v=7" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{--yellow:#FFD51F;--yellow-d:#e6bd00;--black:#0d0d0d;--ink:#1a1a1a;--bg:#f4f3ee;--line:#e3e1d8;--muted:#6b6b66;--danger:#d93636;--ok:#1f9d55;--side:#141414}
@@ -365,6 +366,39 @@
   footer a.gest-foot{opacity:.45;font-size:12px}footer a.gest-foot:hover{opacity:1}
   .wa-float{position:fixed;right:18px;bottom:18px;z-index:50;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.3);transition:transform .2s}
   .wa-float:hover{transform:scale(1.07)}
+
+  /* ===== v7 ===== */
+  .wa-float{width:auto!important;height:auto!important;background:none!important;box-shadow:none!important;border-radius:0!important;display:flex!important;align-items:center;gap:10px;right:20px!important;bottom:20px!important;text-decoration:none;animation:waIn .6s .8s both}
+  .wa-btn{position:relative;width:70px;height:70px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 28px rgba(37,211,102,.45),0 4px 12px rgba(0,0,0,.25);border:3px solid #fff;transition:transform .2s}
+  .wa-btn::before{content:"";position:absolute;inset:-3px;border-radius:50%;border:3px solid #25D366;animation:waPulse 2.2s ease-out infinite}
+  .wa-label{background:#fff;color:#0d0d0d;font:600 14px 'Poppins',sans-serif;padding:10px 16px;border-radius:99px;box-shadow:0 6px 20px rgba(0,0,0,.18);white-space:nowrap}
+  .wa-float:hover .wa-btn{transform:scale(1.08)}
+  @keyframes waPulse{0%{transform:scale(1);opacity:.85}100%{transform:scale(1.55);opacity:0}}
+  @keyframes waIn{from{opacity:0;transform:translateY(20px) scale(.8)}to{opacity:1;transform:none}}
+  @media(max-width:600px){.wa-label{display:none}.wa-btn{width:62px;height:62px}.wa-float{right:14px!important;bottom:14px!important}}
+  @media(prefers-reduced-motion:reduce){.wa-btn::before,.wa-float{animation:none}}
+  .ph.ph-img{height:auto!important;aspect-ratio:4/5;padding:0!important;background:#0d0d0d}
+  .ph.ph-img img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+  .ph.ph-logo{height:auto!important;aspect-ratio:4/5;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#2a2a2a,#0d0d0d)}
+  .ph.ph-logo img{width:46%;height:auto;opacity:.95}
+  .quote{margin:0;display:flex;flex-direction:column}
+  .quote blockquote{margin:12px 0 16px;font-size:15.5px;line-height:1.6;color:#2a2a2a;flex:1}
+  .quote figcaption b{display:block;font-size:14px}.quote figcaption small{color:var(--muted)}
+  .qtag{display:inline-block;align-self:flex-start;margin-top:10px;background:var(--black);color:var(--yellow);font:600 11px 'Poppins';letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:99px}
+  .rev-more{margin-top:26px;color:var(--muted)}.rev-more span{color:var(--ink);font-weight:600}
+  details summary .pt{display:block;flex:1}
+  details summary small{display:block;font:500 13px 'Poppins',sans-serif;text-transform:none;letter-spacing:0;color:var(--muted);margin-top:2px}
+  dialog.dlg-legal{max-width:760px;width:calc(100% - 32px);max-height:86vh;overflow:auto;padding:30px 30px 20px}
+  dialog.dlg-legal h4{font:600 16px 'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.03em;margin:20px 0 6px}
+  dialog.dlg-legal p,dialog.dlg-legal li{font-size:14px;color:#444;line-height:1.6}
+  dialog.dlg-legal ul{padding-left:18px}
+  .dlg-close{position:sticky;bottom:-20px;background:#fff;padding:12px 0 6px;margin:16px 0 0}
+  .sellos{background:#fff;border-top:1px solid var(--line);padding:22px 0}
+  .sellos .wrap{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+  .sellos img{display:block;max-width:100%;height:auto}
+  .sellos a img{width:80px;height:80px;overflow:hidden;font-size:0}
+  .sellos > .wrap > img{width:min(560px,100%)}
+  footer .nap{display:block;margin-top:6px;color:#8a8a82;line-height:1.6}footer .nap a{margin:0}
 
   .photo{overflow:hidden}
   .photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:16px}
@@ -770,12 +804,11 @@
         <a href="#servicios" data-v="servicios">Servicios</a>
         <div class="ddm">
           <a href="#servicios">Todos los servicios</a>
-          <a href="#programas/fit">Programa FIT</a>
-          <a href="#programas/ff">Programa FF</a>
-          <a href="#programas/mas55">Programa +55</a>
-          <a href="#programas/espalda">Programa Espalda en Forma</a>
-          <a href="#programas/peso">Programa de Pérdida de Peso</a>
-          <a href="#programas/empresas">Programa Ejercicio para Empresas</a>
+          <a href="#programas/lesiones">Vuelve sin dolor (lesiones)</a>
+          <a href="#programas/espalda">Espalda en Forma</a>
+          <a href="#programas/mama">Mamá en Forma (pre y posparto)</a>
+          <a href="#programas/peso">Pierde grasa, no músculo</a>
+          <a href="#programas/empresas">Ejercicio para Empresas</a>
         </div>
       </div>
       <a href="#opiniones" data-v="opiniones">Opiniones</a>
@@ -790,7 +823,7 @@
   <div class="hero"><div class="hero-bg" data-bg="sala" role="img" aria-label="Sala de entrenamiento del centro Matías Torres en Orihuela"><video class="hero-video hv-l" data-v="chica" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture></video><video class="hero-video hv-r" data-v="centro" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture></video></div><div class="wrap">
     <div class="hero-eyebrow">Entrenamiento personal en Orihuela</div>
     <h1>Solo tú y tu entrenador.</h1>
-    <a class="hero-proof" href="https://www.google.com/maps/search/?api=1&amp;query=Mat%C3%ADas%20Torres%20Entrenador%20Personal%20Orihuela" target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 en Google · 134 reseñas</a>
+    <a class="hero-proof" href="https://search.google.com/local/reviews?placeid=ChIJwRFDZdWZYw0RTnxexASuOUs" target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 en Google · 134 reseñas</a>
     <p class="hero-sub">Sin esperas ni nadie mirándote. Entrenas en calcetines, en una sala impecable, y al acabar te esperan la ducha y un café recién hecho.</p>
     <div class="cta"><a class="btn btn-hero" href="#reservar">Reserva tu valoración gratis</a></div>
     <div class="hero-note">Gratis y sin compromiso · Máximo dos clientes en toda la sala, cada uno con su entrenador</div>
@@ -827,7 +860,7 @@
     <p class="lead">Una sala luminosa y privada, con material profesional para rehabilitación y trabajo de fuerza. Pulsa en una foto para verla en grande.</p>
     <div class="gal">
       <figure class="g1" data-lb><img data-img="g20" width="1100" height="480" alt="Rack con poleas y bancos de entrenamiento entre plantas" loading="lazy"><figcaption>Zona de fuerza y poleas</figcaption></figure>
-      <figure class="g4" data-lb><img data-img="airbike" width="800" height="1067" alt="Bicicleta de aire, cajón pliométrico y la pared de madera con el nombre Matías Torres" loading="lazy"><figcaption>Zona funcional</figcaption></figure>
+      <figure class="g4" data-lb><img data-img="airbike" width="1200" height="1600" alt="Bicicleta de aire, cajón pliométrico y la pared de madera con el nombre Matías Torres" loading="lazy"><figcaption>Zona funcional</figcaption></figure>
       <figure class="g2" data-lb><img data-img="prensa" width="1000" height="750" alt="Prensa de piernas, mancuernas y plataforma vibratoria frente al mural del centro" loading="lazy"><figcaption>Prensa y mancuernas</figcaption></figure>
       <figure class="g3" data-lb><img data-img="fitmaker" width="1000" height="750" alt="Rack multifunción con discos y espejo iluminado en la sala principal" loading="lazy"><figcaption>Rack multifunción</figcaption></figure>
     </div>
@@ -862,9 +895,14 @@
 
   <section id="opiniones"><div class="wrap">
     <div class="eyebrow">Opiniones</div><h2 class="title">134 reseñas en Google. Nota media: 5,0.</h2>
-    <p class="lead">No te lo creas porque lo digamos nosotros. Léelas tú. Lo que más repiten nuestros clientes:</p>
-    <div class="chips"><span>Profesionalidad</span><span>Trato cercano</span><span>Recuperarse de una lesión</span><span>Engancharse al ejercicio</span></div>
-    <p style="margin-top:28px"><a class="btn dark" href="https://www.google.com/maps/search/?api=1&amp;query=Mat%C3%ADas%20Torres%20Entrenador%20Personal%20Orihuela" target="_blank" rel="noopener">★ Leer las reseñas en Google ↗</a></p>
+    <p class="lead">No te lo creas porque lo digamos nosotros. Esto es lo que escriben nuestros clientes:</p>
+    <div class="rev">
+      <figure class="quote"><div class="stars" aria-label="5 estrellas">★★★★★</div><span class="qtag">Atención 1 a 1</span><blockquote>«Servicio individualizado, aprovechando cada sesión al 100%. Una sesión de aquí es como ir 4 veces al gym. […] La hora que vayas es atención entera para ti.»</blockquote><figcaption><b>Noelia O.</b><small>Reseña en Google</small></figcaption></figure>
+      <figure class="quote"><div class="stars" aria-label="5 estrellas">★★★★★</div><span class="qtag">Tras una cirugía lumbar</span><blockquote>«Buscábamos un sitio donde mi madre hiciera ejercicio guiado tras una cirugía lumbar. […] El entrenamiento es totalmente personalizado y el trato es inmejorable. Muy agradecidos con el progreso que está llevando.»</blockquote><figcaption><b>Mari Carmen O.</b><small>Reseña en Google</small></figcaption></figure>
+      <figure class="quote"><div class="stars" aria-label="5 estrellas">★★★★★</div><span class="qtag">Engancharse al ejercicio</span><blockquote>«Una pasada de centro y máquinas, todo súper nuevo y limpio. Nunca me gustó hacer deporte y ahora no concibo mi vida sin ello.»</blockquote><figcaption><b>María de los Ángeles F.</b><small>Reseña en Google</small></figcaption></figure>
+    </div>
+    <p class="rev-more">Lo que más repiten: <span>profesionalidad</span> · <span>trato cercano</span> · <span>recuperarse de una lesión</span> · <span>engancharse al ejercicio</span></p>
+    <p style="margin-top:22px"><a class="btn dark" href="https://search.google.com/local/reviews?placeid=ChIJwRFDZdWZYw0RTnxexASuOUs" target="_blank" rel="noopener">★ Leer las 134 reseñas en Google ↗</a></p>
   </div></section>
 
   <section class="dark-sec meet" id="matias"><div class="wrap">
@@ -983,7 +1021,7 @@
       <p class="lead">Creemos que entrenar bien empieza por entender a la persona: su historia, su cuerpo y su momento vital. Por eso cada cliente entrena con su propio entrenador, centrados en la rehabilitación y la recomposición corporal.</p>
       <ul class="checks"><li>Un entrenador, un cliente, una sesión</li><li>Explicamos el porqué de cada ejercicio</li><li>Objetivos realistas y medibles</li><li>Respeto por tu ritmo y tus límites</li></ul>
     </div>
-    <div class="photo"><img data-img="airbike" width="800" height="1067" alt="Zona funcional del centro con la pared de madera con el nombre Matías Torres"></div>
+    <div class="photo"><img data-img="airbike" width="1200" height="1600" alt="Zona funcional del centro con la pared de madera con el nombre Matías Torres"></div>
   </div></section>
 
   <section class="alt"><div class="wrap">
@@ -1018,34 +1056,34 @@
   <div class="phead"><div class="wrap"><h1>Nuestro <span>equipo</span></h1><p>Las personas que te acompañan en cada sesión.</p></div></div>
   <section><div class="wrap">
     <div class="eyebrow">Quién es quién</div><h2 class="title">Un equipo cercano</h2>
-    <p class="lead">Perfiles en preparación: las fotos, titulaciones y presentaciones se añadirán próximamente.</p>
+    <p class="lead">Tres entrenadores, un mismo método. Por la mañana o por la tarde, siempre uno a uno.</p>
     <div class="team">
       <article class="member">
-        <div class="ph"><b>A</b><i>Foto próximamente</i></div>
+        <div class="ph ph-img"><img src="fotos/equipo-matias.webp?v=7" width="780" height="975" alt="Matías Torres, fundador y entrenador personal, sonriendo con el polo del centro" loading="lazy" decoding="async"></div>
         <div class="body">
-          <span class="role todo">Cargo por completar</span>
-          <h3>Alex</h3>
-          <p class="todo">Presentación pendiente: aquí irán su formación, su experiencia y su forma de trabajar.</p>
-          <div class="chips"><span>Especialidad</span><span>Especialidad</span></div>
-        </div>
-      </article>
-      <article class="member">
-        <div class="ph"><b>M</b><i>Foto próximamente</i></div>
-        <div class="body">
-          <span class="role">Entrenador personal</span>
+          <span class="role">Fundador · Entrenador personal</span>
           <h3>Matías Torres</h3>
-          <p class="todo">Presentación pendiente: aquí irán su formación, su experiencia y su forma de trabajar.</p>
-          <div class="chips"><span>Especialidad</span><span>Especialidad</span></div>
-          <a class="btn dark" style="text-align:center;margin-top:auto" href="#reservar">Reservar cita con Matías</a>
+          <p>25 años como entrenador personal, 15 de ellos en Orihuela, donde fue pionero del entrenamiento personal. Especialista en readaptación de lesiones, rehabilitación y alto rendimiento. Profesor de pilates avanzado, con más de 20 titulaciones.</p>
+          <div class="chips"><span>Readaptación de lesiones</span><span>Alto rendimiento</span><span>Pilates</span></div>
+          <a class="btn dark" style="text-align:center;margin-top:auto" href="#reservar">Reservar valoración con Matías</a>
         </div>
       </article>
       <article class="member">
-        <div class="ph"><b>S</b><i>Foto próximamente</i></div>
+        <div class="ph ph-img"><img src="fotos/equipo-silvia.webp?v=7" width="649" height="811" alt="Silvia, entrenadora personal del centro, sonriendo con la camiseta del escudo" loading="lazy" decoding="async"></div>
         <div class="body">
-          <span class="role todo">Cargo por completar</span>
+          <span class="role">Entrenadora personal · Mañanas</span>
           <h3>Silvia</h3>
-          <p class="todo">Presentación pendiente: aquí irán su formación, su experiencia y su forma de trabajar.</p>
-          <div class="chips"><span>Especialidad</span><span>Especialidad</span></div>
+          <p>Te entrena por las mañanas y se encarga de que todo funcione: tus horarios, tus citas y cada detalle de la sala. Cercana, exigente y pendiente de ti.</p>
+          <div class="chips"><span>Entrenamiento personal</span><span>Mañanas</span></div>
+        </div>
+      </article>
+      <article class="member">
+        <div class="ph ph-logo"><img src="escudo.webp?v=6" width="400" height="384" alt="" loading="lazy" decoding="async"></div>
+        <div class="body">
+          <span class="role">Entrenador personal · Tardes</span>
+          <h3>Alejandro</h3>
+          <p>Empezó como cliente del centro y hoy entrena contigo por las tardes. Formado por Matías, con el mismo método y la misma atención uno a uno.</p>
+          <div class="chips"><span>Entrenamiento personal</span><span>Tardes</span></div>
         </div>
       </article>
     </div>
@@ -1124,39 +1162,34 @@
 
 <!-- ============ PROGRAMAS ESPECIALES ============ -->
 <div class="view" id="v-programas">
-  <div class="phead"><div class="wrap"><h1>Programas <span>especiales</span></h1><p>Programas de entrenamiento diseñados para objetivos y momentos concretos.</p></div></div>
+  <div class="phead"><div class="wrap"><h1>Programas <span>especiales</span></h1><p>Para objetivos y momentos concretos. Todos empiezan con una valoración gratis y se adaptan a ti.</p></div></div>
   <section><div class="wrap">
     <p class="lead" style="max-width:820px">A continuación te explicamos con más detalle en qué consiste cada programa, para quién está pensado y qué incluye. Todos empiezan con una valoración gratis y se adaptan a tu punto de partida.</p>
     <div class="progs">
       <div>
-        <details id="prog-fit"><summary>Programa FIT</summary><div class="pbody">
-          <p>Programa de entrenamiento personal para mejorar tu condición física general: fuerza, resistencia, movilidad y composición corporal.</p>
-          <p><b>Para quién:</b> personas sanas que quieren ponerse en forma con un plan claro y acompañamiento real.</p>
-          <ul><li>Valoración inicial y objetivos con fecha</li><li>Plan semanal de sesiones 1 a 1</li><li>Revisión de progreso cada 4 semanas</li></ul>
+        <details id="prog-lesiones"><summary><span class="pt">Vuelve sin dolor<small>Readaptación tras lesión u operación</small></span></summary><div class="pbody">
+          <p>Del alta médica a tu vida normal, sin miedo a moverte. Recuperamos movilidad, fuerza y confianza paso a paso, coordinados con tu fisioterapeuta o tu médico.</p>
+          <p><b>Para quién:</b> quien viene de una lesión, una operación (rodilla, cadera, hombro, espalda) o un accidente y quiere volver a hacer lo que le gusta.</p>
+          <ul><li>Valoración de tu lesión y de tus informes</li><li>Progresión segura, sin entrenar a través del dolor</li><li>Coordinación con tu fisioterapeuta o médico</li></ul>
           <a class="btn" href="#reservar">Reservar valoración gratis</a></div></details>
-        <details id="prog-ff"><summary>Programa FF</summary><div class="pbody">
-          <p>Entrenamiento de fuerza funcional: movimientos del día a día (empujar, tirar, agacharse, cargar, mantener el equilibrio) trabajados con técnica y progresión.</p>
-          <p><b>Para quién:</b> quien quiere moverse mejor y con más seguridad en su vida diaria y en su deporte.</p>
-          <ul><li>Patrones básicos de movimiento</li><li>Fuerza, estabilidad y control</li><li>Progresión adaptada a tu ritmo</li></ul>
+        <details id="prog-espalda"><summary><span class="pt">Espalda en Forma<small>Adiós al dolor lumbar y cervical</small></span></summary><div class="pbody">
+          <p>Fortalecemos la musculatura que protege tu espalda, mejoramos la postura y te enseñamos a moverte sin miedo en tu día a día.</p>
+          <p><b>Para quién:</b> personas con molestias de espalda que vuelven una y otra vez, o que pasan muchas horas sentadas. Complementa, y no sustituye, el tratamiento médico o fisioterapéutico.</p>
+          <ul><li>Valoración postural y de movilidad</li><li>Fortalecimiento progresivo del tronco</li><li>Hábitos y ergonomía para el día a día</li></ul>
           <a class="btn" href="#reservar">Reservar valoración gratis</a></div></details>
-        <details id="prog-mas55"><summary>Programa +55</summary><div class="pbody">
-          <p>Programa para personas a partir de 55 años, que tiene en cuenta los cambios fisiológicos de esta etapa: fuerza, equilibrio, movilidad y salud ósea, con progresiones prudentes.</p>
-          <p><b>Para quién:</b> personas activas o que quieren empezar, con o sin patologías previas (con el visto bueno de su médico cuando proceda).</p>
-          <ul><li>Fuerza y masa muscular</li><li>Equilibrio y prevención de caídas</li><li>Movilidad y autonomía en el día a día</li></ul>
+        <details id="prog-mama"><summary><span class="pt">Mamá en Forma<small>Preparto y posparto con pilates</small></span></summary><div class="pbody">
+          <p>Te acompañamos durante el embarazo y después del parto con técnicas de pilates y fuerza adaptada: suelo pélvico, abdomen y espalda, a tu ritmo y con seguridad.</p>
+          <p><b>Para quién:</b> embarazadas con el visto bueno de su médico o matrona, y mujeres que quieren recuperar su cuerpo después del parto.</p>
+          <ul><li>Suelo pélvico y recuperación abdominal</li><li>Pilates y fuerza adaptados a cada etapa</li><li>Progresión suave y segura</li></ul>
           <a class="btn" href="#reservar">Reservar valoración gratis</a></div></details>
       </div>
       <div>
-        <details id="prog-espalda"><summary>Programa Espalda en Forma</summary><div class="pbody">
-          <p>Programa para cuidar y fortalecer la espalda: control del dolor lumbar y cervical, mejora de la postura y de la musculatura que la protege.</p>
-          <p><b>Para quién:</b> personas con molestias de espalda recurrentes o que pasan muchas horas sentadas. Complementa, y no sustituye, el tratamiento médico o fisioterapéutico.</p>
-          <ul><li>Valoración postural y de movilidad</li><li>Fortalecimiento progresivo del tronco</li><li>Hábitos y ergonomía para el día a día</li></ul>
-          <a class="btn" href="#reservar">Reservar valoración gratis</a></div></details>
-        <details id="prog-peso"><summary>Programa de Pérdida de Peso</summary><div class="pbody">
-          <p>Pérdida de grasa conservando el músculo: entrenamiento de fuerza, actividad diaria y hábitos sostenibles, con medición de resultados.</p>
-          <p><b>Para quién:</b> personas que quieren perder peso de forma saludable y mantenerla. No elaboramos dietas individualizadas: te derivamos a dietistas-nutricionistas colegiados.</p>
+        <details id="prog-peso"><summary><span class="pt">Pierde grasa, no músculo<small>Pérdida de peso con fuerza</small></span></summary><div class="pbody">
+          <p>Perder peso sin quedarte flácida ni pasar hambre: entrenamiento de fuerza, actividad diaria y hábitos sostenibles, midiendo tus resultados cada mes.</p>
+          <p><b>Para quién:</b> personas que quieren perder peso de forma saludable y mantenerlo. Si necesitas dieta, te derivamos a clínicas de nutrición colegiadas de Orihuela.</p>
           <ul><li>Medidas y composición corporal periódicas</li><li>Fuerza y trabajo metabólico</li><li>Plan de mantenimiento al llegar al objetivo</li></ul>
           <a class="btn" href="#reservar">Reservar valoración gratis</a></div></details>
-        <details id="prog-empresas"><summary>Programa Ejercicio para Empresas</summary><div class="pbody">
+        <details id="prog-empresas"><summary><span class="pt">Ejercicio para Empresas<small>Equipos más sanos y productivos</small></span></summary><div class="pbody">
           <p>Sesiones de ejercicio para equipos de trabajo: pausas activas, movilidad, fuerza y prevención de molestias derivadas del trabajo.</p>
           <p><b>Para quién:</b> empresas que quieren cuidar la salud y el bienestar de sus empleados, en sus instalaciones o en nuestro centro.</p>
           <ul><li>Grupos reducidos y horarios a medida</li><li>Prevención de dolores de espalda, cuello y hombros</li><li>Propuesta adaptada a cada empresa</li></ul>
@@ -1251,13 +1284,13 @@
   <div class="phead"><div class="wrap"><h1>Escríbenos y <span>contacta</span></h1><p>Cuéntanos qué necesitas y te respondemos en menos de 24 horas laborables. Si prefieres elegir tú el día y la hora, <a href="#reservar" style="color:var(--yellow)">reserva tu valoración gratis</a>.</p></div></div>
   <section><div class="wrap"><div class="cgrid">
     <div class="info">
-      <p><b>Dirección</b>C. José Ávila, N3, Bajo A1, 03300 Orihuela, Alicante<br><span class="small">Orihuela, Alicante</span><br><a href="https://www.openstreetmap.org/search?query=C.%20Jos%C3%A9%20%C3%81vila%2C%20N3%2C%20Bajo%20A1%2C%2003300%20Orihuela%2C%20Alicante" target="_blank" rel="noopener">Abrir indicaciones en OpenStreetMap ↗</a></p>
-      <p><b>Horario</b>Lunes a viernes: 7:00h a 21:15h<br>Sábados: 8:00h a 13:00h</p>
+      <p><b>Dirección</b>Travesía José Ávila, s/n, bajo (Gym), 03300 Orihuela (Alicante)<br><span class="small">Frente a la plaza del Colegio Oleza</span><br><a href="https://www.google.com/maps/search/?api=1&amp;query=Mat%C3%ADas%20Torres%20Entrenador%20Personal%20Orihuela&amp;query_place_id=ChIJwRFDZdWZYw0RTnxexASuOUs" target="_blank" rel="noopener">Cómo llegar con Google Maps ↗</a></p>
+      <p><b>Horario</b>Lunes a viernes: 8:00 a 21:00<br>Sábados: 8:00 a 13:00</p>
       <p><b>WhatsApp</b><a href="https://wa.me/34686728907" target="_blank" rel="noopener">686 728 907</a> · <a href="https://wa.me/34686728907" target="_blank" rel="noopener">Escribir por WhatsApp ↗</a></p>
       <p><b>Email</b><a href="mailto:coach@matiastorres.es">coach@matiastorres.es</a></p>
       <p><b>Facebook</b><a href="https://www.facebook.com/matiastorresEP" target="_blank" rel="noopener">Matias Torres EP ↗</a></p>
       <p><b>Instagram</b><a href="https://www.instagram.com/matiastorresep/" target="_blank" rel="noopener">@matiastorresep ↗</a></p>
-      <div class="map-frame" style="margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#eee"><iframe title="Mapa de OpenStreetMap: Matias Torres Entrenador Personal, Orihuela" width="100%" height="320" style="border:0;display:block" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.9535%2C38.0780%2C-0.9350%2C38.0910&amp;layer=mapnik&amp;marker=38.0845%2C-0.9442"></iframe><div style="padding:10px 12px;background:#fff;font-size:13px"><a href="https://www.openstreetmap.org/search?query=C.%20Jos%C3%A9%20%C3%81vila%2C%20N3%2C%20Bajo%20A1%2C%2003300%20Orihuela%2C%20Alicante" target="_blank" rel="noopener">Ver ubicación y ruta en OpenStreetMap ↗</a></div></div>
+      <div class="map-frame" style="margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#eee"><iframe title="Mapa de OpenStreetMap: Matias Torres Entrenador Personal, Orihuela" width="100%" height="320" style="border:0;display:block" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.9480%2C38.0775%2C-0.9330%2C38.0862&amp;layer=mapnik&amp;marker=38.08183%2C-0.94055"></iframe><div style="padding:10px 12px;background:#fff;font-size:13px"><a href="https://www.openstreetmap.org/search?query=C.%20Jos%C3%A9%20%C3%81vila%2C%20N3%2C%20Bajo%20A1%2C%2003300%20Orihuela%2C%20Alicante" target="_blank" rel="noopener">Ver ubicación y ruta en OpenStreetMap ↗</a></div></div>
     </div>
     <form class="cform" id="fContact">
       <input name="web" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
@@ -1305,17 +1338,65 @@
   </div>
 </div></section>
 
+<div class="sellos"><div class="wrap">
+  <img src="kit-digital.webp?v=7" width="768" height="107" alt="Financiado por la Unión Europea, NextGenerationEU. Plan de Recuperación, Transformación y Resiliencia" loading="lazy" decoding="async">
+  <a href="https://www.gruposmz.es/eipd/empresa/entrada/sello.aspx?idE=NTA1MzUy&amp;idC=MjQ0Mzc=" target="_blank" rel="noopener" title="Sello de protección de datos"><img src="https://www.gruposmz.es/eipd/empresa/images/Sello-Vigila.png" width="80" height="80" alt="Sello de cumplimiento en protección de datos" loading="lazy" decoding="async"></a>
+</div></div>
 <footer><div class="wrap">
-  <span>© 2026 Matías Torres · Entrenamiento personal en Orihuela</span>
+  <span>© 2026 Matías Torres · Entrenamiento personal en Orihuela<br><small class="nap">Travesía José Ávila, s/n, bajo (Gym), 03300 Orihuela (Alicante) · Frente a la plaza del Colegio Oleza<br>L-V 8:00-21:00 · Sáb 8:00-13:00 · <a href="tel:+34686728907">686 72 89 07</a></small></span>
   <span><a href="#contacto">Contacto</a><a href="https://www.instagram.com/matiastorresep/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/matiastorresEP" target="_blank" rel="noopener">Facebook</a><a data-dlg="d-legal">Aviso legal</a><a data-dlg="d-priv">Privacidad</a><a data-dlg="d-cook">Cookies</a><a class="gest-foot" href="#gestion" aria-label="Acceso del equipo">🔒 Gestión</a></span>
 </div></footer>
-<a class="wa-float" href="https://wa.me/34686728907?text=Hola%20Mat%C3%ADas%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20valoraci%C3%B3n%20gratis" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1c-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.7.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg></a>
+<a class="wa-float" href="https://wa.me/34686728907?text=Hola%20Mat%C3%ADas%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20valoraci%C3%B3n%20gratis" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><span class="wa-label">¿Hablamos?</span><span class="wa-btn"><svg viewBox="0 0 24 24" width="38" height="38" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1c-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.7.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg></span></a>
 
 <dialog id="d-img" class="lb"><img id="lbImg" alt=""><button type="button" aria-label="Cerrar" id="lbX">×</button></dialog>
 <div class="cookiebar" id="cookieBar" role="region" aria-label="Cookies" hidden><p>Usamos Instagram para mostrarte nuestras últimas publicaciones; Instagram (Meta) puede instalar cookies. ¿Las aceptas? <a href="#" data-dlg="d-cook">Más información</a></p><div><button type="button" class="btn ghost" id="ckNo">Solo necesarias</button><button type="button" class="btn" id="ckOk">Aceptar</button></div></div>
-<dialog id="d-legal"><h3>Aviso legal</h3><p>Texto de ejemplo. Aquí irían los datos del titular (nombre, NIF, domicilio y contacto) y las condiciones de uso del sitio, conforme a la normativa vigente.</p><p><button class="btn" onclick="this.closest('dialog').close()">Cerrar</button></p></dialog>
-<dialog id="d-priv"><h3>Política de privacidad</h3><p>Texto de ejemplo. Como el centro trata datos de salud, aquí debe explicarse qué datos se recogen, para qué, base legal (consentimiento), plazo de conservación y cómo ejercer los derechos de acceso, rectificación y supresión. Conviene que lo redacte un profesional.</p><p><button class="btn" onclick="this.closest('dialog').close()">Cerrar</button></p></dialog>
-<dialog id="d-cook"><h3>Política de cookies</h3><p>Texto de ejemplo. Esta web no usa cookies de seguimiento propias. Si las aceptas, las últimas publicaciones de Instagram se cargan automáticamente y Instagram (Meta) puede instalar sus propias cookies; si no, solo se cargan cuando pulsas «Ver publicaciones». Un profesional debe revisar este texto antes de publicar.</p><p><button class="btn" type="button" id="ckChange">Cambiar mi elección</button> <button class="btn ghost" type="button" onclick="this.closest('dialog').close()">Cerrar</button></p></dialog>
+<dialog id="d-legal" class="dlg-legal"><h3>Aviso legal</h3>
+<p>En cumplimiento del art. 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE), se informa de que los datos del titular de esta web y responsable del servicio prestado a través de ella son:</p>
+<ul><li><b>Titular:</b> Alejandro Matías Torres Pizana</li><li><b>Nombre comercial:</b> Matías Torres Entrenador Personal</li><li><b>NIF:</b> 45568822A</li><li><b>Domicilio:</b> Travesía José Ávila, s/n, bajo (Gym), 03300 Orihuela (Alicante)</li><li><b>Teléfono:</b> 686 72 89 07</li><li><b>Correo electrónico:</b> coach@matiastorres.es</li></ul>
+<h4>Términos y condiciones de uso de la web</h4>
+<p><b>1. Responsabilidad del usuario.</b> Es responsabilidad de los visitantes, clientes o usuarios de este sitio web la atenta lectura de estas condiciones generales de uso. El uso o acceso al portal implica el conocimiento y la plena aceptación de todas las advertencias legales y condiciones establecidas.</p>
+<p><b>2. Condiciones generales de uso.</b> Este portal proporciona acceso a informaciones, servicios, programas o datos (en adelante, «los contenidos») pertenecientes a Alejandro Matías Torres Pizana (en adelante, «La Empresa») o a sus licenciantes. El cliente o usuario asume la responsabilidad del uso del portal y se compromete a aportar información veraz y lícita en los formularios. Se compromete a hacer un uso adecuado de los contenidos y servicios y a no emplearlos para: (i) incurrir en actividades ilícitas o contrarias a la buena fe y al orden público; (ii) difundir contenidos de carácter racista, xenófobo, pornográfico-ilegal, de apología del terrorismo o atentatorio contra los derechos humanos; (iii) provocar daños en los sistemas físicos y lógicos de La Empresa, de sus proveedores o de terceros, o introducir virus informáticos; (iv) intentar acceder a cuentas de correo de otros usuarios. La Empresa se reserva el derecho de retirar los comentarios y aportaciones que vulneren el respeto a la dignidad de la persona o que no resulten adecuados para su publicación.</p>
+<p><b>3. Derecho de exclusión.</b> La Empresa se reserva el derecho a denegar o retirar el acceso al portal o a los servicios ofrecidos, sin preaviso, a los usuarios que incumplan estas condiciones generales de uso.</p>
+<p><b>4. Exclusión de garantías y de responsabilidad.</b> La Empresa no se hace responsable de los daños y perjuicios que pudieran ocasionar errores u omisiones en los contenidos, la falta de disponibilidad del portal o la transmisión de virus o programas maliciosos, a pesar de haber adoptado las medidas tecnológicas necesarias para evitarlo. Tampoco de los servicios prestados por terceros puestos a disposición de los usuarios en este sitio web, ni del uso ilícito, negligente o fraudulento de esta web.</p>
+<p><b>5. Enlaces.</b> Si en este portal se dispusieran enlaces a otros sitios de Internet, La Empresa no ejercerá ningún control sobre ellos ni asumirá responsabilidad alguna por sus contenidos. Su inclusión no implicará ningún tipo de asociación con las entidades enlazadas.</p>
+<p><b>6. Propiedad intelectual.</b> La Empresa, por sí o como cesionaria, es titular de todos los derechos de propiedad intelectual e industrial de esta web y de los elementos que contiene (imágenes, vídeo, software, textos, marcas, logotipos, combinaciones de colores, estructura y diseño). Queda prohibida su reproducción, distribución, comunicación pública y transformación sin autorización expresa y por escrito. El usuario podrá visualizar, imprimir y almacenar los elementos del portal únicamente para su uso personal y privado.</p>
+<p><b>7. Protección de datos.</b> Se estará a lo dispuesto en la <a href="#" data-dlg="d-priv">política de privacidad</a>.</p>
+<p class="dlg-close"><button class="btn" type="button" onclick="this.closest('dialog').close()">Cerrar</button></p></dialog>
+<dialog id="d-priv" class="dlg-legal"><h3>Política de privacidad</h3>
+<p><b>Interesados:</b> clientes particulares, personas que nos piden información o una cita, trabajadores, profesionales y representantes de empresas.</p>
+<h4>¿Quién es el responsable del tratamiento?</h4>
+<ul><li><b>Titular:</b> Alejandro Matías Torres Pizana</li><li><b>Nombre comercial:</b> Matías Torres Entrenador Personal</li><li><b>NIF:</b> 45568822A</li><li><b>Domicilio:</b> Travesía José Ávila, s/n, bajo (Gym), 03300 Orihuela (Alicante)</li><li><b>Teléfono:</b> 686 72 89 07</li><li><b>Correo electrónico:</b> coach@matiastorres.es</li></ul>
+<h4>¿Qué tratamientos realizamos con sus datos?</h4>
+<p>En cumplimiento del Reglamento (UE) 2016/679 (RGPD) y de la Ley Orgánica 3/2018 (LOPDGDD), sus datos pueden ser objeto de los siguientes tratamientos: ventas y prestación de servicios; solicitudes de información recibidas; correos electrónicos; campañas publicitarias; recabar la opinión de los interesados; selección de personal propio; gestión contable, fiscal y laboral propia; prevención de riesgos laborales; gestión de incidencias y violaciones de seguridad; seguridad del software y mantenimiento de los sistemas informáticos; gestión de asuntos jurídicos propios; destrucción de documentos.</p>
+<h4>¿Para qué usamos sus datos?</h4>
+<p>Para atender sus peticiones de información y de cita (incluida la valoración gratuita), prestar el servicio contratado y gestionar la relación con nuestros clientes; enviarle información comercial si la ha aceptado; recabar su opinión; cumplir nuestras obligaciones contables, fiscales y laborales; y garantizar la seguridad de los datos. No se elaborarán perfiles con datos de menores. Los datos se conservarán mientras dure la relación o mientras no ejerza su derecho de oposición o retire su consentimiento, y después durante los plazos legales.</p>
+<h4>Datos de salud</h4>
+<p>Para adaptar el entrenamiento, el test de la web y la valoración pueden recoger información sobre molestias, lesiones o patologías. Son datos de categoría especial: solo se tratan con su consentimiento expreso, únicamente para preparar y prestar su entrenamiento, y con total confidencialidad. Puede retirar ese consentimiento cuando quiera.</p>
+<h4>¿Por qué los usamos? (legitimación)</h4>
+<p>Su consentimiento inequívoco, informado y expreso cuando la ley lo exige (su retirada no afecta a la licitud del tratamiento anterior); la ejecución del contrato de prestación de servicios; el cumplimiento de obligaciones legales; y el interés legítimo del responsable, previa ponderación favorable entre ese interés y sus derechos y libertades.</p>
+<h4>¿Con quién compartimos sus datos?</h4>
+<p>Agencia Tributaria, Servicio Público de Empleo Estatal, Tesorería General de la Seguridad Social, Agencia Española de Protección de Datos y entidades bancarias, cuando sea obligatorio. Las solicitudes y citas de esta web se guardan en una base de datos alojada por Supabase en servidores de la Unión Europea (Irlanda), que actúa como encargado del tratamiento. No se realizan transferencias a terceros países.</p>
+<h4>¿De dónde proceden sus datos?</h4>
+<p>Del propio interesado.</p>
+<h4>¿Qué derechos tiene?</h4>
+<p>Puede obtener confirmación de si tratamos sus datos y ejercer gratuitamente sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento, portabilidad y a no ser objeto de decisiones automatizadas, mediante solicitud escrita dirigida al responsable en la dirección o el correo indicados, o en nuestro centro. También puede retirar su consentimiento con la misma facilidad con la que lo dio y presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es/" target="_blank" rel="noopener">www.aepd.es</a>).</p>
+<p>En cada tratamiento se analizan las posibles amenazas y se aplican las medidas de seguridad correspondientes, que se revisan periódicamente para garantizar los principios de limitación de la finalidad y del plazo de conservación, minimización, integridad y confidencialidad.</p>
+<p class="dlg-close"><button class="btn" type="button" onclick="this.closest('dialog').close()">Cerrar</button></p></dialog>
+<dialog id="d-cook" class="dlg-legal"><h3>Política de cookies</h3>
+<p>Esta política se aplica a los usuarios del Espacio Económico Europeo y Suiza y explica qué cookies y tecnologías similares (en adelante, «cookies») usa esta web.</p>
+<h4>¿Qué son las cookies?</h4>
+<p>Una cookie es un pequeño archivo que se envía junto con las páginas de una web y que el navegador guarda en su dispositivo. Puede devolverse a nuestros servidores o a los de terceros en visitas posteriores.</p>
+<h4>Cookies técnicas o funcionales</h4>
+<p>Son necesarias para que la web funcione y no requieren su consentimiento: recordar su elección sobre las cookies y mantener abierta la sesión del área privada de gestión del centro. No usamos cookies propias de estadísticas ni de publicidad.</p>
+<h4>Redes sociales</h4>
+<p>La web puede mostrar nuestras últimas publicaciones de Instagram. Solo se cargan si acepta las cookies o si pulsa «Ver publicaciones»; en ese caso Instagram (Meta, con sede en Estados Unidos) puede instalar sus propias cookies. Le recomendamos leer su política de privacidad.</p>
+<h4>Otros servicios de terceros</h4>
+<p>Las tipografías se cargan desde Google Fonts, que recibe la dirección IP del visitante para enviarlas. El mapa de la página de contacto es de OpenStreetMap. Los botones de WhatsApp y Google Maps son simples enlaces y no cargan nada hasta que los pulsa.</p>
+<h4>Cómo gestionarlas</h4>
+<p>Puede cambiar su elección en cualquier momento con el botón de abajo, y borrar o bloquear las cookies desde la configuración de su navegador; si las desactiva todas, algunas partes de la web pueden no funcionar.</p>
+<h4>Sus derechos y contacto</h4>
+<p>Puede ejercer sus derechos de acceso, rectificación, supresión, oposición y portabilidad, y reclamar ante la autoridad de control, como se explica en la <a href="#" data-dlg="d-priv">política de privacidad</a>. Contacto: Matías Torres Entrenador Personal · Travesía José Ávila, s/n, bajo (Gym), 03300 Orihuela · coach@matiastorres.es · 686 72 89 07.</p>
+<p class="dlg-close"><button class="btn" type="button" id="ckChange">Cambiar mi elección</button> <button class="btn ghost" type="button" onclick="this.closest('dialog').close()">Cerrar</button></p></dialog>
 </div>
 
 <!-- ============ ACCESO OBLIGATORIO A GESTIÓN ============ -->
@@ -1487,7 +1568,7 @@
 
 <script id="fotos">
 /* Fotos del centro (WebP incrustado: la web sigue siendo un único archivo) */
-const FOTOS={"matias": "fotos/matias.webp?v=6", "sala": "fotos/sala.webp?v=6", "g20": "fotos/g20.webp?v=6", "prensa": "fotos/prensa.webp?v=6", "fitmaker": "fotos/fitmaker.webp?v=6", "airbike": "fotos/airbike.webp?v=6", "despacho": "fotos/despacho.webp?v=6"};
+const FOTOS={"matias": "fotos/matias.webp?v=6", "sala": "fotos/sala.webp?v=7", "g20": "fotos/g20.webp?v=6", "prensa": "fotos/prensa.webp?v=6", "fitmaker": "fotos/fitmaker.webp?v=6", "airbike": "fotos/airbike.webp?v=7", "despacho": "fotos/despacho.webp?v=6"};
 document.querySelectorAll("img[data-img]").forEach(i=>{i.src=FOTOS[i.dataset.img]});
 document.querySelectorAll("[data-bg]").forEach(d=>{d.style.backgroundImage="url("+FOTOS[d.dataset.bg]+")"});
 /* vídeos de portada: sin sonido, en bucle y a la vez; la foto de la sala queda debajo mientras cargan */
@@ -2104,7 +2185,7 @@ $("#sollist").addEventListener("click",e=>{
 /* mensaje estándar de confirmación (informal, alegre y profesional) */
 function buildEmail(s){
   const n=s.nombre.trim().split(/\s+/)[0], fecha=fFecha(s.inicio), hora=fHora(s.inicio);
-  const dir="C. José Ávila, N3, Bajo A1 · 03300 Orihuela (Alicante)", wa="686 728 907";
+  const dir="Travesía José Ávila, s/n, bajo (Gym) · 03300 Orihuela (Alicante) · frente a la plaza del Colegio Oleza", wa="686 728 907";
   const subject=`¡Tu cita está confirmada, ${n}! 💪`;
   const text=`Hola, ${n}:
 
@@ -2315,13 +2396,13 @@ route();
   /* ---- cálculo del resultado ---- */
   function perfil(a){
     const old=a.edad==="60 o más";
-    if(a.dolor==="Lesión u operación reciente") return {k:"read",t:"Readaptación",h:"Volver a moverte <span>sin miedo</span>",link:"#servicios",prog:"Readaptación tras lesión o cirugía"};
-    if(a.dolor==="Espalda") return {k:"esp",t:"Espalda en Forma",h:"Una espalda <span>fuerte no duele igual</span>",link:"#programas/espalda",prog:"Programa Espalda en Forma"};
-    if(old) return {k:"55",t:"Programa +55",h:"Fuerza para <span>seguir haciendo tu vida</span>",link:"#programas/mas55",prog:"Programa +55"};
-    if(a.objetivo==="Quitarme el dolor o recuperarme"||a.dolor==="Articulaciones") return {k:"art",t:"Fuerza sin dolor",h:"Fortalecer para <span>que deje de doler</span>",link:"#servicios",prog:"Entrenamiento personal con readaptación"};
-    if(a.objetivo==="Perder grasa") return {k:"peso",t:"Pérdida de grasa",h:"Perder grasa <span>sin perder músculo</span>",link:"#programas/peso",prog:"Programa de Pérdida de Peso"};
-    if(a.objetivo==="Ganar fuerza y músculo") return {k:"fuerza",t:"Fuerza y músculo",h:"Más fuerte <span>cada 4 semanas</span>",link:"#programas/fit",prog:"Programa FIT"};
-    return {k:"salud",t:"Salud integral",h:"Energía y salud <span>para años</span>",link:"#programas/fit",prog:"Programa FIT"};
+    if(a.dolor==="Lesión u operación reciente") return {k:"read",t:"Readaptación",h:"Volver a moverte <span>sin miedo</span>",link:"#programas/lesiones",prog:"Vuelve sin dolor"};
+    if(a.dolor==="Espalda") return {k:"esp",t:"Espalda en Forma",h:"Una espalda <span>fuerte no duele igual</span>",link:"#programas/espalda",prog:"Espalda en Forma"};
+    if(old) return {k:"55",t:"Fuerza y salud",h:"Fuerza para <span>seguir haciendo tu vida</span>",link:"#servicios",prog:"Entrenamiento personal de fuerza y equilibrio"};
+    if(a.objetivo==="Quitarme el dolor o recuperarme"||a.dolor==="Articulaciones") return {k:"art",t:"Fuerza sin dolor",h:"Fortalecer para <span>que deje de doler</span>",link:"#programas/lesiones",prog:"Vuelve sin dolor"};
+    if(a.objetivo==="Perder grasa") return {k:"peso",t:"Pérdida de grasa",h:"Perder grasa <span>sin perder músculo</span>",link:"#programas/peso",prog:"Pierde grasa, no músculo"};
+    if(a.objetivo==="Ganar fuerza y músculo") return {k:"fuerza",t:"Fuerza y músculo",h:"Más fuerte <span>cada 4 semanas</span>",link:"#servicios",prog:"Entrenamiento personal 1 a 1"};
+    return {k:"salud",t:"Salud integral",h:"Energía y salud <span>para años</span>",link:"#servicios",prog:"Entrenamiento personal 1 a 1"};
   }
   function consejos(a,p){
     const t=[];
