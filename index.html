@@ -845,18 +845,6 @@
 /* Números más negros y algo más gruesos */
 .fv1 .fv-n b.fv-gr{-webkit-mask-image:var(--m);mask-image:var(--m);-webkit-mask-size:auto 150%;mask-size:auto 150%;-webkit-mask-position:30% 40%;mask-position:30% 40%;-webkit-mask-composite:source-over;mask-composite:add;-webkit-text-stroke:.045em #0d0d0d;paint-order:stroke fill}
 
-/* ¿Te suena?: tamaño intermedio, tachado en una sola línea y versión compacta en móvil */
-.pb2-x,.pb2-hl{white-space:nowrap;align-self:flex-start}
-@media(max-width:600px){
-  .pb2{padding:56px 0 52px}
-  .pb2-eb{margin-bottom:18px}
-  .pb2-h{font-size:clamp(24px,7.4vw,32px)}
-  .pb2-punch{margin-top:28px;font-size:24px}
-  .pb2-body{margin-top:24px;padding-left:16px}
-  .pb2-body p{font-size:16px;line-height:1.5;margin-bottom:12px}
-  .pb2-cta{margin-top:28px}
-}
-.pb2-body .pb2-yl{color:var(--yellow);font-weight:700;text-transform:uppercase;letter-spacing:.02em}
 </style>
 <style>
 .fil-dark{background:var(--black);padding:96px 0}
@@ -997,6 +985,22 @@
 .pb2-body{margin-top:clamp(32px,4vw,48px);max-width:760px;padding-left:clamp(18px,2vw,28px);border-left:4px solid var(--yellow)}
 .pb2-body p{margin:0 0 16px;font-size:clamp(17px,1.6vw,23px);line-height:1.6;color:#d6d2c9}
 .pb2-body p:last-child{margin-bottom:0}.pb2-body strong{color:#fff;font-weight:600}
+/* ¿Te suena?: tamaño intermedio, tachado en una sola línea y versión compacta en móvil */
+.pb2-x,.pb2-hl{white-space:nowrap;align-self:flex-start}
+@media(max-width:600px){
+  .pb2{padding:56px 0 52px}
+  .pb2-eb{margin-bottom:18px}
+  .pb2-h{font-size:clamp(22px,6.8vw,30px)}
+  .pb2-punch{margin-top:28px;font-size:24px}
+  .pb2-body{margin-top:24px;padding-left:16px}
+  .pb2-body p{font-size:17px}
+  .pb2-cta{margin-top:28px}
+}
+.pb2-body .pb2-yl{color:var(--yellow);font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+/* Párrafos de ¿Te suena?: más ancho y más aire entre párrafos */
+.pb2-body{max-width:920px}
+.pb2-body p{margin-bottom:clamp(20px,2vw,28px);line-height:1.65}
+@media(max-width:600px){.pb2-body p{margin-bottom:18px;line-height:1.55}}
 .pb2-cta{margin-top:clamp(36px,4.5vw,52px);display:flex;align-items:center;gap:20px 32px;flex-wrap:wrap}
 .pb2-btn{display:inline-flex;align-items:center;gap:14px;min-height:clamp(60px,6vw,76px);padding:0 clamp(26px,3.2vw,44px);background:var(--yellow);color:#0d0d0d;font:700 clamp(19px,1.9vw,27px) 'Oswald',sans-serif;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:transform .2s}
 .pb2-btn:hover{transform:translateY(-2px);color:#0d0d0d}
