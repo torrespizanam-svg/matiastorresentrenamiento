@@ -1016,6 +1016,20 @@
 .mt-anim.in .rv{animation:mtUp .6s var(--d,0s) ease-out both}
 .mt-anim.in .dr{animation:mtDraw .55s var(--d,0s) ease-in both}
 .mt-anim.in .pb2-btn{animation:mtPulse 2.2s 3.2s ease-in-out infinite}
+
+/* Detalles: señal de calzado sucio más grande arriba a la izquierda y vapor con el doble de recorrido */
+.sa-no{top:6px;left:6px;right:auto;width:clamp(140px,11.6vw,190px);border-width:6px;box-shadow:0 10px 26px rgba(0,0,0,.5)}
+.sa-no::after{height:8px}
+.sa-steps{left:auto;right:2%;width:40%}
+.sa-steam{top:-8%;height:78%;left:18%;width:48%;filter:blur(7px)}
+.sa-steam i{width:34px;height:150px;animation-name:vapor2;animation-timing-function:cubic-bezier(.35,.1,.45,1)}
+@keyframes vapor2{0%{transform:translateY(40px) translateX(0) scaleX(.5) rotate(0);opacity:0}
+12%{opacity:.95}
+30%{transform:translateY(-60px) translateX(26px) scaleX(1) rotate(16deg);opacity:.8}
+52%{transform:translateY(-160px) translateX(-24px) scaleX(1.6) rotate(-18deg);opacity:.55}
+76%{transform:translateY(-270px) translateX(22px) scaleX(2.4) rotate(14deg);opacity:.28}
+100%{transform:translateY(-360px) translateX(-8px) scaleX(3.2) rotate(-6deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){.sa-steam i{animation:none;opacity:0}}
 </style>
 </head>
 <body>
@@ -1109,10 +1123,10 @@
     <h2 class="title">Los detalles que no encontrarás en un gimnasio</h2>
     <p class="lead sa-lead">Dos clientes como máximo, cada uno con su entrenador. Y una idea fija: que aquí <b>tu único esfuerzo sea entrenar.</b></p>
     <div class="sa-grid">
-      <article class="sa-card sa-pies"><img src="fotos/detalle-barefoot.webp?v=2" alt="Calcetines de pilates y zapatillas minimalistas barefoot sobre un banco de madera" loading="lazy" decoding="async"><div class="sa-steps" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="sa-no" role="img" aria-label="Prohibido el calzado de la calle"><img src="fotos/calle-sucia.webp?v=1" alt="" loading="lazy" decoding="async"></div><div class="sa-txt"><span>01</span><h3>Aquí se entrena sin zapatos de la calle</h3><p>Lo de la calle se queda en la puerta. Más higiene para todos y unos pies más fuertes.</p></div></article>
+      <article class="sa-card sa-pies"><img src="fotos/detalle-barefoot.webp?v=2" alt="Calcetines de pilates y zapatillas minimalistas barefoot sobre un banco de madera" loading="lazy" decoding="async"><div class="sa-steps" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="sa-no" role="img" aria-label="Prohibido el calzado de la calle"><img src="fotos/calle-sucia-hd.webp?v=1" alt="" loading="lazy" decoding="async"></div><div class="sa-txt"><span>01</span><h3>Aquí se entrena sin zapatos de la calle</h3><p>Lo de la calle se queda en la puerta. Más higiene para todos y unos pies más fuertes.</p></div></article>
       <article class="sa-card sa-cafe"><img src="fotos/detalle-cafe.webp?v=2" alt="Taza de café de especialidad humeante junto a una cafetera profesional" loading="lazy" decoding="async"><div class="sa-steam" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="sa-txt"><span>02</span><h3>El café, recién hecho</h3><p>De cafetera profesional. También agua, infusiones y chocolate puro. <b>Incluido.</b></p></div></article>
-      <article class="sa-card"><img src="fotos/detalle-toallas.webp?v=2" alt="Estantería con toallas azules y rosas para la sala y toallas blancas apiladas en el aseo" loading="lazy" decoding="async"><div class="sa-txt"><span>03</span><h3>Toalla limpia, cada día</h3><p>Lavada y repuesta a diario, en un aire filtrado y perfumado.</p></div></article>
-      <article class="sa-card"><img src="fotos/detalle-ducha.webp?v=2" alt="Aseo con ducha, toallas y productos de higiene" loading="lazy" decoding="async"><div class="sa-txt"><span>04</span><h3>Ducha completa. No traigas nada.</h3><p>Toalla grande, champú, gel, desodorante, higiene íntima, tampones y compresas. Sales directo a trabajar.</p></div></article>
+      <article class="sa-card"><img src="fotos/detalle-toallas-hd.webp?v=1" alt="Estantería con toallas azules y rosas para la sala y toallas blancas apiladas en el aseo" loading="lazy" decoding="async"><div class="sa-txt"><span>03</span><h3>Toalla limpia, cada día</h3><p>Lavada y repuesta a diario, en un aire filtrado y perfumado.</p></div></article>
+      <article class="sa-card"><img src="fotos/detalle-ducha-hd.webp?v=1" alt="Aseo con ducha, toallas y productos de higiene" loading="lazy" decoding="async"><div class="sa-txt"><span>04</span><h3>Ducha completa. No traigas nada.</h3><p>Toalla grande, champú, gel, desodorante, higiene íntima, tampones y compresas. Sales directo a trabajar.</p></div></article>
     </div>
   </div></section>
 
