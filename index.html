@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="escudo.webp">
 <link rel="preload" as="image" href="fotos/sala.webp?v=7" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{--yellow:#FFD51F;--yellow-d:#e6bd00;--black:#0d0d0d;--ink:#1a1a1a;--bg:#f4f3ee;--line:#e3e1d8;--muted:#6b6b66;--danger:#d93636;--ok:#1f9d55;--side:#141414}
   *{box-sizing:border-box}
@@ -87,11 +87,6 @@
   .phead h1{font-size:clamp(34px,5vw,56px)}.phead h1 span{color:var(--yellow)}
   .phead p{color:#bdbdb5;max-width:640px;margin:14px 0 0}
 
-  .stats{background:var(--yellow);color:#000}
-  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;padding-top:26px;padding-bottom:26px}
-  .stats b{font:700 40px 'Oswald';display:block;line-height:1}
-  .stats span{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
-  @media(max-width:640px){.stats .wrap{grid-template-columns:repeat(2,1fr);gap:18px}}
 
   section{padding:76px 0}
   .alt{background:var(--bg)}
@@ -349,9 +344,6 @@
   .qz-hero-link{background:none!important;border:0!important;color:rgba(255,255,255,.9)!important;padding:4px 2px!important;margin-top:18px!important;text-decoration:underline;text-underline-offset:4px;backdrop-filter:none!important;font-weight:500!important}
   .qz-hero-link:hover{color:var(--yellow)!important}
 
-  .stats span{display:block;margin-top:6px}
-  .problema{padding:84px 0 70px}
-  .problema .title{max-width:880px;font-size:clamp(26px,3.8vw,40px)}
   .lead.big{font-size:18px;max-width:720px}
   .perks{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:40px}
   @media(max-width:980px){.perks{grid-template-columns:1fr 1fr}}@media(max-width:560px){.perks{grid-template-columns:1fr}}
@@ -880,6 +872,65 @@
 @media(prefers-reduced-motion:reduce){.sa-steam i,.sa-steps i{animation:none;opacity:0}.sa-card img{transition:none}}
 @media(max-width:1000px){.sa-grid{grid-template-columns:repeat(2,1fr)}#solo-aqui{min-height:0;display:block}.sa-card{height:380px}}
 @media(max-width:560px){.sa-grid{grid-template-columns:1fr}.sa-card{height:360px}}
+
+/* ===== Franja de datos (estilo escudo) ===== */
+.st2{position:relative;background:var(--black);padding:30px 0;overflow:hidden;color:#0d0d0d;--fs:clamp(54px,6.8vw,100px)}
+.st2-band{position:absolute;left:-24px;right:-24px;top:30px;bottom:30px;background:var(--yellow);filter:url(#st2-torn)}
+.st2-in{position:relative;max-width:1440px;margin:0 auto;padding:clamp(28px,3.2vw,42px) 22px;display:grid;grid-template-columns:clamp(110px,12vw,180px) minmax(0,1fr) clamp(110px,12vw,180px);align-items:center}
+.st2-fig{display:flex;justify-content:center}.st2-fig img{width:88%;max-width:168px;height:auto;display:block}
+.st2-fig.r img{transform:scaleX(-1)}
+.st2-grid{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.st2-it{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 10px}
+.st2-it+.st2-it{border-left:2px solid rgba(13,13,13,.28)}
+.st2-n{height:calc(var(--fs)*.9);display:flex;align-items:flex-end;justify-content:center;gap:8px}
+.st2-n b{font:400 var(--fs)/.85 'Bebas Neue',sans-serif;color:#0d0d0d;filter:url(#st2-stamp);white-space:nowrap;text-transform:uppercase}
+.st2-n b small{font-size:.6em;margin:0 .14em}
+.st2-stars{position:relative;display:flex;align-items:center;padding:.5em .8em;margin-bottom:calc(var(--fs)*.2);font-size:clamp(11px,1.1vw,15px)}
+.st2-stars::before{content:"";position:absolute;inset:0;background:#0d0d0d;filter:url(#st2-brush)}
+.st2-stars span{position:relative;color:#fff;letter-spacing:.2em;line-height:1}
+.st2-bar{position:absolute;left:0;right:0;top:calc(var(--fs)*.9 + 18px);height:9px;background:#0d0d0d;filter:url(#st2-stamp);transform-origin:left}
+.st2-l{margin-top:45px;font:700 clamp(14px,1.4vw,20px)/1.2 'Oswald',sans-serif;letter-spacing:.04em;text-transform:uppercase;color:#0d0d0d}
+.st2-mini{display:none}
+@media(max-width:1100px){.st2-in{grid-template-columns:minmax(0,1fr)}.st2-fig{display:none}}
+@media(max-width:760px){
+  .st2{--fs:clamp(50px,14vw,70px)}
+  .st2-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:34px}
+  .st2-it:nth-child(odd){border-left:0}
+  .st2-bar{display:none}
+  .st2-mini{display:block;width:70%;height:6px;margin:12px 0 10px;background:#0d0d0d;filter:url(#st2-stamp)}
+  .st2-l{margin-top:0}
+}
+
+/* ===== ¿Te suena? (versión agresiva) ===== */
+.pb2{position:relative;overflow:hidden;background:var(--black);color:#f5f3ee;padding:clamp(72px,9vw,120px) 0 clamp(64px,8vw,104px);border-bottom:1px solid #222}
+.pb2 .wrap{position:relative;max-width:1180px}
+.pb2-bg{position:absolute;right:-3vw;top:12%;margin:0;font:700 clamp(200px,29vw,420px)/.85 'Oswald',sans-serif;color:transparent;-webkit-text-stroke:2px #232327;pointer-events:none;user-select:none}
+.pb2-eb{margin:0 0 clamp(24px,3vw,40px);font:700 clamp(28px,3.4vw,46px)/1 'Oswald',sans-serif;letter-spacing:.1em;color:var(--yellow);text-transform:uppercase}
+.pb2-h{margin:0;display:flex;flex-direction:column;gap:.06em;font:700 clamp(30px,8.4vw,104px)/1 'Oswald',sans-serif;text-transform:uppercase;color:#f5f3ee}
+.pb2-h>span{align-self:flex-start}
+.pb2-x{position:relative}
+.pb2-x i{position:absolute;left:-.08em;right:-.08em;top:52%;height:.1em;background:var(--yellow);transform-origin:left}
+.pb2-hl{margin-top:.18em;padding:.06em .22em .1em;background:var(--yellow);color:#0d0d0d}
+.pb2-punch{margin:clamp(36px,4.5vw,56px) 0 0;font:500 clamp(26px,3.4vw,48px)/1.15 'Oswald',sans-serif;color:#f5f3ee}
+.pb2-punch b{display:block;font-weight:700;color:var(--yellow)}
+.pb2-body{margin-top:clamp(32px,4vw,48px);max-width:760px;padding-left:clamp(18px,2vw,28px);border-left:4px solid var(--yellow)}
+.pb2-body p{margin:0 0 16px;font-size:clamp(17px,1.6vw,23px);line-height:1.6;color:#d6d2c9}
+.pb2-body p:last-child{margin-bottom:0}.pb2-body strong{color:#fff;font-weight:600}
+.pb2-cta{margin-top:clamp(36px,4.5vw,52px);display:flex;align-items:center;gap:20px 32px;flex-wrap:wrap}
+.pb2-btn{display:inline-flex;align-items:center;gap:14px;min-height:clamp(60px,6vw,76px);padding:0 clamp(26px,3.2vw,44px);background:var(--yellow);color:#0d0d0d;font:700 clamp(19px,1.9vw,27px) 'Oswald',sans-serif;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border-radius:6px;transition:transform .2s}
+.pb2-btn:hover{transform:translateY(-2px);color:#0d0d0d}
+.pb2-note{margin:0;font-size:clamp(15px,1.3vw,18px);line-height:1.5;color:#c4c0b7}.pb2-note strong{color:#fff;font-weight:600}
+@media(max-width:900px){.pb2-bg{display:none}}
+
+/* Animaciones al entrar en pantalla */
+@keyframes mtUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes mtDraw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes mtPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,213,31,.55)}50%{box-shadow:0 0 0 14px rgba(255,213,31,0)}}
+.mt-anim .rv{opacity:0}
+.mt-anim .dr{transform:scaleX(0)}
+.mt-anim.in .rv{animation:mtUp .6s var(--d,0s) ease-out both}
+.mt-anim.in .dr{animation:mtDraw .55s var(--d,0s) ease-in both}
+.mt-anim.in .pb2-btn{animation:mtPulse 2.2s 3.2s ease-in-out infinite}
 </style>
 </head>
 <body>
@@ -925,17 +976,45 @@
     <div class="hero-note">Gratis y sin compromiso · Máximo dos clientes en toda la sala, cada uno con su entrenador</div>
     <button type="button" class="qz-hero-link" data-qz-open>¿No sabes por dónde empezar? Haz el test en 1 minuto →</button>
   </div></div>
-  <div class="stats"><div class="wrap">
-    <div><b>1 a 1</b><span>1 cliente por 1 entrenador personal</span></div>
-    <div><b>25 años</b><span>De experiencia</span></div>
-    <div><b>134 ★</b><span>Reseñas de 5 estrellas</span></div>
-    <div><b>140 m²</b><span>De sala privada</span></div>
-  </div></div>
+  <div class="st2" data-mt aria-label="El centro en cifras">
+    <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute"><defs>
+      <filter id="st2-stamp" x="-6%" y="-20%" width="112%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="4" result="o"/><feDisplacementMap in="SourceGraphic" in2="o" scale="4" xChannelSelector="R" yChannelSelector="G" result="b"/><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  10 0 0 0 -6.2" result="m"/><feComposite in="b" in2="m" operator="out"/></filter>
+      <filter id="st2-torn" x="-3%" y="-30%" width="106%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.09 0.02" numOctaves="4" seed="7" result="r"/><feDisplacementMap in="SourceGraphic" in2="r" scale="26" xChannelSelector="R" yChannelSelector="G"/></filter>
+      <filter id="st2-brush" x="-8%" y="-40%" width="116%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.12 0.05" numOctaves="4" seed="2" result="r"/><feDisplacementMap in="SourceGraphic" in2="r" scale="12" xChannelSelector="R" yChannelSelector="G"/></filter>
+    </defs></svg>
+    <div class="st2-band" aria-hidden="true"></div>
+    <div class="st2-in">
+      <div class="st2-fig" aria-hidden="true"><img src="fotos/figuras-escudo.png" alt="" width="620" height="399" loading="lazy" decoding="async"></div>
+      <div class="st2-grid">
+        <div class="st2-it rv"><div class="st2-n"><b>1<small>a</small>1</b></div><i class="st2-mini" aria-hidden="true"></i><div class="st2-l">1 cliente por<br>1 entrenador personal</div></div>
+        <div class="st2-it rv" style="--d:.1s"><div class="st2-n"><b>25<small>años</small></b></div><i class="st2-mini" aria-hidden="true"></i><div class="st2-l">de experiencia<br>como entrenador</div></div>
+        <div class="st2-it rv" style="--d:.2s"><div class="st2-n"><b>134</b><span class="st2-stars" role="img" aria-label="5 estrellas"><span aria-hidden="true">★★★★★</span></span></div><i class="st2-mini" aria-hidden="true"></i><div class="st2-l">reseñas de 5 estrellas<br>en Google</div></div>
+        <div class="st2-it rv" style="--d:.3s"><div class="st2-n"><b>140<small>m²</small></b></div><i class="st2-mini" aria-hidden="true"></i><div class="st2-l">de sala,<br>solo para ti</div></div>
+        <div class="st2-bar dr" style="--d:.5s" aria-hidden="true"></div>
+      </div>
+      <div class="st2-fig r" aria-hidden="true"><img src="fotos/figuras-escudo.png" alt="" width="620" height="399" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
 
-  <section class="problema"><div class="wrap">
-    <div class="eyebrow">¿Te suena?</div>
-    <h2 class="title">Pagas el gimnasio. Esperas la máquina. Nadie te corrige. Y al mes lo dejas.</h2>
-    <p class="lead big">Aquí es al revés. Una sala privada, sin interrupciones ni esperas, y un entrenador que solo te mira a ti. Fuimos los pioneros del entrenamiento personal en Orihuela y seguimos trabajando igual: uno a uno.</p>
+  <section class="pb2" data-mt><div class="wrap">
+    <p class="pb2-bg" aria-hidden="true">1 A 1</p>
+    <p class="pb2-eb rv">¿Te suena?</p>
+    <h2 class="pb2-h">
+      <span class="pb2-x rv" style="--d:.15s">Pagas la cuota.<i class="dr" style="--d:1.6s" aria-hidden="true"></i></span>
+      <span class="pb2-x rv" style="--d:.35s">Esperas la máquina.<i class="dr" style="--d:1.9s" aria-hidden="true"></i></span>
+      <span class="pb2-x rv" style="--d:.55s">Nadie te corrige.<i class="dr" style="--d:2.2s" aria-hidden="true"></i></span>
+      <span class="pb2-hl rv" style="--d:.8s">Y al mes, lo dejas.</span>
+    </h2>
+    <p class="pb2-punch rv" style="--d:2.6s">No te falta fuerza de voluntad. <b>Te faltaba alguien mirándote.</b></p>
+    <div class="pb2-body">
+      <p>Aquí entras y la hora es tuya. Tu entrenador también.</p>
+      <p>Sin colas. Sin móviles. Sin nadie gritando al lado. Solo tú, tu cuerpo y alguien que no te quita el ojo de encima.</p>
+      <p>25 años. Los primeros en Orihuela. Y la misma regla desde el primer día: <strong>uno a uno, o nada.</strong></p>
+    </div>
+    <div class="pb2-cta">
+      <a class="pb2-btn" href="#reservar">Quiero mi valoración gratis <span aria-hidden="true">→</span></a>
+      <p class="pb2-note">Primera cita sin coste y sin compromiso.<br><strong>Solo 2 personas por hora en todo el centro.</strong></p>
+    </div>
   </div></section>
 
   <section class="dark-sec" id="solo-aqui"><div class="wrap sa-wrap">
@@ -2592,6 +2671,15 @@ route();
 <script>
 (function(){var v=document.getElementById('filVideo');if(!v||!('IntersectionObserver' in window))return;
 new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){});}else{v.pause();}});},{threshold:0.25}).observe(v);})();
+</script>
+<script>
+(function(){
+  var els=document.querySelectorAll('[data-mt]');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  els.forEach(function(e){e.classList.add('mt-anim')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25});
+  els.forEach(function(e){io.observe(e)});
+})();
 </script>
 </body>
 </html>
