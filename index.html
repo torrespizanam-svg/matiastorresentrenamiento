@@ -1078,6 +1078,22 @@
 #centro .ce-mural img{transform:none}
 #centro .ce-mural figcaption.ce-claim{margin-top:-2px;background:#0d0d0d}
 html,body{overflow-x:clip}
+
+/* Conoce el espacio: más energía */
+#centro .ce-eb{background:transparent;color:var(--yellow);padding:0;border-radius:0;font-size:clamp(18px,2vw,26px);letter-spacing:.14em;display:block;line-height:1.35}
+#centro .ce-eb::before{content:"";display:inline-block;vertical-align:middle;width:clamp(28px,3vw,44px);height:4px;background:var(--yellow);margin:-.15em 14px 0 0}
+#centro .ce-eb-k{color:#fff}
+#centro .ce-title{font-size:clamp(34px,5vw,64px);line-height:1.02;margin:10px 0 0}
+#centro .ce-hl{color:var(--yellow)}
+#centro .ce-bar{display:block;width:min(420px,60%);height:12px;margin:16px 0 26px;background:var(--yellow);-webkit-mask:url(fotos/barra.png) center/100% 100% no-repeat;mask:url(fotos/barra.png) center/100% 100% no-repeat}
+#centro .ce-txt{border-left:4px solid var(--yellow);padding-left:clamp(18px,2vw,28px)}
+#centro .ce-txt .ce-lead{display:block;font:600 clamp(22px,2.4vw,32px)/1.25 'Oswald',sans-serif;color:#fff;margin-bottom:4px}
+#centro .ce-txt .ce-y{color:var(--yellow);font-weight:700}
+
+#centro .ce-eb::before{display:none}
+#centro .ce-txt{border-left:0;padding-left:0}
+#centro .ce-title{margin-bottom:22px}
+@media(min-width:701px){#centro .ce-eb{white-space:nowrap;font-size:clamp(12px,1.55vw,22px);letter-spacing:.1em}}
 </style>
 </head>
 <body>
@@ -1179,13 +1195,13 @@ html,body{overflow-x:clip}
   </div></section>
 
   <section class="alt" id="centro"><div class="wrap">
-    <div class="ce-eb">Tu centro de entrenamiento personal en Orihuela</div>
-    <h2 class="title ce-title">Conoce el espacio donde entrenas</h2>
+    <div class="ce-eb"><span class="ce-eb-k">El centro:</span> tu centro de entrenamiento personal en Orihuela</div>
+    <h2 class="title ce-title">Conoce el espacio donde <span class="ce-hl">entrenas</span></h2>
     <div class="ce-txt">
-      <p><strong>Imagina entrenar donde nadie te mira, nadie te mete prisa y nadie te quita la máquina.</strong> Eso es esta sala.</p>
+      <p><strong class="ce-lead">Imagina entrenar donde nadie te mira, nadie te mete prisa y nadie te quita la máquina.</strong> <span class="ce-y">Eso es esta sala.</span></p>
       <p>Luminosa, privada y cuidada al detalle. Entras en calcetines o con calzado minimalista y todo está preparado antes de que llegues: material de gama alta para fuerza, trabajo funcional y readaptación de lesiones.</p>
       <p>Pero lo que de verdad cuenta no es la sala. Es que aquí te llaman por tu nombre, se acuerdan de esa rodilla que te molestaba el martes y te dicen la verdad, aunque no sea lo que quieres oír. Como un buen amigo que, además, sabe muchísimo de entrenamiento.</p>
-      <p>Lo que nos cuentas, se queda aquí. Tú solo vienes a <strong>ponerte fuerte, perder peso o dejar atrás el dolor</strong>.</p>
+      <p>Lo que nos cuentas, se queda aquí. Tú solo vienes a <strong class="ce-y">ponerte fuerte, perder peso o dejar atrás el dolor</strong>.</p>
     </div>
     <figure class="ce-mural" data-lb>
       <img src="fotos/mural-w2.webp?v=1" width="2240" height="1223" alt="Mural de 9 por 4 metros a la entrada del centro: Matías Torres, entrenador personal, con tres siluetas entrenando sobre una explosión de color" loading="lazy" decoding="async">
