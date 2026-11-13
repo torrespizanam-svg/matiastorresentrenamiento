@@ -851,6 +851,34 @@
 /* Números más negros y algo más gruesos */
 .fv1 .fv-n b.fv-gr{-webkit-mask-image:var(--m);mask-image:var(--m);-webkit-mask-size:auto 150%;mask-size:auto 150%;-webkit-mask-position:30% 40%;mask-position:30% 40%;-webkit-mask-composite:source-over;mask-composite:add;-webkit-text-stroke:.045em #0d0d0d;paint-order:stroke fill}
 
+
+/* ===== Galería El centro a pantalla completa  ===== */
+.gx{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:1fr 1fr;gap:10px;width:100%;padding:0 10px;margin-top:40px;height:min(calc(100vh - 110px),860px);min-height:560px;box-sizing:border-box}
+.gx figure{margin:0;position:relative;overflow:hidden;border-radius:12px;background:#111;box-shadow:0 3px 0 var(--yellow)}
+.gx figure[data-lb]{cursor:zoom-in}
+.gx img,.gx video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+.gx figure:hover img{transform:scale(1.04)}
+.gx{grid-template-rows:1.2fr 1fr}
+.gx-v{grid-column:1/9;grid-row:1}
+.gx-c{grid-column:9/13;grid-row:1/3}
+.gx-a{grid-column:1/6;grid-row:2}
+.gx-b{grid-column:6/9;grid-row:2}
+.gx-a img{object-position:center 62%}
+.gx-b img{object-position:60% center}
+.gx-c img{object-position:center 55%}
+.gx figcaption{position:absolute;left:0;right:0;bottom:0;padding:48px 20px 16px;background:linear-gradient(transparent,rgba(0,0,0,.8));color:#fff;font-size:16px;font-weight:600;line-height:1.25}
+.gx-k{display:block;color:var(--yellow);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:3px}
+.gx-v figcaption{font-size:clamp(20px,2vw,28px);padding:70px 26px 22px}
+.gx-hint{margin-top:14px}
+@media(max-width:760px){
+  .gx{grid-template-columns:1fr 1fr;grid-template-rows:none;height:auto;min-height:0;gap:8px;padding:0 8px}
+  .gx-v{grid-column:1/3;grid-row:auto;aspect-ratio:4/3}
+  .gx-a{grid-column:1/3;grid-row:auto;aspect-ratio:4/3}
+  .gx-b,.gx-c{grid-column:auto;grid-row:auto;aspect-ratio:3/4}
+  .gx-v video{object-position:30% center}
+  .gx figcaption{font-size:14px;padding:40px 12px 12px}
+}
+
 </style>
 <style>
 .fil-dark{background:var(--black);padding:96px 0}
@@ -1220,15 +1248,14 @@ html,body{overflow-x:clip}
       <img src="fotos/mural-w2c.webp?v=2" width="2240" height="1223" alt="Mural de 9 por 4 metros a la entrada del centro: Matías Torres, entrenador personal, con tres siluetas entrenando sobre una explosión de color" loading="lazy" decoding="async">
       <figcaption class="ce-claim"><span class="ce-c2"><span class="ce-l1">Dentro de 10 años tendrás el cuerpo que construyas hoy…</span><span class="ce-l2"><span>O el que descuides hoy…</span><span>Invierte en tu salud…</span></span></span></figcaption>
     </figure>
-    <p class="ce-hint">Pulsa en una foto para verla en grande.</p>
-    <div class="gal">
-      <figure class="g1" data-lb><img data-img="g20" width="1100" height="480" alt="Rack con poleas y bancos de entrenamiento entre plantas" loading="lazy"><figcaption>Zona de fuerza y poleas</figcaption></figure>
-      <figure class="g4" data-lb><img data-img="airbike" width="1200" height="1600" alt="Bicicleta de aire, cajón pliométrico y la pared de madera con el nombre Matías Torres" loading="lazy"><figcaption>Zona funcional</figcaption></figure>
-      <figure class="g2" data-lb><img data-img="prensa" width="1000" height="750" alt="Prensa de piernas, mancuernas y plataforma vibratoria frente al mural del centro" loading="lazy"><figcaption>Prensa y mancuernas</figcaption></figure>
-      <figure class="g3" data-lb><img data-img="fitmaker" width="1000" height="750" alt="Rack multifunción con discos y espejo iluminado en la sala principal" loading="lazy"><figcaption>Rack multifunción</figcaption></figure>
-      <figure class="g5" data-lb><img data-img="polea" width="784" height="1044" alt="Entrenadora corrigiendo la postura de una clienta en la polea, con el escudo y el despacho al fondo" loading="lazy"><figcaption>Tu entrenador, a tu lado</figcaption></figure>
-      <figure class="g6" data-lb><img data-img="recepcion" width="784" height="588" alt="Zona de recepción con sofás blancos tipo chester, plantas y el mural con el nombre Matías Torres y el escudo de entrenador personal" loading="lazy"><figcaption>Recepción y zona de descanso</figcaption></figure>
-    </div>
+  </div>
+  <div class="gx">
+    <figure class="gx-v"><video id="gxVideo" muted loop playsinline preload="none" poster="video/portada-centro.jpg?v=6" aria-label="Recorrido en vídeo por la sala del centro Matías Torres" disablepictureinpicture><source src="video/portada-centro.mp4?v=6" type="video/mp4"></video><figcaption><span class="gx-k">En vídeo</span>Recorre la sala</figcaption></figure>
+    <figure class="gx-a" data-lb><img src="fotos/centro-sala.webp?v=2" width="1800" height="1350" alt="Vista general de la sala de 140 m² con el mural Matías Torres, racks, banco y cinta junto a la cristalera" loading="lazy" decoding="async"><figcaption><span class="gx-k">140 m²</span>Toda la sala para ti</figcaption></figure>
+    <figure class="gx-b" data-lb><img src="fotos/centro-prensa.webp?v=2" width="1600" height="1200" alt="Prensa de piernas, mancuernas y plataforma vibratoria frente al mural del centro" loading="lazy" decoding="async"><figcaption><span class="gx-k">Fuerza</span>Maquinaria de gama alta</figcaption></figure>
+    <figure class="gx-c" data-lb><img src="fotos/centro-airbike.webp?v=2" width="1200" height="1600" alt="Bicicleta de aire, cajón pliométrico y la pared de madera con el nombre Matías Torres" loading="lazy" decoding="async"><figcaption><span class="gx-k">Funcional</span>Readaptación y cardio</figcaption></figure>
+  </div>
+  <div class="wrap"><p class="ce-hint gx-hint">Pulsa en una foto para verla en grande.</p>
   </div></section>
 
   <section class="dark-sec"><div class="wrap">
@@ -2869,6 +2896,12 @@ new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting
   els.forEach(function(e){e.classList.add('mt-anim')});
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25});
   els.forEach(function(e){io.observe(e)});
+})();
+</script>
+<script>
+(function(){const v=document.getElementById("gxVideo");if(!v)return;
+ if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+ if("IntersectionObserver" in window)new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){v.preload="auto";v.play().catch(()=>{})}else v.pause()}),{threshold:.25}).observe(v);
 })();
 </script>
 </body>
