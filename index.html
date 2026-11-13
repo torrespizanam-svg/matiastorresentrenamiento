@@ -837,6 +837,43 @@
 #v-sobre .f-btn{padding:9px 22px}}
 @media(max-width:820px){#v-sobre .fil-dark{min-height:0;display:block}#v-sobre .fil-grid{grid-template-columns:1fr}#v-sobre .sobre-h1{white-space:normal}}
 </style>
+<style>
+#solo-aqui{min-height:calc(100svh - 96px);display:flex;align-items:center;padding:clamp(24px,5vh,64px) 0}
+#solo-aqui .sa-wrap{max-width:1320px;width:100%}
+#solo-aqui .sa-eb{color:var(--yellow);font-size:clamp(20px,1.8vw,26px);letter-spacing:.22em;margin-bottom:8px}
+#solo-aqui .sa-lead{max-width:760px;margin:10px 0 clamp(18px,3.5vh,36px);color:#cfcfc8;font-size:clamp(16px,1.25vw,19px)}
+#solo-aqui .sa-lead b{color:#fff;font-weight:600}
+.sa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.sa-card{position:relative;overflow:hidden;border-radius:18px;height:clamp(320px,49vh,560px);background:#151515;isolation:isolate}
+.sa-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:transform 1.2s cubic-bezier(.2,.7,.2,1);z-index:-2}
+.sa-card:hover img{transform:scale(1.08)}
+.sa-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,13,13,0) 35%,rgba(13,13,13,.72) 62%,rgba(13,13,13,.96) 100%)}
+.sa-card::before{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .6s ease;z-index:2}
+.sa-card:hover::before{transform:scaleX(1)}
+.sa-txt{position:absolute;left:0;right:0;bottom:0;padding:22px 22px 24px}
+.sa-txt span{font:600 14px 'Oswald',sans-serif;letter-spacing:.14em;color:var(--yellow)}
+.sa-txt h3{color:#fff;font-size:clamp(19px,1.5vw,24px);line-height:1.12;margin:6px 0 8px}
+.sa-txt p{color:#d4d4cd;font-size:15px;line-height:1.45;margin:0}
+.sa-txt p b{color:var(--yellow);font-weight:600}
+/* vapor del café */
+.sa-steam{position:absolute;left:28%;top:22%;width:30%;height:34%;pointer-events:none;filter:blur(7px)}
+.sa-steam i{position:absolute;bottom:0;left:40%;width:22px;height:90px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(255,255,255,.55),rgba(255,255,255,0) 70%);opacity:0;animation:vapor 4.5s ease-in infinite}
+.sa-steam i:nth-child(2){left:20%;animation-delay:1.5s}
+.sa-steam i:nth-child(3){left:60%;animation-delay:3s}
+@keyframes vapor{0%{transform:translateY(20px) scaleX(.6);opacity:0}20%{opacity:.85}60%{transform:translateY(-50px) translateX(8px) scaleX(1.2) rotate(6deg);opacity:.5}100%{transform:translateY(-110px) translateX(-6px) scaleX(1.8) rotate(-8deg);opacity:0}}
+/* huellas */
+.sa-steps{position:absolute;left:10%;top:8%;width:80%;height:30%;pointer-events:none}
+.sa-steps i{position:absolute;width:16px;height:28px;border-radius:50% 50% 45% 45%;background:rgba(45,32,20,.38);opacity:0;animation:huella 6s ease-in-out infinite}
+.sa-steps i::before{content:"";position:absolute;left:3px;top:-9px;width:11px;height:7px;border-radius:50%;background:inherit}
+.sa-steps i:nth-child(1){left:2%;top:62%;transform:rotate(68deg);animation-delay:0s}
+.sa-steps i:nth-child(2){left:26%;top:30%;transform:rotate(78deg);animation-delay:.7s}
+.sa-steps i:nth-child(3){left:50%;top:60%;transform:rotate(68deg);animation-delay:1.4s}
+.sa-steps i:nth-child(4){left:74%;top:28%;transform:rotate(78deg);animation-delay:2.1s}
+@keyframes huella{0%,8%{opacity:0}14%{opacity:.9}55%{opacity:.6}75%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.sa-steam i,.sa-steps i{animation:none;opacity:0}.sa-card img{transition:none}}
+@media(max-width:1000px){.sa-grid{grid-template-columns:repeat(2,1fr)}#solo-aqui{min-height:0;display:block}.sa-card{height:380px}}
+@media(max-width:560px){.sa-grid{grid-template-columns:1fr}.sa-card{height:360px}}
+</style>
 </head>
 <body>
 
@@ -894,15 +931,15 @@
     <p class="lead big">Aquí es al revés. Una sala privada, sin interrupciones ni esperas, y un entrenador que solo te mira a ti. Fuimos los pioneros del entrenamiento personal en Orihuela y seguimos trabajando igual: uno a uno.</p>
   </div></section>
 
-  <section class="dark-sec" id="solo-aqui"><div class="wrap">
-    <div class="eyebrow" style="color:var(--yellow)">Lo que solo tienes aquí</div>
+  <section class="dark-sec" id="solo-aqui"><div class="wrap sa-wrap">
+    <div class="eyebrow sa-eb">Lo que solo tienes aquí</div>
     <h2 class="title">Los detalles que no encontrarás en un gimnasio</h2>
-    <p class="lead">Máximo dos clientes en toda la sala, cada uno con su entrenador. Y todo pensado para que entres, entrenes y salgas como nuevo.</p>
-    <div class="perks">
-      <div class="perk"><div class="ico">🧦</div><h3>En calcetines o barefoot</h3><p>Nada de calzado de calle. Máxima higiene en la sala y trabajas el equilibrio y la estabilidad del pie.</p></div>
-      <div class="perk"><div class="ico">☕</div><h3>Agua, café e infusiones gratis</h3><p>Durante el entreno o al terminar. El café, recién hecho.</p></div>
-      <div class="perk"><div class="ico">🧺</div><h3>Toalla siempre limpia</h3><p>Toalla para la sala, lavada y repuesta cada día.</p></div>
-      <div class="perk"><div class="ico">🚿</div><h3>Ducha completa</h3><p>Con toalla, champú y gel. Sales directo a trabajar o a casa.</p></div>
+    <p class="lead sa-lead">Dos clientes como máximo, cada uno con su entrenador. Y una idea fija: que aquí <b>tu único esfuerzo sea entrenar.</b></p>
+    <div class="sa-grid">
+      <article class="sa-card sa-pies"><img src="fotos/detalle-barefoot.webp?v=1" alt="Calcetines de dedos y zapatillas minimalistas barefoot sobre un banco de madera" loading="lazy" decoding="async"><div class="sa-steps" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="sa-txt"><span>01</span><h3>Aquí se entra descalzo</h3><p>Lo de la calle se queda en la puerta. Más higiene para todos y unos pies más fuertes.</p></div></article>
+      <article class="sa-card sa-cafe"><img src="fotos/detalle-cafe.webp?v=1" alt="Taza de café de especialidad humeante junto a una cafetera profesional" loading="lazy" decoding="async"><div class="sa-steam" aria-hidden="true"><i></i><i></i><i></i></div><div class="sa-txt"><span>02</span><h3>El café, recién hecho</h3><p>De cafetera profesional. También agua, infusiones y chocolate puro. <b>Incluido.</b></p></div></article>
+      <article class="sa-card"><img src="fotos/detalle-toallas.webp?v=1" alt="Estantería con toallas azules y rosas para la sala y toallas blancas apiladas en el aseo" loading="lazy" decoding="async"><div class="sa-txt"><span>03</span><h3>Toalla limpia, cada día</h3><p>Lavada y repuesta a diario, en un aire filtrado y perfumado.</p></div></article>
+      <article class="sa-card"><img src="fotos/detalle-ducha.webp?v=1" alt="Aseo con ducha, toallas y productos de higiene" loading="lazy" decoding="async"><div class="sa-txt"><span>04</span><h3>Ducha completa. No traigas nada.</h3><p>Toalla grande, champú, gel, desodorante, higiene íntima, tampones y compresas. Sales directo a trabajar.</p></div></article>
     </div>
   </div></section>
 
