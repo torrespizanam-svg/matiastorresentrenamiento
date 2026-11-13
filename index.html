@@ -1094,6 +1094,13 @@ html,body{overflow-x:clip}
 #centro .ce-txt{border-left:0;padding-left:0}
 #centro .ce-title{margin-bottom:22px}
 @media(min-width:701px){#centro .ce-eb{white-space:nowrap;font-size:clamp(12px,1.55vw,22px);letter-spacing:.1em}}
+
+/* Frase del mural: dos líneas encuadradas */
+#centro .ce-mural figcaption.ce-claim{background:transparent;margin-top:-2px}
+#centro .ce-mural figcaption.ce-claim>.ce-c2{display:inline-flex;flex-direction:column;gap:.35em;max-width:100%;text-align:left}
+#centro .ce-c2 .ce-l1{white-space:nowrap}
+#centro .ce-c2 .ce-l2{display:flex;justify-content:space-between;gap:1.5em}
+@media(max-width:700px){#centro .ce-mural figcaption.ce-claim span{font-size:16px;letter-spacing:.03em}#centro .ce-c2 .ce-l1{white-space:normal}#centro .ce-c2 .ce-l2{flex-wrap:wrap;gap:.35em 1em}}
 </style>
 </head>
 <body>
@@ -1204,8 +1211,8 @@ html,body{overflow-x:clip}
       <p>Lo que nos cuentas, se queda aquí. Tú solo vienes a <strong class="ce-y">ponerte fuerte, perder peso o dejar atrás el dolor</strong>.</p>
     </div>
     <figure class="ce-mural" data-lb>
-      <img src="fotos/mural-w2.webp?v=2" width="2240" height="1223" alt="Mural de 9 por 4 metros a la entrada del centro: Matías Torres, entrenador personal, con tres siluetas entrenando sobre una explosión de color" loading="lazy" decoding="async">
-      <figcaption class="ce-claim"><span>Dentro de 10 años tendrás el cuerpo que construyas hoy…<br>O el que descuides hoy… Invierte en tu salud.</span></figcaption>
+      <img src="fotos/mural-w2c.webp?v=2" width="2240" height="1223" alt="Mural de 9 por 4 metros a la entrada del centro: Matías Torres, entrenador personal, con tres siluetas entrenando sobre una explosión de color" loading="lazy" decoding="async">
+      <figcaption class="ce-claim"><span class="ce-c2"><span class="ce-l1">Dentro de 10 años tendrás el cuerpo que construyas hoy…</span><span class="ce-l2"><span>O el que descuides hoy…</span><span>Invierte en tu salud…</span></span></span></figcaption>
     </figure>
     <p class="ce-hint">Pulsa en una foto para verla en grande.</p>
     <div class="gal">
