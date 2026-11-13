@@ -776,6 +776,60 @@
   .qz-hero-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:rgba(0,0,0,.45);border:1.5px solid var(--yellow);color:var(--yellow);border-radius:999px;padding:9px 16px;font:600 13.5px 'Poppins';cursor:pointer;backdrop-filter:blur(4px)}
   .qz-hero-link:hover{background:var(--yellow);color:#000}
   @media(prefers-reduced-motion:reduce){.qz-step.on,.qz-opt.sel,.qz-tips li{animation:none;opacity:1}.qz-bar{transition:none}}
+
+/* ===== Franja versión 1 + escudo C ===== */
+.fv1 .fv-fig img{height:auto;display:block}
+.fv1{--y:#FFD51F;--k:#0d0d0d;--fs:clamp(56px,7vw,104px);background:#0d0d0d;padding:6px 0;color:#0d0d0d;font-family:"Bebas Neue",sans-serif}
+
+.fv-gr{--m:url(fotos/desgaste.png);-webkit-mask-image:var(--m),var(--m),var(--m);mask-image:var(--m),var(--m),var(--m);
+  -webkit-mask-size:auto 100%,auto 130%,auto 85%;mask-size:auto 100%,auto 130%,auto 85%;
+  -webkit-mask-position:0 0,41% 30%,73% 80%;mask-position:0 0,41% 30%,73% 80%;
+  -webkit-mask-repeat:repeat;mask-repeat:repeat;
+  -webkit-mask-composite:source-in;mask-composite:intersect;filter:url(#fv-edge)}
+.fv-bar{height:12px;background:var(--k);-webkit-mask:url(fotos/barra.png) center/100% 100% no-repeat;mask:url(fotos/barra.png) center/100% 100% no-repeat}
+.fv-bar.fv-clean{-webkit-mask:none;mask:none;height:6px}
+
+
+.fv-st{position:relative;padding:28px 0;overflow:hidden}
+.fv-band{position:absolute;left:-24px;right:-24px;top:28px;bottom:28px;background:var(--y);filter:url(#fv-torn)}
+.fv-in{position:relative;max-width:1440px;margin:0 auto;padding:clamp(26px,3vw,40px) 16px;display:grid;grid-template-columns:clamp(100px,11vw,170px) minmax(0,1fr) clamp(100px,11vw,170px);align-items:center}
+.fv-fig{display:flex;justify-content:center}.fv-fig img{width:86%;max-width:160px}
+.fv-fig.fv-r img{transform:scaleX(-1)}
+.fv-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.fv-it{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 10px;position:relative}
+.fv-it+.fv-it::before{content:"";position:absolute;left:0;top:6%;bottom:6%;width:7px;background:var(--k);opacity:.85;
+  -webkit-mask:url(fotos/barra.png) center/100% 100% no-repeat;mask:url(fotos/barra.png) center/100% 100% no-repeat;transform:rotate(180deg)}
+.fv-n{height:calc(var(--fs)*.92);display:flex;align-items:flex-end;justify-content:center}
+.fv-n b{font-weight:400;font-size:var(--fs);line-height:.85;color:var(--k);white-space:nowrap;letter-spacing:.01em;transform:scaleX(1.1);display:inline-block}
+.fv-n b small{font-size:.58em;margin:0 .12em}
+.fv-it .fv-bar{width:78%;margin:14px auto 12px}
+.fv-l{font-size:clamp(18px,1.9vw,27px);line-height:1.02;letter-spacing:.05em;color:var(--k);text-transform:uppercase;transform:scaleX(1.06)}
+.fv-stars{font:clamp(12px,1.2vw,16px)/1 system-ui;letter-spacing:.2em;background:var(--k);color:#fff;padding:.45em .8em;margin:0 0 calc(var(--fs)*.12) 8px}
+
+.fv-fig img{width:100%;max-width:150px}.fv-fig.fv-r img{transform:none}
+@media(max-width:1100px){.fv-in{grid-template-columns:minmax(0,1fr)}.fv-fig{display:none}}
+@media(max-width:760px){
+  .fv1{--fs:clamp(52px,15vw,74px)}
+  .fv-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:30px}
+  .fv-it:nth-child(odd)::before{display:none}
+  .fv-l{font-size:19px}
+}
+
+@media(max-width:1100px){.fv-in{grid-template-columns:minmax(0,1fr)}.fv-fig{display:flex;margin-bottom:22px}.fv-fig.fv-r{display:none}.fv-fig img{max-width:110px}}
+.fv-it{padding:0 16px}@media(max-width:760px){.fv-stars{font-size:10px;padding:.4em .5em;letter-spacing:.12em}.fv-it{padding:0 8px}}
+
+/* Ajuste final: proporción y aire entre números y textos */
+@media(min-width:761px){.fv1{--fs:clamp(46px,5.4vw,86px)}}
+@media(min-width:1101px){.fv1 .fv-in{grid-template-columns:clamp(96px,9.5vw,150px) minmax(0,1fr) clamp(96px,9.5vw,150px);column-gap:clamp(8px,1.4vw,24px)}}
+.fv1 .fv-it{container-type:inline-size;padding:0 clamp(12px,1.7vw,28px)}
+.fv1 .fv-n{height:auto;min-height:calc(var(--fs)*.95);gap:.12em;max-width:100%}
+.fv1 .fv-n b{font-size:min(var(--fs),36cqw);transform:none;letter-spacing:.02em}
+.fv1 .fv-n b small{margin:0 .1em 0 .14em}
+.fv1 .fv-stars{flex:none;font-size:clamp(10px,.9vw,13px);padding:.4em .6em;letter-spacing:.14em}
+.fv1 .fv-it:nth-child(3) .fv-n b{font-size:min(var(--fs),29cqw)}
+.fv1 .fv-it .fv-bar{width:72%;margin:16px auto 14px}
+.fv1 .fv-l{font-size:clamp(15px,1.55vw,23px);line-height:1.14;letter-spacing:.06em;transform:none;text-wrap:balance;max-width:100%}
+@media(max-width:760px){.fv1 .fv-n b{font-size:min(var(--fs),30cqw)}.fv1 .fv-l{font-size:clamp(14px,4.2vw,18px)}.fv1 .fv-it .fv-bar{margin:12px auto 10px}}
 </style>
 <style>
 .fil-dark{background:var(--black);padding:96px 0}
@@ -976,24 +1030,26 @@
     <div class="hero-note">Gratis y sin compromiso · Máximo dos clientes en toda la sala, cada uno con su entrenador</div>
     <button type="button" class="qz-hero-link" data-qz-open>¿No sabes por dónde empezar? Haz el test en 1 minuto →</button>
   </div></div>
-  <div class="st2" data-mt aria-label="El centro en cifras">
-    <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute"><defs>
-      <filter id="st2-stamp" x="-6%" y="-20%" width="112%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="4" result="o"/><feDisplacementMap in="SourceGraphic" in2="o" scale="4" xChannelSelector="R" yChannelSelector="G" result="b"/><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="g"/><feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  10 0 0 0 -6.2" result="m"/><feComposite in="b" in2="m" operator="out"/></filter>
-      <filter id="st2-torn" x="-3%" y="-30%" width="106%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.09 0.02" numOctaves="4" seed="7" result="r"/><feDisplacementMap in="SourceGraphic" in2="r" scale="26" xChannelSelector="R" yChannelSelector="G"/></filter>
-      <filter id="st2-brush" x="-8%" y="-40%" width="116%" height="180%"><feTurbulence type="fractalNoise" baseFrequency="0.12 0.05" numOctaves="4" seed="2" result="r"/><feDisplacementMap in="SourceGraphic" in2="r" scale="12" xChannelSelector="R" yChannelSelector="G"/></filter>
-    </defs></svg>
-    <div class="st2-band" aria-hidden="true"></div>
-    <div class="st2-in">
-      <div class="st2-fig" aria-hidden="true"><img src="fotos/figuras-escudo.png" alt="" width="620" height="399" loading="lazy" decoding="async"></div>
-      <div class="st2-grid">
-        <div class="st2-it rv"><div class="st2-n"><b>1<small>a</small>1</b></div><i class="st2-mini" aria-hidden="true"></i><div class="st2-l">1 cliente por<br>1 entrenador personal</div></div>
-        <div class="st2-it rv" style="--d:.1s"><div class="st2-n"><b>25<small>años</small></b></div><i class="st2-mini" aria-hidden="true"></i><div class="st2-l">de experiencia<br>como entrenador</div></div>
-        <div class="st2-it rv" style="--d:.2s"><div class="st2-n"><b>134</b><span class="st2-stars" role="img" aria-label="5 estrellas"><span aria-hidden="true">★★★★★</span></span></div><i class="st2-mini" aria-hidden="true"></i><div class="st2-l">reseñas de 5 estrellas<br>en Google</div></div>
-        <div class="st2-it rv" style="--d:.3s"><div class="st2-n"><b>140<small>m²</small></b></div><i class="st2-mini" aria-hidden="true"></i><div class="st2-l">de sala,<br>solo para ti</div></div>
-        <div class="st2-bar dr" style="--d:.5s" aria-hidden="true"></div>
-      </div>
-      <div class="st2-fig r" aria-hidden="true"><img src="fotos/figuras-escudo.png" alt="" width="620" height="399" loading="lazy" decoding="async"></div>
-    </div>
+  <div class="fv1" aria-label="El centro en cifras">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="fv-edge" x="-5%" y="-10%" width="110%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="3" result="o"/><feDisplacementMap in="SourceGraphic" in2="o" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter>
+  <filter id="fv-torn" x="-3%" y="-30%" width="106%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.09 0.02" numOctaves="4" seed="7" result="r"/><feDisplacementMap in="SourceGraphic" in2="r" scale="26" xChannelSelector="R" yChannelSelector="G"/></filter>
+  <filter id="fv-torn2" x="-10%" y="-20%" width="120%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.07 0.03" numOctaves="4" seed="9" result="r"/><feDisplacementMap in="SourceGraphic" in2="r" scale="14" xChannelSelector="R" yChannelSelector="G"/></filter>
+  <symbol id="shield" viewBox="620 290 1030 1060"><path d="M1133 318 Q905 425 670 484 C660 640 676 780 720 880 C800 1070 960 1240 1133 1308 C1306 1240 1466 1070 1546 880 C1590 780 1606 640 1596 484 Q1361 425 1133 318 Z" fill="none" stroke="#FFD51F" stroke-width="36" stroke-linejoin="miter"/></symbol>
+  <mask id="fv-wear" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="1100"><rect width="1000" height="1100" fill="#fff"/><image href="fotos/agujeros.png" x="0" y="430" width="1000" height="400" preserveAspectRatio="none"/></mask>
+</defs></svg>
+<div class="fv-st fv-v1"><div class="fv-band"></div><div class="fv-in">
+  <div class="fv-fig"><img src="fotos/escudo-1a1.png" width="560" height="587" loading="lazy" decoding="async" alt="Escudo 1 a 1: un entrenador, un cliente"></div>
+  <div class="fv-grid">
+    <div class="fv-it"><div class="fv-n"><b class="fv-gr">1<small>a</small>1</b></div><i class="fv-bar"></i><div class="fv-l">1 cliente por<br>1 entrenador personal</div></div>
+    <div class="fv-it"><div class="fv-n"><b class="fv-gr">25<small>años</small></b></div><i class="fv-bar"></i><div class="fv-l">de experiencia como<br>entrenador personal</div></div>
+    <div class="fv-it"><div class="fv-n"><b class="fv-gr">134</b><span class="fv-stars">★★★★★</span></div><i class="fv-bar"></i><div class="fv-l">reseñas de 5 estrellas<br>en Google</div></div>
+    <div class="fv-it"><div class="fv-n"><b class="fv-gr">140<small>m²</small></b></div><i class="fv-bar"></i><div class="fv-l">de sala,<br>solo para ti</div></div>
+  </div>
+  <div class="fv-fig fv-r"><img src="fotos/escudo-1a1.png" width="560" height="587" loading="lazy" decoding="async" alt=""></div>
+</div></div>
+
+
   </div>
 
   <section class="pb2" data-mt><div class="wrap">
