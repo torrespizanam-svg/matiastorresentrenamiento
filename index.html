@@ -1043,6 +1043,29 @@
 45%{transform:translateY(-50px) translateX(-16px) scaleX(1.2) rotate(-12deg);opacity:.5}
 75%{transform:translateY(-120px) translateX(14px) scaleX(1.9) rotate(10deg);opacity:.25}
 100%{transform:translateY(-180px) translateX(-6px) scaleX(2.5) rotate(-4deg);opacity:0}}
+
+/* ===== Conoce el espacio (boceto) ===== */
+.ce-eb{display:inline-block;background:var(--yellow);color:#0d0d0d;font:700 clamp(15px,1.6vw,21px)/1.2 'Oswald',sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:.45em .8em;border-radius:4px;margin-bottom:14px}
+.ce-title{margin-top:6px}
+.ce-txt{max-width:920px;margin:14px 0 8px}
+.ce-txt p{font-size:clamp(17px,1.4vw,20px);line-height:1.65;color:#3a3a36;margin:0 0 16px}
+.ce-txt strong{color:#0d0d0d}
+.ce-hint{font-size:14px;color:var(--muted);margin:0 0 18px}
+.ce-mural{margin:0 0 22px;position:relative;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 24px 60px -30px rgba(0,0,0,.45);cursor:zoom-in}
+.ce-mural img{display:block;width:100%;height:auto;transform:scale(1.03);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.ce-mural:hover img{transform:scale(1)}
+.ce-mural figcaption{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;padding:14px 22px;background:var(--black);border-top:6px solid var(--yellow);color:#fff}
+.ce-mural figcaption b{font:600 clamp(17px,1.8vw,22px)/1.1 'Oswald',sans-serif;letter-spacing:.04em;text-transform:uppercase;color:var(--yellow)}
+.ce-mural figcaption span{font-size:15px;color:#d8d8d2}
+/* Versión B: texto a la izquierda, mural a la derecha */
+.ce-split{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(24px,3.5vw,56px);align-items:center;margin:10px 0 30px}
+.ce-split .ce-txt{margin:0}
+.ce-split .ce-mural{margin:0;transform:rotate(1.2deg);box-shadow:14px 14px 0 var(--yellow),0 24px 60px -30px rgba(0,0,0,.45)}
+.ce-split .ce-mural figcaption span{display:none}
+@media(max-width:900px){.ce-split{grid-template-columns:1fr}.ce-split .ce-mural{transform:none;box-shadow:8px 8px 0 var(--yellow)}}
+
+.ce-mural figcaption.ce-claim{display:flex;justify-content:center;border-top:0;margin-top:-1px;padding:clamp(14px,2vw,24px) 18px clamp(18px,2.4vw,28px);background:#000}
+.ce-mural figcaption.ce-claim span{display:inline;background:var(--yellow);color:#0d0d0d;font:700 clamp(17px,2.2vw,30px)/1.5 'Oswald',sans-serif;letter-spacing:.05em;text-transform:uppercase;text-align:center;padding:.12em .5em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 </style>
 </head>
 <body>
@@ -1144,9 +1167,19 @@
   </div></section>
 
   <section class="alt" id="centro"><div class="wrap">
-    <div class="eyebrow">El centro</div>
-    <h2 class="title">Conoce el espacio donde entrenas</h2>
-    <p class="lead">Una sala luminosa y privada, con material profesional para rehabilitación y trabajo de fuerza. Pulsa en una foto para verla en grande.</p>
+    <div class="ce-eb">Tu centro de entrenamiento personal en Orihuela</div>
+    <h2 class="title ce-title">Conoce el espacio donde entrenas</h2>
+    <div class="ce-txt">
+      <p><strong>Imagina entrenar donde nadie te mira, nadie te mete prisa y nadie te quita la máquina.</strong> Eso es esta sala.</p>
+      <p>Luminosa, privada y cuidada al detalle. Entras en calcetines o con calzado minimalista y todo está preparado antes de que llegues: material de gama alta para fuerza, trabajo funcional y readaptación de lesiones.</p>
+      <p>Pero lo que de verdad cuenta no es la sala. Es que aquí te llaman por tu nombre, se acuerdan de esa rodilla que te molestaba el martes y te dicen la verdad, aunque no sea lo que quieres oír. Como un buen amigo que, además, sabe muchísimo de entrenamiento.</p>
+      <p>Lo que nos cuentas, se queda aquí. Tú solo vienes a <strong>ponerte fuerte, perder peso o dejar atrás el dolor</strong>.</p>
+    </div>
+    <figure class="ce-mural" data-lb>
+      <img src="fotos/fondo-explosion.webp?v=2" width="2000" height="951" alt="Mural de 9 por 4 metros a la entrada del centro: Matías Torres, entrenador personal, con tres siluetas entrenando sobre una explosión de color" loading="lazy" decoding="async">
+      <figcaption class="ce-claim"><span>Te vamos a cuidar como cuidaríamos a los nuestros.</span></figcaption>
+    </figure>
+    <p class="ce-hint">Pulsa en una foto para verla en grande.</p>
     <div class="gal">
       <figure class="g1" data-lb><img data-img="g20" width="1100" height="480" alt="Rack con poleas y bancos de entrenamiento entre plantas" loading="lazy"><figcaption>Zona de fuerza y poleas</figcaption></figure>
       <figure class="g4" data-lb><img data-img="airbike" width="1200" height="1600" alt="Bicicleta de aire, cajón pliométrico y la pared de madera con el nombre Matías Torres" loading="lazy"><figcaption>Zona funcional</figcaption></figure>
