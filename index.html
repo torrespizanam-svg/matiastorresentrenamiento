@@ -1030,6 +1030,19 @@
 76%{transform:translateY(-270px) translateX(22px) scaleX(2.4) rotate(14deg);opacity:.28}
 100%{transform:translateY(-360px) translateX(-8px) scaleX(3.2) rotate(-6deg);opacity:0}}
 @media(prefers-reduced-motion:reduce){.sa-steam i{animation:none;opacity:0}}
+
+/* Vapor de fondo de la cafetera, más lento y suave */
+.sa-steam.sa-bg{top:4%;left:30%;width:36%;height:46%;filter:blur(9px);opacity:.75}
+.sa-steam.sa-bg i{width:26px;height:110px;animation-name:vaporBg;animation-duration:5.2s;animation-timing-function:ease-in-out}
+.sa-steam.sa-bg i:nth-child(2){animation-duration:5.8s;animation-delay:1s}
+.sa-steam.sa-bg i:nth-child(3){animation-duration:6.2s;animation-delay:2s}
+.sa-steam.sa-bg i:nth-child(4){animation-duration:5.5s;animation-delay:3s}
+.sa-steam.sa-bg i:nth-child(5){animation-duration:6s;animation-delay:4s}
+@keyframes vaporBg{0%{transform:translateY(20px) translateX(0) scaleX(.6) rotate(0);opacity:0}
+18%{opacity:.7}
+45%{transform:translateY(-50px) translateX(-16px) scaleX(1.2) rotate(-12deg);opacity:.5}
+75%{transform:translateY(-120px) translateX(14px) scaleX(1.9) rotate(10deg);opacity:.25}
+100%{transform:translateY(-180px) translateX(-6px) scaleX(2.5) rotate(-4deg);opacity:0}}
 </style>
 </head>
 <body>
@@ -1123,10 +1136,10 @@
     <h2 class="title">Los detalles que no encontrarás en un gimnasio</h2>
     <p class="lead sa-lead">Dos clientes como máximo, cada uno con su entrenador. Y una idea fija: que aquí <b>tu único esfuerzo sea entrenar.</b></p>
     <div class="sa-grid">
-      <article class="sa-card sa-pies"><img src="fotos/detalle-barefoot.webp?v=2" alt="Calcetines de pilates y zapatillas minimalistas barefoot sobre un banco de madera" loading="lazy" decoding="async"><div class="sa-steps" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="sa-no" role="img" aria-label="Prohibido el calzado de la calle"><img src="fotos/calle-sucia-hd.webp?v=1" alt="" loading="lazy" decoding="async"></div><div class="sa-txt"><span>01</span><h3>Aquí se entrena sin zapatos de la calle</h3><p>Lo de la calle se queda en la puerta. Más higiene para todos y unos pies más fuertes.</p></div></article>
-      <article class="sa-card sa-cafe"><img src="fotos/detalle-cafe.webp?v=2" alt="Taza de café de especialidad humeante junto a una cafetera profesional" loading="lazy" decoding="async"><div class="sa-steam" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="sa-txt"><span>02</span><h3>El café, recién hecho</h3><p>De cafetera profesional. También agua, infusiones y chocolate puro. <b>Incluido.</b></p></div></article>
-      <article class="sa-card"><img src="fotos/detalle-toallas-hd.webp?v=1" alt="Estantería con toallas azules y rosas para la sala y toallas blancas apiladas en el aseo" loading="lazy" decoding="async"><div class="sa-txt"><span>03</span><h3>Toalla limpia, cada día</h3><p>Lavada y repuesta a diario, en un aire filtrado y perfumado.</p></div></article>
-      <article class="sa-card"><img src="fotos/detalle-ducha-hd.webp?v=1" alt="Aseo con ducha, toallas y productos de higiene" loading="lazy" decoding="async"><div class="sa-txt"><span>04</span><h3>Ducha completa. No traigas nada.</h3><p>Toalla grande, champú, gel, desodorante, higiene íntima, tampones y compresas. Sales directo a trabajar.</p></div></article>
+      <article class="sa-card sa-pies"><img src="fotos/detalle-barefoot.webp?v=2" alt="Calcetines de pilates y zapatillas minimalistas barefoot sobre un banco de madera" loading="lazy" decoding="async"><div class="sa-steps" aria-hidden="true"><i></i><i></i><i></i><i></i></div><div class="sa-no" role="img" aria-label="Prohibido el calzado de la calle"><img src="fotos/calle-sucia-hd.webp?v=1" alt="" loading="lazy" decoding="async"></div><div class="sa-txt"><span>01</span><h3>Aquí se entrena sin zapatos de la calle</h3><p>Lo de la calle se queda en la puerta. Más higiene para todos y unos pies más fuertes y funcionales.</p></div></article>
+      <article class="sa-card sa-cafe"><img src="fotos/detalle-cafe.webp?v=2" alt="Taza de café de especialidad humeante junto a una cafetera profesional" loading="lazy" decoding="async"><div class="sa-steam sa-bg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="sa-steam" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="sa-txt"><span>02</span><h3>El café, recién hecho</h3><p>De cafetera profesional. También agua, infusiones y chocolate puro. <b>Incluido.</b></p></div></article>
+      <article class="sa-card"><img src="fotos/detalle-toallas-hd.webp?v=1" alt="Estantería con toallas azules y rosas para la sala y toallas blancas apiladas en el aseo" loading="lazy" decoding="async"><div class="sa-txt"><span>03</span><h3>Toalla limpia, cada día</h3><p>Lavada y repuesta a diario, en un espacio climatizado, filtrado y perfumado.</p></div></article>
+      <article class="sa-card"><img src="fotos/detalle-ducha-hd.webp?v=1" alt="Aseo con ducha, toallas y productos de higiene" loading="lazy" decoding="async"><div class="sa-txt"><span>04</span><h3>Ducha completa. No traigas nada.</h3><p>Toalla grande, champú, gel, desodorante e higiene íntima. Sales preparado para el trabajo o para descansar.</p></div></article>
     </div>
   </div></section>
 
