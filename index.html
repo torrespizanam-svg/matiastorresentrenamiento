@@ -1150,6 +1150,20 @@ html,body{overflow-x:clip}
 #centro .ce-c2 .ce-l2{display:flex;justify-content:space-between;gap:1.5em}
 @media(max-width:700px){#centro .ce-mural figcaption.ce-claim span{font-size:16px;letter-spacing:.03em}#centro .ce-c2 .ce-l1{white-space:normal}#centro .ce-c2 .ce-l2{flex-wrap:wrap;gap:.35em 1em}}
 </style>
+
+<style>
+.fm{background:#0d0d0d;color:#fff;position:relative;overflow:hidden}
+.fm-eye{font-family:'Bebas Neue',sans-serif;color:var(--yellow);font-size:clamp(32px,3.4vw,40px);letter-spacing:.16em;line-height:1;margin-bottom:16px;text-transform:uppercase}
+.fm-t{color:#fff;font-size:clamp(30px,4vw,46px);line-height:1.08}
+.fm-t span{color:var(--yellow)}
+.fm-p{color:#cfcfc9;max-width:700px;margin:20px 0 0;font-size:16.5px}
+.fm-d{padding:0 0 84px}
+.fm-d .fm-pano{margin:0;position:relative;border-top:4px solid var(--yellow)}
+.fm-d .fm-pano img{display:block;width:100%;height:auto}
+.fm-d .fm-pano::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(0deg,#0d0d0d,rgba(13,13,13,0))}
+.fm-d .fm-d-txt{margin-top:28px}.fm-d .fm-t{max-width:860px}
+.fm-d .fm-line{width:64px;height:3px;background:var(--yellow);margin:26px 0 0}
+</style>
 </head>
 <body>
 
@@ -1443,14 +1457,15 @@ html,body{overflow-x:clip}
     <div class="note"><b>Valores:</b> honestidad (te decimos lo que sí y lo que no podemos hacer), seguridad (siempre por delante de la intensidad) y constancia (los resultados se construyen semana a semana).</div>
   </div></section>
 
-  <section><div class="wrap split">
-    <figure class="fig"><img data-img="despacho" width="1600" height="1200" alt="Pared del despacho de Matías con todos sus diplomas y titulaciones enmarcados" loading="lazy"></figure>
-    <div>
-      <div class="eyebrow">Formación</div>
-      <h2 class="title">Una pared llena de formación</h2>
-      <p class="lead">En el despacho de Matías, los diplomas enmarcados recogen años de formación continua en entrenamiento personal, pilates, gimnasia y primeros auxilios. Aprender no se acaba nunca, y eso se nota en cada sesión.</p>
+  <section class="fm fm-d">
+    <figure class="fm-pano"><img src="fotos/despacho-panoramica.webp?v=1" width="1960" height="965" alt="Pared del despacho de Matías con todos sus diplomas y titulaciones enmarcados" loading="lazy"></figure>
+    <div class="wrap fm-d-txt">
+      <div class="fm-eye">Formación</div>
+      <h2 class="fm-t">Tú entrenas una hora.<br><span>Detrás hay una vida entera estudiando.</span></h2>
+      <p class="fm-p">Cada diploma de esta pared es estudio que tú no ves, pero notas. Matías nunca ha dejado de formarse en todo lo que rodea al entrenamiento personal: fuerza, movimiento, readaptación de lesiones, pilates y gimnasia, de la mano de referentes del sector como Felipe Isidro y Juan Ramón Heredia. Aprender no se acaba nunca, y eso se nota en cada sesión.</p>
+      <div class="fm-line"></div>
     </div>
-  </div></section>
+  </section>
 
   <section><div class="wrap">
     <div class="eyebrow">Las personas</div><h2 class="title">Conoce al equipo</h2>
