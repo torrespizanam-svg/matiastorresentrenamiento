@@ -1160,6 +1160,20 @@ html,body{overflow-x:clip}
 .fm-a .fm-p{max-width:580px}
 .fm-a .fm-line{width:64px;height:3px;background:var(--yellow);margin:26px 0 0}
 </style>
+<style>
+.fx{display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:56px 0}
+.fx-l{padding:0 38px 38px 38px}
+.fx-ph{margin:0;border-radius:14px;overflow:hidden;box-shadow:12px 12px 0 var(--yellow)}
+.fx-ph img{display:block;width:100%;height:auto}
+.fx-r{padding:0 max(24px,calc((100vw - 1120px)/2)) 38px 32px}
+.fx-r .fm-p{max-width:560px}
+.fx .fm-line{width:64px;height:3px;background:var(--yellow);margin:26px 0 0}
+.fx-e .fx-big{font-family:'Bebas Neue',sans-serif;color:var(--yellow);text-transform:uppercase;font-size:clamp(56px,7vw,112px);line-height:.9;letter-spacing:.06em;margin:0 0 18px}
+@media(max-width:820px){.fx{grid-template-columns:1fr;padding:44px 0}.fx-l{padding:0 16px 30px}.fx-r{padding:0 20px}}
+.fx-gw-unused{font-family:'Bebas Neue',sans-serif;color:var(--yellow);text-transform:uppercase;font-size:clamp(38px,4.6vw,56px);line-height:1;letter-spacing:.05em;margin:0 0 14px}
+.fx-gw .fv-gr{display:inline-block;padding:.04em .02em;-webkit-mask-image:var(--m);mask-image:var(--m);-webkit-mask-size:auto 150%;mask-size:auto 150%;-webkit-mask-position:30% 40%;mask-position:30% 40%;-webkit-mask-composite:source-over;mask-composite:add;-webkit-text-stroke:.02em var(--yellow)}
+.fx-logo{margin:0 0 18px;line-height:0}.fx-logo img{height:clamp(44px,5.4vw,68px);width:auto;display:block}
+</style>
 </head>
 <body>
 
@@ -1453,15 +1467,10 @@ html,body{overflow-x:clip}
     <div class="note"><b>Valores:</b> honestidad (te decimos lo que sí y lo que no podemos hacer), seguridad (siempre por delante de la intensidad) y constancia (los resultados se construyen semana a semana).</div>
   </div></section>
 
-  <section class="fm fm-a"><div class="wrap split">
-    <figure class="fig"><img data-img="despacho" width="1600" height="1200" alt="Pared del despacho de Matías con todos sus diplomas y titulaciones enmarcados" loading="lazy"></figure>
-    <div>
-      <div class="fm-eye">Formación</div>
-      <h2 class="fm-t">Tú entrenas una hora.<br><span>Detrás hay una vida entera estudiando.</span></h2>
-      <p class="fm-p">Cada diploma de esta pared es estudio que tú no ves, pero notas. Matías nunca ha dejado de formarse en todo lo que rodea al entrenamiento personal: fuerza, movimiento, readaptación de lesiones, pilates y gimnasia, de la mano de referentes del sector como Felipe Isidro y Juan Ramón Heredia. Aprender no se acaba nunca, y eso se nota en cada sesión.</p>
-      <div class="fm-line"></div>
-    </div>
-  </div></section>
+  <section class="fm fx fx-f">
+    <div class="fx-l"><figure class="fx-ph"><img data-img="despacho" width="1600" height="1200" alt="Pared del despacho de Matías con todos sus diplomas y titulaciones enmarcados" loading="lazy"></figure></div>
+    <div class="fx-r"><h3 class="fx-logo"><img src="fotos/formacion-escudo.webp?v=1" width="1022" height="240" alt="Formación"></h3><h2 class="fm-t">Tú entrenas una hora.<br><span>Detrás hay una vida entera estudiando.</span></h2><p class="fm-p">Cada diploma de esta pared es estudio que tú no ves, pero notas. Matías nunca ha dejado de formarse en todo lo que rodea al entrenamiento personal: fuerza, movimiento, readaptación de lesiones, pilates y gimnasia, de la mano de referentes del sector como Felipe Isidro y Juan Ramón Heredia. Aprender no se acaba nunca, y eso se nota en cada sesión.</p><div class="fm-line"></div></div>
+  </section>
 
   <section><div class="wrap">
     <div class="eyebrow">Las personas</div><h2 class="title">Conoce al equipo</h2>
