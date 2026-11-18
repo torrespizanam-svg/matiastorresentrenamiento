@@ -1996,7 +1996,7 @@ html,body{overflow-x:clip}
 
 <script id="fotos">
 /* Fotos del centro (WebP incrustado: la web sigue siendo un único archivo) */
-const FOTOS={"matias": "fotos/matias.webp?v=6", "sala": "fotos/sala.webp?v=7", "g20": "fotos/g20.webp?v=6", "prensa": "fotos/prensa.webp?v=6", "fitmaker": "fotos/fitmaker.webp?v=6", "airbike": "fotos/airbike.webp?v=7", "despacho": "fotos/despacho.webp?v=7", "polea": "fotos/sesion-polea.webp?v=1", "recepcion": "fotos/recepcion.webp?v=1"};
+const FOTOS={"matias": "fotos/matias.webp?v=6", "sala": "fotos/sala.webp?v=7", "g20": "fotos/g20.webp?v=6", "prensa": "fotos/prensa.webp?v=6", "fitmaker": "fotos/fitmaker.webp?v=6", "airbike": "fotos/airbike.webp?v=7", "despacho": "fotos/despacho.webp?v=8", "polea": "fotos/sesion-polea.webp?v=1", "recepcion": "fotos/recepcion.webp?v=1"};
 document.querySelectorAll("img[data-img]").forEach(i=>{i.src=FOTOS[i.dataset.img]});
 document.querySelectorAll("[data-bg]").forEach(d=>{d.style.backgroundImage="url("+FOTOS[d.dataset.bg]+")"});
 /* vídeos de portada: sin sonido, en bucle y a la vez; la foto de la sala queda debajo mientras cargan */
