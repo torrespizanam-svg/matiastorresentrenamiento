@@ -61,7 +61,7 @@ def word(w,gap=22,space=70):
     for ch in w:
         if ch==' ': parts.append(('sp',space)); W+=space; continue
         base={'Á':'A','É':'E','Í':'I','Ó':'O','Ú':'U'}.get(ch,ch)
-        g=G[base]; parts.append((ch,g)); W+=g.width+gap
+        g=G[base]; parts.append((ch,g)); W+=g.width+gap-(14 if base=='E' else 0)
     W-=gap
     out=Image.new('RGBA',(W,H+acc_top+60),(0,0,0,0)); x=0
     for ch,g in parts:
@@ -70,7 +70,7 @@ def word(w,gap=22,space=70):
         if ch=='.': y=acc_top+H-g.height-8
         out.paste(g,(x,y),g)
         if ch in 'ÁÉÍÓÚ': out.paste(acc,(x+g.width//2-acc.width//2+10,0),acc)
-        x+=g.width+gap
+        x+=g.width+gap-(14 if ch in 'EÉ' else 0)
     a=np.array(out)[...,3]; ys=np.where(a.max(1)>0)[0]; out=out.crop((0,ys[0],W,ys[-1]+1))
     return out
 def colorize(im,rgb):
@@ -83,3 +83,16 @@ if __name__=='__main__':
     bg=Image.new('RGB',(Wm+40,Ht+40),(13,13,13)); y=20
     for r in rows: bg.paste(colorize(r,(255,230,0)),(20,y),r); y+=r.height+40
     bg.resize((bg.width//3,bg.height//3)).save('preview.png')
+# V: left diagonal of M + its mirror
+_ma=arr(crop(0,300))
+for y in range(H):
+    gy=y+Y0; xc=int(128+(162-128)*(gy-115)/(500-115)); _ma[y,xc:,3]=0
+_ma[:, :72, 3]=0
+_d=trim(img(_ma)); _m=_d.transpose(Image.FLIP_LEFT_RIGHT)
+_v=Image.new('RGBA',(_d.width*2-26,H),(0,0,0,0)); _v.paste(_d,(0,0),_d); _v.paste(_m,(_d.width-26,0),_m); G['V']=trim(_v)
+# G: C + inner spur from E middle arm
+_c=G['C']; _g=Image.new('RGBA',(_c.width,H),(0,0,0,0)); _g.paste(_c,(0,0),_c)
+_arm=src.crop((2440,262,2560,338)).resize((int(_c.width*0.55),80))
+_g.paste(_arm,(int(_c.width*0.45),int(H*0.47)),_arm)
+_st=trim(crop(1446,1534,300,480)).resize((int(_c.width*0.34),int(H*0.36)))
+_g.paste(_st,(_c.width-_st.width,int(H*0.50)),_st); G['G']=trim(_g)
