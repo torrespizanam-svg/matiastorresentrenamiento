@@ -156,15 +156,22 @@
   .team{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:38px}
   @media(max-width:900px){.team{grid-template-columns:1fr 1fr}}
   @media(max-width:600px){.team{grid-template-columns:1fr}}
-  .member{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 3px 0 var(--yellow);display:flex;flex-direction:column}
+  .member{background:#0d0d0d;border:1px solid #232323;border-top:4px solid var(--yellow);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
   .ph{aspect-ratio:4/4.4;background:linear-gradient(160deg,#242424,#0d0d0d);position:relative;display:grid;place-items:center}
   .ph b{font:700 96px 'Oswald';color:var(--yellow);line-height:1}
   .ph i{position:absolute;bottom:12px;left:14px;font-size:11px;color:#8a8a82;font-style:normal}
-  .member .body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
-  .member h3{font-size:24px}
-  .member .mname{background:var(--black,#0d0d0d);color:var(--yellow);font:600 22px/1 'Oswald';letter-spacing:.06em;text-transform:uppercase;text-align:center;padding:16px 12px;border-bottom:3px solid var(--yellow);margin:0}
+  .member .body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .member h3{font-size:26px;color:var(--yellow);white-space:nowrap}
+  .member .role{color:#fff;opacity:.85}
   .role{color:#a88a00;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
-  .member p{margin:0;color:var(--muted);font-size:14.5px}
+  .member p{margin:0;color:#bdbdb5;font-size:14.5px;line-height:1.6}
+  .member .stats{display:flex;flex-wrap:wrap;gap:6px}
+  .member .stats span{border:1px solid #2e2e2e;background:#181818;border-radius:99px;padding:3px 10px;font-size:11.5px;color:#cfcfc8}
+  .member .stats b{color:var(--yellow);font:600 13px 'Oswald';margin-right:2px}
+  .member .cv{margin:0;padding:0;list-style:none;font-size:13.5px;line-height:1.45}
+  .member .cv li{padding:7px 0 7px 18px;position:relative;border-bottom:1px solid #222;color:#e6e6e0}
+  .member .cv li:before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;background:var(--yellow);transform:rotate(45deg)}
+  .member .btn{margin-top:auto;text-align:center;padding:13px 10px;font-size:12.5px}
   .chips{display:flex;gap:6px;flex-wrap:wrap}
   .chips span{border:1.5px dashed var(--line);border-radius:99px;padding:3px 11px;font-size:12px;color:var(--muted)}
   .todo{font-style:italic}
@@ -1461,31 +1468,50 @@ html,body{overflow-x:clip}
     <p class="lead">Tres entrenadores, un mismo método. Por la mañana, uno a uno. Por la tarde, un entrenador para dos clientes.</p>
     <div class="team">
       <article class="member">
-        <h3 class="mname">Matías Torres</h3>
-        <div class="ph ph-img"><img src="fotos/equipo-matias.webp?v=7" width="780" height="975" alt="Matías Torres, fundador y entrenador personal, sonriendo con el polo del centro" loading="lazy" decoding="async"></div>
+        <div class="ph ph-img"><img src="fotos/equipo-matias.webp?v=8" width="800" height="1000" alt="Matías Torres, fundador y entrenador personal, sonriendo en la sala con el polo del centro" loading="lazy" decoding="async"></div>
         <div class="body">
           <span class="role">Fundador · Entrenador personal</span>
-          <p>25 años como entrenador personal, 15 de ellos en Orihuela, donde fue pionero del entrenamiento personal. Especialista en readaptación de lesiones, rehabilitación y alto rendimiento. Profesor de pilates avanzado, con más de 20 titulaciones.</p>
-          <div class="chips"><span>Readaptación de lesiones</span><span>Alto rendimiento</span><span>Pilates</span></div>
-          <a class="btn dark" style="text-align:center;margin-top:auto" href="#reservar">Reservar valoración con Matías</a>
+          <h3>Matías Torres</h3>
+          <div class="stats"><span><b>25</b> años</span><span><b>15</b> en Orihuela</span><span><b>32</b> titulaciones</span><span><b>+120</b> preparaciones</span></div>
+          <p>Pionero del entrenamiento personal en Orihuela. Deportistas de alto rendimiento, rehabilitación, embarazo y posparto: lo ha entrenado todo.</p>
+          <ul class="cv">
+            <li>Técnico Superior y Coach en Entrenamiento Personal</li>
+            <li>Rehabilitación y readaptación de lesiones</li>
+            <li>Fuerza, musculación e hipertrofia</li>
+            <li>Embarazo y posparto, mayores y obesidad</li>
+            <li>Nutrición deportiva y biomecánica aplicada</li>
+          </ul>
+          <a class="btn" href="#reservar">Reservar valoración con Matías</a>
         </div>
       </article>
       <article class="member">
-        <h3 class="mname">Silvia Lorenzo</h3>
-        <div class="ph ph-img"><img src="fotos/equipo-silvia.webp?v=7" width="649" height="811" alt="Silvia Lorenzo, entrenadora personal del centro, sonriendo con la camiseta del escudo" loading="lazy" decoding="async"></div>
+        <div class="ph ph-img"><img src="fotos/equipo-silvia.webp?v=8" width="800" height="1000" alt="Silvia Lorenzo, entrenadora personal del centro, sonriendo en la sala" loading="lazy" decoding="async"></div>
         <div class="body">
           <span class="role">Entrenadora personal · Mañanas</span>
-          <p>Te entrena por las mañanas y se encarga de que todo funcione: tus horarios, tus citas y cada detalle de la sala. Cercana, exigente y pendiente de ti.</p>
-          <div class="chips"><span>Entrenamiento personal</span><span>Mañanas</span></div>
+          <h3>Silvia Lorenzo</h3>
+          <p>Te entrena por las mañanas y se encarga de que todo funcione al milímetro: tus horarios, tus citas y cada detalle de la sala. Cercana, exigente y pendiente de ti.</p>
+          <ul class="cv">
+            <li>Más de 25 años de experiencia en el sector</li>
+            <li>Entrenadora personal</li>
+            <li>Entrenamiento en patologías</li>
+            <li>Coreógrafa y monitora de fitness</li>
+            <li>Formada por Matías: mismo método, misma atención uno a uno</li>
+          </ul>
         </div>
       </article>
       <article class="member">
-        <h3 class="mname">Alex Rivera</h3>
         <div class="ph ph-logo"><img src="escudo.webp?v=6" width="400" height="384" alt="" loading="lazy" decoding="async"></div>
         <div class="body">
           <span class="role">Entrenador personal · Tardes</span>
-          <p>Empezó como cliente del centro y hoy entrena contigo por las tardes. Formado por Matías, con el mismo método y la misma atención personal.</p>
-          <div class="chips"><span>Entrenamiento personal</span><span>Tardes</span></div>
+          <h3>Alejandro Rivera</h3>
+          <p>Te entrena por las tardes. Atento, empatiza muchísimo con la gente y está pendiente de cada detalle. Formado por Matías, con el mismo método y la misma atención.</p>
+          <ul class="cv">
+            <li>Entrenador personal</li>
+            <li>Entrenamiento en patologías</li>
+            <li>Entrenamiento de alto rendimiento</li>
+            <li>Masajista deportivo de ciclistas profesionales</li>
+            <li>Técnico en radiología</li>
+          </ul>
         </div>
       </article>
     </div>
