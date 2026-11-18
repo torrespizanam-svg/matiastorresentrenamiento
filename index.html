@@ -1183,7 +1183,7 @@ html,body{overflow-x:clip}
 .phead h1.esc-mix img.acc{height:1.007em}
 #centro .ce-esc img{display:inline-block;height:.95em;width:auto;vertical-align:baseline;margin-left:.06em}
 .phead h1.esc-big{font-size:clamp(40px,5.8vw,66px)}
-.member .cv-air li{padding:13px 0 13px 18px}.member .cv-air li:before{top:20px}
+.member .cv-air{display:flex;flex-direction:column}.member .cv-air li{flex:1;display:flex;align-items:center;padding:9px 0 9px 18px}.member .cv-air li:before{top:50%;margin-top:-4px}
 </style>
 </head>
 <body>
@@ -2967,6 +2967,10 @@ new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting
  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
  if("IntersectionObserver" in window)new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){v.preload="auto";v.play().catch(()=>{})}else v.pause()}),{threshold:.25}).observe(v);
 })();
+</script>
+<script>
+(function(){function eq(){var a=document.querySelector('.member .cv-air');if(!a)return;var cards=[...document.querySelectorAll('.member')];var s=null;cards.forEach(function(c){var h=c.querySelector('h3');if(h&&/Silvia/.test(h.textContent))s=c.querySelector('.cv')});a.style.minHeight='';if(!s||window.innerWidth<=600)return;var d=s.getBoundingClientRect().bottom-a.getBoundingClientRect().top;if(d>0)a.style.minHeight=d+'px'}
+window.addEventListener('load',eq);window.addEventListener('resize',eq);window.addEventListener('hashchange',function(){setTimeout(eq,60)});document.addEventListener('click',function(){setTimeout(eq,120)});setTimeout(eq,400)})();
 </script>
 </body>
 </html>
