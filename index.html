@@ -343,13 +343,13 @@
 
   .hero-eyebrow{font:600 12px/1 'Poppins',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:18px;text-shadow:0 1px 10px rgba(0,0,0,.6)}
   .hero h1{margin-bottom:12px}
-  .hero-proof{display:inline-flex;align-items:center;gap:8px;font:600 16px/1.3 'Poppins',sans-serif;text-transform:none;letter-spacing:0;color:#fff;text-decoration:none;margin:0 auto;max-width:none}
-  .hero-proof .stars{color:var(--yellow);letter-spacing:.08em;font-size:17px}
+  .hero-proof{display:inline-flex;align-items:center;gap:8px;font:600 clamp(24px,4.2vw,32px)/1.3 'Poppins',sans-serif;text-transform:none;letter-spacing:0;color:#fff;text-decoration:none;margin:0 auto;max-width:none;flex-wrap:wrap;justify-content:center;gap:12px}
+  .hero-proof .stars{color:var(--yellow);letter-spacing:.08em;font-size:clamp(26px,4.5vw,34px)}
   .hero-proof:hover{text-decoration:underline;text-underline-offset:4px}
   .hero p.hero-sub{max-width:560px;font-size:18px;line-height:1.6;margin:20px auto 32px}
   .hero .btn-hero{font-size:15px;padding:17px 34px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-  .hero-note{color:rgba(255,255,255,.82);font-size:13.5px;margin-top:12px;text-shadow:0 1px 10px rgba(0,0,0,.7)}
-  .qz-hero-link{background:none!important;border:0!important;color:rgba(255,255,255,.9)!important;padding:4px 2px!important;margin-top:18px!important;text-decoration:underline;text-underline-offset:4px;backdrop-filter:none!important;font-weight:500!important}
+  .hero-note{color:rgba(255,255,255,.82);font-size:16px;margin-top:12px;text-shadow:0 1px 10px rgba(0,0,0,.7)}
+  .qz-hero-link{background:none!important;border:0!important;color:rgba(255,255,255,.9)!important;padding:4px 2px!important;margin-top:18px!important;text-decoration:underline;text-underline-offset:4px;backdrop-filter:none!important;font-weight:500!important;font-size:15.5px!important}
   .qz-hero-link:hover{color:var(--yellow)!important}
 
   .lead.big{font-size:18px;max-width:720px}
@@ -1199,7 +1199,7 @@ html,body{overflow-x:clip}
     <button class="burger" id="burger" aria-label="Menú">☰</button>
     <nav id="nav">
       <a href="#sobre" data-v="sobre">El centro</a>
-      <a href="#metodologia" data-v="metodologia">Cómo trabajamos</a>
+      <a href="#metodologia" data-v="metodologia">Cómo trabajo</a>
       <div class="dd">
         <a href="#servicios" data-v="servicios">Servicios</a>
         <div class="ddm">
@@ -1221,12 +1221,11 @@ html,body{overflow-x:clip}
 <!-- ============ INICIO ============ -->
 <div class="view on" id="v-inicio">
   <div class="hero"><div class="hero-bg" data-bg="sala" role="img" aria-label="Sala de entrenamiento del centro Matías Torres en Orihuela"><video class="hero-video hv-l" data-v="chica" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture></video><video class="hero-video hv-r" data-v="centro" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture></video></div><div class="wrap">
-    <div class="hero-eyebrow">Entrenamiento personal en Orihuela</div>
     <h1>Solo tú y tu entrenador.</h1>
     <a class="hero-proof" href="https://search.google.com/local/reviews?placeid=ChIJwRFDZdWZYw0RTnxexASuOUs" target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 en Google · 134 reseñas</a>
-    <p class="hero-sub">Sin esperas ni nadie mirándote. Entrenas en calcetines, en una sala impecable, y al acabar te esperan la ducha y un café recién hecho.</p>
+    <p class="hero-sub">Sin colas para las máquinas, sin esperas ni nadie mirándote. Entrenas en calcetines, en una sala impecable, y al acabar te esperan la ducha y un café recién hecho.</p>
     <div class="cta"><a class="btn btn-hero" href="#reservar">Reserva tu valoración gratis</a></div>
-    <div class="hero-note">Gratis y sin compromiso · Máximo dos clientes en toda la sala, cada uno con su entrenador</div>
+    <div class="hero-note">Gratis y sin compromiso</div>
     <button type="button" class="qz-hero-link" data-qz-open>¿No sabes por dónde empezar? Haz el test en 1 minuto →</button>
   </div></div>
   <div class="fv1" aria-label="El centro en cifras">
@@ -2123,7 +2122,7 @@ const IC={
 
 /* ============ router ============ */
 const VIEWS=["inicio","sobre","equipo","metodologia","servicios","programas","faq","reservar","contacto"];
-const PAGE_TITLES={sobre:"El centro · Matías Torres, entrenador personal en Orihuela",equipo:"Equipo · Matías Torres, entrenador personal en Orihuela",metodologia:"Cómo trabajamos · Matías Torres, entrenador personal en Orihuela",servicios:"Servicios · Entrenamiento personal en Orihuela · Matías Torres",programas:"Programas · Entrenamiento personal en Orihuela · Matías Torres",faq:"Preguntas frecuentes · Matías Torres, entrenador personal en Orihuela",reservar:"Reserva tu valoración gratis · Matías Torres, Orihuela",contacto:"Contacto · Matías Torres, entrenador personal en Orihuela"};
+const PAGE_TITLES={sobre:"El centro · Matías Torres, entrenador personal en Orihuela",equipo:"Equipo · Matías Torres, entrenador personal en Orihuela",metodologia:"Cómo trabajo · Matías Torres, entrenador personal en Orihuela",servicios:"Servicios · Entrenamiento personal en Orihuela · Matías Torres",programas:"Programas · Entrenamiento personal en Orihuela · Matías Torres",faq:"Preguntas frecuentes · Matías Torres, entrenador personal en Orihuela",reservar:"Reserva tu valoración gratis · Matías Torres, Orihuela",contacto:"Contacto · Matías Torres, entrenador personal en Orihuela"};
 const ADMIN=["clientes","citas","solicitudes","test","correo","contabilidad"];
 const TITLES={clientes:"Clientes",citas:"Citas",solicitudes:"Solicitudes de cita",test:"Contactos del test",correo:"Correo Electrónico",contabilidad:"Contabilidad"};
 
