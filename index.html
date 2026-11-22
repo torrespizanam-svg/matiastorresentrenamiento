@@ -1293,7 +1293,7 @@ html,body{overflow-x:clip}
   <section class="pb2 pb3" data-mt>
     <img class="pb3-vname" src="fotos/nombre-vertical.webp?v=2" width="293" height="1600" alt="" aria-hidden="true" loading="lazy">
     <div class="wrap">
-    <img class="pb3-fig rv" src="fotos/figuras-escudo-hd.webp" width="1159" height="746" alt="" aria-hidden="true" loading="lazy">
+    <img class="pb3-shield rv" src="fotos/escudo-1a1-scuderia.webp?v=2" width="600" height="623" alt="Escudo 1 a 1 de Matías Torres: un entrenador, un cliente" loading="lazy">
     <p class="pb2-eb rv">¿Te suena?</p>
     <h2 class="pb2-h">
       <span class="pb2-x rv" style="--d:.15s">Pagas la cuota.<i class="dr" style="--d:1.6s" aria-hidden="true"></i></span>
@@ -3218,6 +3218,10 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 /* halo negro difuminado alrededor del escudo 1 a 1 de la franja */
 .fv-fig{overflow:visible}
 .fv-fig img{filter:drop-shadow(0 0 4px rgba(0,0,0,.95)) drop-shadow(0 0 18px rgba(0,0,0,.85)) drop-shadow(0 0 40px rgba(0,0,0,.6)) drop-shadow(0 0 70px rgba(0,0,0,.35))}
+
+/* escudo 1 a 1 grande y centrado en ¿Te suena? */
+.pb3-shield{display:block;width:clamp(200px,22vw,320px);height:auto;margin:0 auto clamp(48px,5vw,72px);filter:drop-shadow(0 0 30px rgba(255,213,31,.28)) drop-shadow(0 24px 40px rgba(0,0,0,.6))}
+@media(max-width:900px){.pb3-shield{width:200px;margin-bottom:40px}}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 </body>
