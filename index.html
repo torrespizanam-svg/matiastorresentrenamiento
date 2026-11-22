@@ -1202,7 +1202,7 @@ html,body{overflow-x:clip}
     <nav id="nav">
       <a href="#sobre" data-v="sobre">El centro</a>
       <a href="#metodologia" data-v="metodologia">Cómo trabajo</a>
-      <div class="dd">
+      <div class="dd nav-off">
         <a href="#servicios" data-v="servicios">Servicios</a>
         <div class="ddm">
           <a href="#servicios">Todos los servicios</a>
@@ -1214,7 +1214,7 @@ html,body{overflow-x:clip}
         </div>
       </div>
       <a href="#opiniones" data-v="opiniones">Opiniones</a>
-      <a href="#faq" data-v="faq">Preguntas</a>
+      <a href="#faq" data-v="faq" class="nav-off">Preguntas</a>
       <a href="#reservar" data-v="reservar" class="cita">Primera valoración</a>
     </nav>
   </div>
@@ -1223,13 +1223,13 @@ html,body{overflow-x:clip}
 <!-- ============ INICIO ============ -->
 <div class="view on" id="v-inicio">
   <div class="hero"><div class="hero-bg" data-bg="sala" role="img" aria-label="Sala de entrenamiento del centro Matías Torres en Orihuela"><video class="hero-video hv-l" data-v="chica" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture></video><video class="hero-video hv-r" data-v="centro" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture></video></div><div class="wrap">
+    <div class="hero-eyebrow">Entrenamiento personal · Orihuela</div>
     <h1>Solo tú y tu entrenador.</h1>
-    <a class="hero-proof" href="https://search.google.com/local/reviews?placeid=ChIJwRFDZdWZYw0RTnxexASuOUs" target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span> 5,0 en Google · 134 reseñas</a>
-    <p class="hero-sub">Pierde grasa, gana músculo y cambia tu cuerpo. Entras, te llaman por tu nombre y tu café ya está en marcha. Durante una hora nadie te mira, nadie te espera y nadie te mete prisa. <b>Tu único esfuerzo es entrenar.</b></p>
+    <p class="hero-sub">Entras y te llaman por tu nombre. Tu café ya está en marcha. Durante una hora, nadie te mira ni te mete prisa.</p>
     <div class="cta"><a class="btn btn-hero" href="#reservar">Solicita tu primera valoración</a></div>
-    <div class="hero-note">Invitación de la casa · Sin compromiso</div>
+    <div class="hero-note">Invitación de la casa</div>
     <div class="hero-note hero-huecos" id="heroHuecos" hidden></div>
-    <button type="button" class="qz-hero-link" data-qz-open>¿No sabes por dónde empezar? Haz el test en 1 minuto →</button>
+    <a class="hero-proof" href="https://search.google.com/local/reviews?placeid=ChIJwRFDZdWZYw0RTnxexASuOUs" target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★</span> 5,0 · 134 reseñas en Google</a>
   </div></div>
   <div class="fv1" aria-label="El centro en cifras">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -2045,19 +2045,30 @@ html,body{overflow-x:clip}
 const FOTOS={"matias": "fotos/matias.webp?v=6", "sala": "fotos/sala.webp?v=7", "g20": "fotos/g20.webp?v=6", "prensa": "fotos/prensa.webp?v=6", "fitmaker": "fotos/fitmaker.webp?v=6", "airbike": "fotos/airbike.webp?v=7", "despacho": "fotos/despacho.webp?v=8", "polea": "fotos/sesion-polea.webp?v=1", "recepcion": "fotos/recepcion.webp?v=1"};
 document.querySelectorAll("img[data-img]").forEach(i=>{i.src=FOTOS[i.dataset.img]});
 document.querySelectorAll("[data-bg]").forEach(d=>{d.style.backgroundImage="url("+FOTOS[d.dataset.bg]+")"});
-/* vídeos de portada: sin sonido, en bucle y a la vez; la foto de la sala queda debajo mientras cargan */
+/* vídeos de portada: se alternan en el mismo sitio con un fundido suave; la foto de la sala queda debajo mientras cargan */
 (function(){
   const vs=[...document.querySelectorAll(".hero-video")]; if(!vs.length) return;
   const c=navigator.connection||{};
   if(matchMedia("(prefers-reduced-motion: reduce)").matches||c.saveData) return;
+  const TURNO=8000;
   const jugar=v=>{const p=v.play(); if(p&&p.catch) p.catch(()=>{});};
   vs.forEach(v=>{
     const n=v.dataset.v;
-    v.addEventListener("playing",()=>v.classList.add("ready"));
-    v.poster="video/portada-"+n+".jpg?v=6"; v.src="video/portada-"+n+".mp4?v=6"; v.muted=true; v.preload="auto"; v.load(); jugar(v);
+    v.poster="video/portada-"+n+".jpg?v=6"; v.src="video/portada-"+n+".mp4?v=6"; v.muted=true; v.preload="auto"; v.load();
   });
+  /* en el vídeo de la sala, saltamos el tramo del vinilo de la cristalera (se lee al revés desde dentro) */
+  const sala=vs.find(v=>v.dataset.v==="centro");
+  if(sala) sala.addEventListener("timeupdate",()=>{if(sala.currentTime>5.6&&sala.currentTime<7.9) sala.currentTime=7.9;});
+  let i=0, t=null, visible=true;
+  const mostrar=k=>{vs.forEach((v,j)=>{if(j===k){jugar(v); v.classList.add("on");} else {v.classList.remove("on"); setTimeout(()=>{if(!v.classList.contains("on")) v.pause();},1700);}});};
+  const arrancar=()=>{clearInterval(t); mostrar(i); t=setInterval(()=>{i=(i+1)%vs.length; mostrar(i);},TURNO);};
+  vs[0].addEventListener("playing",function f(){vs[0].removeEventListener("playing",f);},{once:true});
+  arrancar();
   /* pausa cuando la portada no se ve, para no gastar batería ni datos */
-  if("IntersectionObserver" in window) new IntersectionObserver(e=>{e.forEach(x=>{vs.forEach(v=>x.isIntersecting?jugar(v):v.pause())})}).observe(document.querySelector(".hero"));
+  if("IntersectionObserver" in window) new IntersectionObserver(e=>{e.forEach(x=>{
+    if(x.isIntersecting&&!visible){visible=true; arrancar();}
+    else if(!x.isIntersecting&&visible){visible=false; clearInterval(t); vs.forEach(v=>v.pause());}
+  })}).observe(document.querySelector(".hero"));
 })();
 (function(){
   const dlg=document.getElementById("d-img"), big=document.getElementById("lbImg");
@@ -2998,5 +3009,77 @@ new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting
 (function(){function eq(){var a=document.querySelector('.member .cv-air');if(!a)return;var cards=[...document.querySelectorAll('.member')];var s=null;cards.forEach(function(c){var h=c.querySelector('h3');if(h&&/Silvia/.test(h.textContent))s=c.querySelector('.cv')});a.style.minHeight='';if(!s||window.innerWidth<=600)return;var d=s.getBoundingClientRect().bottom-a.getBoundingClientRect().top;if(d>0)a.style.minHeight=d+'px'}
 window.addEventListener('load',eq);window.addEventListener('resize',eq);window.addEventListener('hashchange',function(){setTimeout(eq,60)});document.addEventListener('click',function(){setTimeout(eq,120)});setTimeout(eq,400)})();
 </script>
+<style id="aire">/* ===== AIRE Y PROPORCIÓN (lujo sereno) ===== */
+/* Cabecera */
+#site header{border-bottom:1px solid rgba(255,213,31,.28)!important;background:#0b0a09!important}
+#site header .nav{padding:16px 40px!important}
+#site .brand{gap:16px!important}
+#site .brand img{height:58px!important}
+#site .brand .lockup small{font:400 10px/1 'Poppins',sans-serif!important;letter-spacing:.34em!important;color:rgba(255,255,255,.62)!important;margin-top:8px!important}
+#site nav{gap:6px}
+#site nav .nav-off{display:none!important}
+#site nav a{font-size:13px!important;font-weight:400!important;letter-spacing:.06em!important;color:rgba(255,255,255,.78)!important;padding:10px 16px!important;background:none!important}
+#site nav a:hover,#site nav a.on{color:#FFD51F!important}
+#site nav a.cita{background:none!important;color:#FFD51F!important;border:1px solid rgba(255,213,31,.7);border-radius:999px!important;padding:10px 22px!important;margin-left:18px!important;font-weight:500!important}
+#site nav a.cita:hover{background:#FFD51F!important;color:#000!important}
+
+/* Hero: texto a la izquierda, vídeo a la derecha */
+@media(min-width:901px){
+  #site .hero{min-height:min(90vh,900px)!important;text-align:left!important;padding:0!important;background:#0b0a09!important}
+  #site .hero .wrap{max-width:1320px!important;padding:0 40px!important}
+  #site .hero h1,#site .hero p,#site .hero-proof{margin-left:0!important;margin-right:0!important}
+  #site .hero .cta{justify-content:flex-start!important}
+  #site .hv-l{display:none!important}
+  #site .hv-r{left:auto!important;right:0!important;width:62%!important;object-position:60% 50%!important}
+  #site .hero-bg::after{background:linear-gradient(90deg,#0b0a09 0%,#0b0a09 36%,rgba(11,10,9,.78) 50%,rgba(11,10,9,.25) 72%,rgba(11,10,9,.15) 100%),linear-gradient(180deg,rgba(11,10,9,.35) 0%,rgba(11,10,9,0) 25%,rgba(11,10,9,0) 75%,rgba(11,10,9,.6) 100%)!important}
+}
+#site .hero-eyebrow{font:400 11px/1 'Poppins',sans-serif!important;letter-spacing:.36em!important;color:#FFD51F!important;margin-bottom:28px!important;text-shadow:none!important}
+#site .hero h1{font-family:'Oswald',sans-serif!important;font-weight:600!important;font-size:clamp(48px,6.2vw,92px)!important;line-height:.98!important;letter-spacing:.005em!important;max-width:620px!important;margin-bottom:0!important;text-shadow:none!important}
+#site .hero p.hero-sub{font:300 18px/1.75 'Poppins',sans-serif!important;color:rgba(255,255,255,.82)!important;max-width:470px!important;margin:32px 0 44px!important;text-shadow:none!important}
+#site .hero .btn-hero{font:500 13px/1 'Poppins',sans-serif!important;letter-spacing:.18em!important;padding:20px 38px!important;border-radius:2px!important;box-shadow:none!important}
+#site .hero-note{font:300 13px/1 'Poppins',sans-serif!important;letter-spacing:.06em!important;color:rgba(255,255,255,.6)!important;margin-top:16px!important;text-shadow:none!important}
+#site .hero-proof{display:inline-flex!important;gap:8px!important;font:300 12.5px/1 'Poppins',sans-serif!important;letter-spacing:.08em!important;color:rgba(255,255,255,.5)!important;margin-top:64px!important;text-decoration:none!important;text-transform:none!important;text-shadow:none!important}
+#site .hero-proof .stars{font-size:12px!important;color:#FFD51F!important;letter-spacing:0!important}
+#site .hero-proof:hover{color:#fff!important}
+
+/* Ritmo general de secciones */
+#site section{padding-top:clamp(84px,11vw,144px)!important;padding-bottom:clamp(84px,11vw,144px)!important}
+#site section h2{line-height:1.04!important;letter-spacing:.015em!important;margin-bottom:24px!important}
+#site .eyebrow{font-size:11px!important;font-weight:500!important;letter-spacing:.32em!important;margin-bottom:18px!important}
+#site .lead{font-size:17px!important;line-height:1.75!important;max-width:680px!important}
+#site section p{line-height:1.75}
+#site .pb2-yl{text-transform:none!important;letter-spacing:0!important;font-weight:600!important}
+#site .btn{border-radius:2px!important;letter-spacing:.16em!important;font-weight:500!important}
+
+/* WhatsApp: aparece al bajar */
+#site .wa-float,.wa-float{opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .4s,transform .4s}
+.wa-float.wa-on{opacity:1;pointer-events:auto;transform:none}
+
+#site .brand>img{height:54px!important}
+#site .brand .lockup img{height:34px!important;width:auto!important}
+@media(min-width:901px){#site .hv-r{-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 18%,#000 45%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 18%,#000 45%)}
+#site .hero-bg::after{background:linear-gradient(90deg,#0b0a09 0%,rgba(11,10,9,.85) 40%,rgba(11,10,9,.35) 65%,rgba(11,10,9,.2) 100%),linear-gradient(180deg,rgba(11,10,9,.4) 0%,rgba(11,10,9,0) 25%,rgba(11,10,9,0) 75%,rgba(11,10,9,.65) 100%)!important}}
+#site .hero p.hero-sub{max-width:560px!important}
+@media(min-width:901px){#site .hero-bg{background-image:none!important;background:#0b0a09!important}}
+.wa-float:not(.wa-on){visibility:hidden!important;opacity:0!important;animation:none!important}
+
+@media(max-width:900px){
+#site .hero{text-align:left!important;padding:120px 0 64px!important}
+#site .hero h1,#site .hero p,#site .hero-proof{margin-left:0!important;margin-right:0!important}
+#site .hero .cta{justify-content:flex-start!important}
+#site .hero h1{font-size:clamp(46px,13vw,64px)!important}
+#site .hero p.hero-sub{font-size:16.5px!important;margin:22px 0 32px!important}
+#site .hero .btn-hero{letter-spacing:.12em!important;font-size:12px!important;padding:19px 26px!important}
+#site .hero-proof{margin-top:40px!important}
+#site .hero-eyebrow{letter-spacing:.28em!important;font-size:10px!important;margin-bottom:20px!important}
+#site .hero-bg::after{background:linear-gradient(180deg,rgba(11,10,9,.15) 0%,rgba(11,10,9,.35) 28%,rgba(11,10,9,.88) 52%,#0b0a09 72%)!important}
+}
+
+#site .hero-video{opacity:0!important;transition:opacity 1.6s ease!important}
+#site .hero-video.on{opacity:1!important}
+@media(min-width:901px){#site .hv-l,#site .hv-r{display:block!important;left:auto!important;right:0!important;width:62%!important;object-position:50% 40%!important;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 18%,#000 45%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 18%,#000 45%)}}
+@media(max-width:900px){#site .hv-l,#site .hv-r{top:0!important;bottom:auto!important;left:0!important;width:100%!important;height:64%!important;object-position:50% 35%!important}}
+</style>
+<script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 </body>
 </html>
