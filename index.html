@@ -1133,7 +1133,7 @@
 #centro .ce-txt p{color:#cfcbc2}
 #centro .ce-txt strong{color:#fff}
 #centro .ce-hint{color:#8f8c84}
-#centro .ce-mural{width:100vw;max-width:none;margin:10px 0 26px calc(50% - 50vw);border-radius:0;box-shadow:none;background:transparent}
+#centro .ce-mural{width:min(100vw,1500px);max-width:none;margin:10px 0 26px calc(50% - min(50vw,750px));border-radius:0;box-shadow:none;background:transparent}
 #centro .ce-mural img{transform:none}
 #centro .ce-mural figcaption.ce-claim{margin-top:-2px;background:#0d0d0d}
 html,body{overflow-x:clip}
@@ -1316,17 +1316,22 @@ html,body{overflow-x:clip}
 
 
   <section class="alt" id="centro"><div class="wrap">
-    <div class="ce-eb"><span class="ce-eb-k">El centro:</span> tu centro de entrenamiento personal en Orihuela</div>
+    <div class="ce-eb">Tu centro de entrenamiento personal en Orihuela</div>
     <h2 class="title ce-title">Conoce el espacio donde <span class="ce-hl ce-esc"><img src="fotos/titulos/entrenas.webp?v=1" width="938" height="200" alt="entrenas"></span></h2>
-    <div class="ce-txt">
-      <p><strong class="ce-lead">Imagina entrenar donde nadie te mira, nadie te mete prisa y nadie te quita la máquina.</strong> <span class="ce-y">Eso es esta sala.</span></p>
-      <p>Al entrar notas la temperatura justa, la música baja, el aire limpio y perfumado, y cada cosa en su sitio. Luminosa, privada y cuidada al detalle. Entras en calcetines o con calzado minimalista y todo está preparado antes de que llegues: material de gama alta para fuerza, músculo y trabajo funcional, y también para readaptar lesiones.</p>
-      <p>Pero lo que de verdad cuenta no es la sala. Es que aquí te llaman por tu nombre, se acuerdan de esa rodilla que te molestaba el martes y te dicen la verdad, aunque no sea lo que quieres oír. Como un buen amigo que, además, sabe muchísimo de entrenamiento.</p>
-      <p>Lo que nos cuentas, se queda aquí. Tú solo vienes a <strong class="ce-y">cambiar tu cuerpo: más fuerte, con menos grasa y más músculo</strong>. Y si hace falta, a dejar atrás el dolor.</p>
-      <p><strong>El centro no tiene cuota ni tarjeta. Tiene nombre y apellidos: el tuyo, en la agenda.</strong></p>
+    <div class="ce-txt ce-grid">
+      <div class="ce-izq">
+        <p class="ce-lead">Imagina entrenar donde nadie te mira, nadie te mete prisa y nadie te quita la máquina.</p>
+        <p class="ce-y ce-eso">Eso es esta sala.</p>
+      </div>
+      <div class="ce-der">
+        <p>Entras y la temperatura es la justa. La música, baja. El aire, limpio y perfumado. Te descalzas, y tu material ya te está esperando.</p>
+        <p>Pero lo mejor no es la sala. Es que aquí te llaman por tu nombre. Se acuerdan de esa rodilla que te molestaba el martes. Y te dicen la verdad, aunque no sea lo que quieres oír.</p>
+        <p>Lo que nos cuentas, se queda aquí. Tú solo vienes a lo tuyo: <strong>estar más fuerte, con menos grasa y más músculo.</strong> Y, si hace falta, a dejar atrás el dolor.</p>
+      </div>
     </div>
+    <div class="ce-sello"><img src="fotos/escudo-1a1.png" width="560" height="601" alt="" aria-hidden="true" loading="lazy"><p>Aquí no eres una cuota ni una tarjeta.<b>Eres un nombre en nuestra agenda.</b></p></div>
     <figure class="ce-mural" data-lb>
-      <img src="fotos/mural-w2c.webp?v=2" width="2240" height="1223" alt="Mural de 9 por 4 metros a la entrada del centro: Matías Torres, entrenador personal, con tres siluetas entrenando sobre una explosión de color" loading="lazy" decoding="async">
+      <img src="fotos/mural-hd.webp?v=1" width="2576" height="1230" alt="Mural de 9 por 4 metros a la entrada del centro: Matías Torres, entrenador personal, con tres siluetas entrenando sobre una explosión de color" loading="lazy" decoding="async">
       <figcaption class="ce-claim"><span class="ce-c2"><span class="ce-l1">Lo que construyas hoy</span><span class="ce-l2"><span>es lo que tendrás a los 60.</span></span></span></figcaption>
     </figure>
   </div>
@@ -3142,6 +3147,23 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 .pb3 .pb2-note{color:#a9a59c}
 @media(max-width:1100px){.pb3-vname{opacity:.35}}
 @media(max-width:900px){.pb3-beats{grid-template-columns:1fr;gap:30px}.pb3-vname{display:none}.pb3{padding:72px 0 68px}}
+
+/* ===== El centro: versión premium ===== */
+#centro .ce-eb{font:500 clamp(12px,1vw,15px)/1.4 'Poppins',sans-serif!important;letter-spacing:.32em!important;text-transform:uppercase;color:var(--yellow);white-space:normal!important;margin-bottom:18px}
+#centro .ce-title{margin-bottom:clamp(44px,5vw,72px)}
+#centro .ce-grid{display:grid;grid-template-columns:5fr 6fr;gap:clamp(36px,6vw,96px);max-width:1120px;margin:0;align-items:start}
+#centro .ce-grid p{margin:0}
+#centro .ce-izq .ce-lead{font:600 clamp(26px,2.7vw,38px)/1.22 'Oswald',sans-serif;color:#fff;letter-spacing:.005em}
+#centro .ce-izq .ce-eso{margin-top:22px;font:600 clamp(16px,1.2vw,18px)/1 'Poppins',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow)}
+#centro .ce-der p{font-size:clamp(16px,1.2vw,18px);line-height:1.85;color:#bdb9b0;margin-bottom:24px}
+#centro .ce-der p:last-child{margin-bottom:0}
+#centro .ce-der strong{color:#fff;font-weight:600}
+#centro .ce-sello{display:flex;align-items:center;gap:clamp(18px,2vw,28px);margin:clamp(56px,6vw,88px) 0 clamp(40px,5vw,64px);padding-top:clamp(28px,3vw,40px);border-top:1px solid rgba(255,255,255,.12);max-width:1120px}
+#centro .ce-sello img{width:clamp(58px,5vw,76px);height:auto;flex:none;filter:drop-shadow(0 0 18px rgba(255,213,31,.25))}
+#centro .ce-sello p{margin:0;font:400 clamp(17px,1.4vw,21px)/1.4 'Poppins',sans-serif;color:#cfcbc2}
+#centro .ce-sello b{display:block;font:600 clamp(24px,2.4vw,34px)/1.15 'Oswald',sans-serif;color:#fff;letter-spacing:.01em}
+#centro .ce-mural img{-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.12) 6%,rgba(0,0,0,.4) 13%,rgba(0,0,0,.75) 20%,#000 28%,#000 72%,rgba(0,0,0,.75) 80%,rgba(0,0,0,.4) 87%,rgba(0,0,0,.12) 94%,transparent 100%),linear-gradient(180deg,transparent 0,rgba(0,0,0,.35) 7%,rgba(0,0,0,.8) 15%,#000 22%,#000 82%,rgba(0,0,0,.7) 90%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.12) 6%,rgba(0,0,0,.4) 13%,rgba(0,0,0,.75) 20%,#000 28%,#000 72%,rgba(0,0,0,.75) 80%,rgba(0,0,0,.4) 87%,rgba(0,0,0,.12) 94%,transparent 100%),linear-gradient(180deg,transparent 0,rgba(0,0,0,.35) 7%,rgba(0,0,0,.8) 15%,#000 22%,#000 82%,rgba(0,0,0,.7) 90%,transparent 100%);mask-composite:intersect;filter:brightness(.9) contrast(1.04)}
+@media(max-width:900px){#centro .ce-grid{grid-template-columns:1fr;gap:28px}}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 </body>
