@@ -1284,8 +1284,10 @@ html,body{overflow-x:clip}
     </div>
   </div></section>
 
-  <section class="pb2" data-mt><div class="wrap">
-    <p class="pb2-bg" aria-hidden="true">1 A 1</p>
+  <section class="pb2 pb3" data-mt>
+    <img class="pb3-vname" src="fotos/nombre-vertical.webp" width="293" height="1600" alt="" aria-hidden="true" loading="lazy">
+    <div class="wrap">
+    <img class="pb3-fig rv" src="fotos/figuras-escudo-hd.webp" width="1159" height="746" alt="" aria-hidden="true" loading="lazy">
     <p class="pb2-eb rv">¿Te suena?</p>
     <h2 class="pb2-h">
       <span class="pb2-x rv" style="--d:.15s">Pagas la cuota.<i class="dr" style="--d:1.6s" aria-hidden="true"></i></span>
@@ -1293,15 +1295,16 @@ html,body{overflow-x:clip}
       <span class="pb2-x rv" style="--d:.55s">Nadie te corrige.<i class="dr" style="--d:2.2s" aria-hidden="true"></i></span>
       <span class="pb2-hl rv" style="--d:.8s">Y al mes, lo dejas.</span>
     </h2>
-    <p class="pb2-punch rv" style="--d:2.6s">No te falta fuerza de voluntad. <b>Te faltaba alguien que supiera lo que hace.</b></p>
-    <div class="pb2-body">
-      <p><strong>Esto no es un gimnasio.</strong> Es un <b class="pb2-yl">centro de entrenamiento personal</b> donde un profesional se ocupa de ti de principio a fin.<br><b class="pb2-yl">Hay muchos sitios para entrenar en Orihuela. Aquí nunca entrenas solo.</b></p>
-      <p>Antes de empezar, te valoramos. Cada sesión se diseña para tu cuerpo y tu objetivo, y durante una hora tu entrenador trabaja solo para ti: corrige cada repetición, ajusta cada carga y sabe cuándo apretar y cuándo parar. Sin colas. Sin móviles. Sin nadie gritando al lado.<br><b class="pb2-yl">No es para todo el mundo. Es para quien quiere hacerlo bien.</b></p>
-      <p>Fisioterapia y nutrición en el mismo sitio. 25 años de experiencia. Los pioneros. Y la misma regla desde el primer día: <strong>nunca más de dos personas por hora.</strong><br><b class="pb2-yl">Cuando se llena, se llena.</b></p>
+    <p class="pb3-punch rv" style="--d:2.6s">No te falta fuerza de voluntad.<b>Te faltaba alguien que supiera lo que hace.</b></p>
+    <div class="pb3-beats">
+      <div class="pb3-beat rv" style="--d:.1s"><span>01</span><h3>Una hora. Solo tuya.</h3><p>Tu entrenador no mira el móvil ni atiende a nadie más. Corrige cada repetición y sabe cuándo apretar y cuándo parar.</p></div>
+      <div class="pb3-beat rv" style="--d:.25s"><span>02</span><h3>Sin colas. Sin ruido. Sin miradas.</h3><p>Llegas y la sala te está esperando. Tu plan, tu material, tu ritmo.</p></div>
+      <div class="pb3-beat rv" style="--d:.4s"><span>03</span><h3>Todo en el mismo sitio.</h3><p>¿Te duele algo? ¿No sabes qué comer? Fisioterapia y nutrición, aquí mismo. No tienes que buscar fuera.</p></div>
     </div>
-    <div class="pb2-cta">
+    <p class="pb3-rule rv">Nunca más de dos personas por hora.<span>Por eso funciona. Y por eso, a veces, no hay hueco.</span></p>
+    <div class="pb2-cta pb3-cta">
       <a class="pb2-btn" href="#reservar">Quiero mi primera valoración <span aria-hidden="true">→</span></a>
-      <p class="pb2-note">Invitación de la casa, sin compromiso.<br><strong>Solo 2 personas por hora en todo el centro.</strong></p>
+      <p class="pb2-note">Invitación de la casa. Sin compromiso.</p>
     </div>
   </div></section>
 
@@ -3110,6 +3113,29 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
     -webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 70%,transparent 100%)}
   #matias .meet-tx{position:relative;margin-top:-56px;padding:0 24px 64px}
 }
+
+/* ===== ¿Te suena? versión premium ===== */
+.pb3{border-bottom:0;padding:clamp(96px,11vw,160px) 0 clamp(96px,10vw,150px);background:radial-gradient(120% 80% at 85% 40%,#17150e 0,#0d0d0d 55%)}
+.pb3 .wrap{max-width:1120px}
+.pb3-vname{position:absolute;right:clamp(18px,3.2vw,64px);top:50%;transform:translateY(-50%);height:min(88%,900px);width:auto;opacity:.92;pointer-events:none}
+.pb3-fig{display:block;width:clamp(96px,9vw,140px);height:auto;margin:0 0 clamp(26px,3vw,38px)}
+.pb3 .pb2-eb{font-size:clamp(15px,1.15vw,18px);letter-spacing:.32em;margin-bottom:clamp(22px,2.6vw,34px)}
+.pb3 .pb2-x{color:#77746c}
+.pb3 .pb2-x i{height:.05em;background:#f5f3ee;opacity:.85;top:54%}
+.pb3 .pb2-hl{margin-top:.28em}
+.pb3-punch{margin:clamp(56px,6vw,84px) 0 0;max-width:22em;font:500 clamp(24px,2.7vw,38px)/1.25 'Oswald',sans-serif;color:#cfcac0}
+.pb3-punch b{display:block;margin-top:.2em;line-height:1.12;font-weight:700;color:#fff;font-size:1.18em}
+.pb3-beats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.4vw,52px);margin-top:clamp(64px,7vw,100px);max-width:980px}
+.pb3-beat{padding-top:22px;border-top:1px solid rgba(255,255,255,.14)}
+.pb3-beat span{display:block;font:600 13px 'Oswald',sans-serif;letter-spacing:.24em;color:var(--yellow);margin-bottom:14px}
+.pb3-beat h3{margin:0 0 12px;font:600 clamp(21px,1.75vw,26px)/1.2 'Oswald',sans-serif;color:#fff;letter-spacing:.01em}
+.pb3-beat p{margin:0;font-size:16px;line-height:1.75;color:#b9b5ab}
+.pb3-rule{margin:clamp(64px,7vw,100px) 0 0;font:600 clamp(26px,3vw,42px)/1.08 'Oswald',sans-serif;color:var(--yellow);text-transform:uppercase;letter-spacing:.02em}
+.pb3-rule span{display:block;margin-top:14px;font:400 clamp(17px,1.35vw,20px)/1.5 'Poppins',sans-serif;color:#d6d2c9;text-transform:none;letter-spacing:0}
+.pb3-cta{margin-top:clamp(36px,4vw,52px)}
+.pb3 .pb2-note{color:#a9a59c}
+@media(max-width:1100px){.pb3-vname{opacity:.35}}
+@media(max-width:900px){.pb3-beats{grid-template-columns:1fr;gap:30px}.pb3-vname{display:none}.pb3{padding:72px 0 68px}}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 </body>
