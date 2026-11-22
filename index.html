@@ -1269,18 +1269,16 @@ html,body{overflow-x:clip}
   </div></section>
   <section class="dark-sec meet" id="matias"><div class="wrap">
     <figure class="meet-ph">
-      <img src="fotos/matias-silvia.webp?v=6" width="1599" height="2295" style="height:auto;aspect-ratio:1599/2295;object-position:50% 50%" alt="Matías Torres y Silvia, del equipo del centro, sonriendo en la sala con el polo y la camiseta del escudo" loading="lazy">
-      <figcaption><b>Matías Torres</b><span>Entrenador personal · Orihuela</span></figcaption>
+      <img src="fotos/matias-silvia.webp?v=6" width="1599" height="2295" alt="Matías Torres y Silvia Lorenzo sonriendo en la sala del centro, bajo el escudo Matías Torres" loading="lazy">
     </figure>
-    <div>
+    <div class="meet-tx">
       <div class="eyebrow meet-eb">Conoce a tu entrenador</div>
       <h2 class="meet-h2">Mi nombre es <span class="meet-name"><img src="fotos/nombre-escudo.webp?v=1" width="1600" height="293" alt="Matías Torres" decoding="async"></span></h2>
-      <p class="intro">Llevo 25 años viendo a gente dejar de entrenar. No por falta de voluntad, sino porque nadie se ocupó de ellos. Por eso creé un sitio donde alguien se ocupa de todo, y tu único esfuerzo es entrenar.</p>
-      <p>Soy entrenador personal desde hace 25 años, 15 de ellos en Orihuela, donde fui de los primeros en dedicarme solo al entrenamiento personal. En enero de 2021 abrí mi propio centro para hacerlo a mi manera: pocas personas, todo cuidado y nadie entrenando solo.</p>
-      <p>He visto a mucha gente apuntarse al gimnasio en enero y dejarlo en marzo, o entrenar mucho sin cambiar nada. El problema casi nunca es la fuerza de voluntad. Es entrenar solo, sin plan y sin nadie que te corrija.</p>
-      <p>Aquí cada sesión es tuya. No te prometo un cuerpo de revista. Te prometo que vas a perder grasa, ganar músculo y estar más fuerte, y que no vas a volver a empezar de cero cada año.</p>
-      <p class="colab">No lo hago solo. <b class="meet-silvia">Silvia Lorenzo</b>, mi mujer y compañera, es entrenadora personal con más de 25 años en el sector y especialista en entrenamiento con patologías. Si entrenas con ella, estás en las mejores manos. Lo digo como entrenador, no como marido.</p>
-      <p>Cuando hace falta, trabajamos con fisioterapeutas y nutricionistas colegiados de Orihuela. <b style="color:#fff">La primera cita es una invitación de la casa.</b></p>
+      <p class="intro">Llevo 25 años viendo a gente dejar de entrenar. No por falta de ganas. Porque nadie se ocupaba de ellos.</p>
+      <p>Fui de los primeros en Orihuela en dedicarme solo al entrenamiento personal. En 2021 abrí mi propio centro para hacerlo a mi manera: pocas personas, todo cuidado y nadie entrenando solo.</p>
+      <p class="meet-promesa">No te prometo un cuerpo de revista.<br><b>Te prometo algo más difícil: que esta vez no lo vas a dejar.</b></p>
+      <p class="colab">No lo hago solo. <b class="meet-silvia">Silvia Lorenzo</b>, mi mujer, lleva más de 25 años entrenando a personas y es especialista en entrenamiento con patologías. Si entrenas con ella, estás en las mejores manos. Lo digo como entrenador, no como marido.</p>
+      <p class="meet-fin">Cuando hace falta, contamos con fisioterapeutas y nutricionistas colegiados. <b>La primera cita es una invitación de la casa.</b></p>
       <div class="thanks">Gracias por estar aquí.</div>
       <div class="cta"><a class="btn" href="#reservar">Solicita tu primera valoración</a><a class="btn out" href="#equipo">Conoce al equipo</a></div>
     </div>
@@ -3085,6 +3083,33 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 #site .hero-video.on{opacity:1!important}
 @media(min-width:901px){#site .hv-l,#site .hv-r{display:block!important;left:auto!important;right:0!important;width:62%!important;object-position:50% 40%!important;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 18%,#000 45%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 18%,#000 45%)}}
 @media(max-width:900px){#site .hv-l,#site .hv-r{top:0!important;bottom:auto!important;left:0!important;width:100%!important;height:64%!important;object-position:50% 35%!important}}
+
+/* ===== Conoce a tu entrenador: foto a sangre con fundido (estilo portada) ===== */
+#matias.meet{padding:0;background:#0d0d0d}
+#matias .meet-ph img{box-shadow:none;border-radius:0}
+#matias .meet-ph figcaption{display:none}
+#matias .meet .intro,#matias .intro{font-size:clamp(19px,1.45vw,22px);line-height:1.55;margin:0 0 30px}
+#matias p{max-width:34em;line-height:1.8;margin:0 0 26px}
+#matias .meet-promesa{font-size:clamp(18px,1.35vw,21px);color:#d8d8d0;line-height:1.55;margin:8px 0 32px}
+#matias .meet-promesa b{color:#fff;font-weight:600}
+#matias .colab{padding-left:18px;margin-bottom:26px}
+#matias .meet-fin b{color:#fff}
+#matias .thanks{margin:34px 0 26px}
+@media(min-width:901px){
+  #matias .wrap{max-width:none;padding:0;display:grid;grid-template-columns:47% 53%;gap:0;align-items:stretch}
+  #matias .meet-ph{position:relative;margin:0;min-height:100%}
+  #matias .meet-ph img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:50% 18%;
+    -webkit-mask-image:linear-gradient(90deg,#000 55%,rgba(0,0,0,.6) 78%,transparent 100%),linear-gradient(0deg,transparent 0,#000 16%,#000 90%,transparent 100%);
+    -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,#000 55%,rgba(0,0,0,.6) 78%,transparent 100%),linear-gradient(0deg,transparent 0,#000 16%,#000 90%,transparent 100%);mask-composite:intersect}
+  #matias .meet-tx{max-width:760px;padding:clamp(96px,12vh,140px) clamp(48px,6vw,110px) clamp(96px,12vh,140px) clamp(24px,3vw,48px)}
+}
+@media(max-width:900px){
+  #matias .wrap{display:block;padding:0}
+  #matias .meet-ph{max-width:none;margin:0}
+  #matias .meet-ph img{width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;object-position:50% 20%;
+    -webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 70%,transparent 100%)}
+  #matias .meet-tx{position:relative;margin-top:-56px;padding:0 24px 64px}
+}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 </body>
