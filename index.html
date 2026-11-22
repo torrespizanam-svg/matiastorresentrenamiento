@@ -2175,15 +2175,15 @@ function route(){
   }
 }
 window.addEventListener("hashchange",route);
-(async()=>{try{
+setTimeout(async()=>{try{
   const el=document.getElementById("heroHuecos"); if(!el||typeof rpc!=="function") return;
-  const hoy=new Date(), fin=new Date(hoy); fin.setDate(hoy.getDate()+((7-hoy.getDay())%7));
+  const hoy=new Date(), fin=new Date(hoy); fin.setDate(hoy.getDate()+7);
   const k=d=>d.toLocaleDateString("sv-SE",{timeZone:"Europe/Madrid"});
   const rows=await rpc("obtener_huecos",{p_desde:k(hoy),p_hasta:k(fin)});
   const n=(rows||[]).filter(r=>new Date(r.inicio)>hoy).length;
-  el.textContent= n===0 ? "Esta semana está completa. Pide tu hueco para la siguiente." : n<=12 ? "Esta semana quedan "+n+(n===1?" hueco":" huecos")+" para primeras valoraciones." : "";
+  el.textContent= n===0 ? "Los próximos 7 días están completos. Pide tu hueco y te avisamos." : n<=12 ? "En los próximos 7 días quedan "+n+(n===1?" hueco":" huecos")+" para primeras valoraciones." : "";
   el.hidden=!el.textContent;
-}catch(e){}})();
+}catch(e){}},0);
 (function(){const hd=document.querySelector("#site header");if(!hd)return;const f=()=>hd.classList.toggle("mini",scrollY>40);addEventListener("scroll",f,{passive:true});f();})();
 
 $("#loginForm").addEventListener("submit",async e=>{
