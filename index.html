@@ -1263,14 +1263,14 @@ html,body{overflow-x:clip}
   </div>
 
   <section class="dark-sec" id="solo-aqui"><div class="wrap sa-wrap">
-    <div class="eyebrow sa-eb">Lo que solo tienes aquí</div>
-    <h2 class="title">Vienes con lo puesto. Sales listo para tu día.</h2>
-    <p class="lead sa-lead">Nunca más de dos personas por hora. Y una idea fija: que aquí <b>tu único esfuerzo sea entrenar.</b></p>
+    <div class="eyebrow sa-eb">Tu hora, de principio a fin</div>
+    <h2 class="title sa-h2">Vienes con lo puesto.<span>Sales listo para tu día.</span></h2>
+    <p class="lead sa-lead">Tú traes las ganas. Del resto nos ocupamos nosotros.</p>
     <div class="sa-grid">
-      <article class="sa-card sa-pies"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3LKdWAwD4AuD7se4yAJwOUo08PC/hf_20261119_184514_bf55caaf-d1de-49d6-b911-7ce38302276c.png" alt="Calcetines de pilates y zapatillas minimalistas sobre un banco de madera; en un círculo rojo tachado, zapatillas sucias de la calle" loading="lazy" decoding="async"><div class="sa-txt"><span>01</span><h3>Aquí se entrena sin zapatos de la calle</h3><p>Más higiene y pies más fuertes.</p><button type="button" class="sa-suela" data-suela="fotos/suela-sucia.webp?v=2">¿Qué traes en la suela? <b>Míralo →</b></button></div></article>
-      <article class="sa-card sa-cafe"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3LKdWAwD4AuD7se4yAJwOUo08PC/hf_20261119_184341_bd212c0e-9466-4832-bdb4-b334db8f39eb.png" alt="Taza de café de especialidad humeante junto a una cafetera profesional" loading="lazy" decoding="async"><div class="sa-txt"><span>02</span><h3>El café, recién hecho</h3><p>También agua, infusiones y chocolate. <b>Incluido.</b></p></div></article>
-      <article class="sa-card"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3LKdWAwD4AuD7se4yAJwOUo08PC/hf_20261119_184601_430fff5d-307e-4201-a40b-a38df4e8a00f.png" alt="Estantería con toallas azules y rosas para la sala y toallas blancas apiladas en el aseo" loading="lazy" decoding="async"><div class="sa-txt"><span>03</span><h3>Toalla limpia, cada día</h3><p>Lavada a diario y guardada en un espacio climatizado.</p></div></article>
-      <article class="sa-card"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3LKdWAwD4AuD7se4yAJwOUo08PC/hf_20261119_184648_d6999514-35e3-4082-adb9-6d0b098674cb.png" alt="Aseo con ducha, toallas y productos de higiene" loading="lazy" decoding="async"><div class="sa-txt"><span>04</span><h3>Ducha completa. No traigas nada.</h3><p>Toalla, champú, gel y desodorante. Sales listo.</p></div></article>
+      <article class="sa-card sa-pies"><div class="sa-ph sa-alt"><img class="sa-a" src="fotos/suela-calle.webp?v=1" width="1200" height="1500" alt="Suela de un zapato de calle con colillas, aceite, bacterias y restos de excrementos" loading="lazy" decoding="async"><img class="sa-b" src="fotos/ritual-1.webp?v=1" width="1200" height="1040" alt="Calcetines de pilates y zapatillas minimalistas de uso exclusivo en sala sobre un banco de madera" loading="lazy" decoding="async"></div><div class="sa-txt"><h3>La calle se queda en el baúl</h3><p>Al llegar, guardas tus zapatos en el baúl de la entrada. Entrenas en calcetines o con barefoot de sala: más higiene y unos pies más fuertes.</p></div></article>
+      <article class="sa-card sa-cafe"><div class="sa-ph"><img src="fotos/ritual-2.webp?v=1" width="1200" height="1600" alt="Taza de café recién hecho junto a una cafetera profesional" loading="lazy" decoding="async"><div class="sa-steam sa-bg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="sa-steam" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="sa-txt"><h3>Tu café, recién hecho</h3><p>Te lo preparamos al llegar. Si lo prefieres, agua, una infusión o un chocolate.</p></div></article>
+      <article class="sa-card"><div class="sa-ph"><img src="fotos/ritual-3.webp?v=1" width="900" height="1200" alt="Estantería con toallas limpias para la sala y toallas blancas en el aseo" loading="lazy" decoding="async"></div><div class="sa-txt"><h3>Tu toalla, limpia cada día</h3><p>Lavada a diario y guardada en un armario climatizado.</p></div></article>
+      <article class="sa-card"><div class="sa-ph"><img src="fotos/ritual-4.webp?v=1" width="900" height="1200" alt="Ducha con toallas, champú, gel y desodorante" loading="lazy" decoding="async"></div><div class="sa-txt"><h3>Una ducha con todo listo</h3><p>Toalla, champú, gel y desodorante. Solo tienes que entrar.</p></div></article>
     </div>
   </div></section>
   <section class="dark-sec meet" id="matias"><div class="wrap">
@@ -3182,6 +3182,34 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 #solo-aqui .sa-pies .sa-txt p{display:none}
 @media(max-width:1000px){#solo-aqui .sa-card{height:460px}}
 @media(max-width:560px){#solo-aqui .sa-card{height:440px}#solo-aqui .sa-txt{top:66%}}
+
+/* ===== Sección ritual (premium v2) ===== */
+#site #solo-aqui{min-height:0!important;display:block!important}
+#site #solo-aqui .sa-eb{font:400 11px/1 'Poppins',sans-serif!important;letter-spacing:.36em!important;color:#FFD51F!important;margin-bottom:26px!important}
+#site #solo-aqui .sa-h2{font-size:clamp(36px,4.2vw,60px)!important;line-height:1.1!important;letter-spacing:.01em!important;margin:0 0 28px!important;color:#fff}
+#site #solo-aqui .sa-h2 span{display:block;color:rgba(255,255,255,.42)}
+#site #solo-aqui .sa-lead{font:300 18px/1.7 'Poppins',sans-serif!important;color:rgba(255,255,255,.72)!important;max-width:620px!important;margin:0 0 clamp(48px,5.5vw,72px)!important}
+#site #solo-aqui .sa-grid{gap:clamp(24px,2.6vw,40px)!important}
+#site #solo-aqui .sa-card{height:auto!important;border-radius:0!important;background:none!important;overflow:visible!important}
+#site #solo-aqui .sa-card::after,#site #solo-aqui .sa-card::before{display:none!important}
+#site #solo-aqui .sa-ph{position:relative;aspect-ratio:4/5;overflow:hidden;background:#0b0a09;
+  -webkit-mask-image:linear-gradient(180deg,#000 0,#000 72%,rgba(0,0,0,.55) 88%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 72%,rgba(0,0,0,.55) 88%,transparent 100%)}
+#site #solo-aqui .sa-ph::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 0 48px 18px #0b0a09}
+#site #solo-aqui .sa-card .sa-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.01);transition:transform 1.6s cubic-bezier(.2,.7,.2,1);z-index:0;-webkit-mask-image:none!important;mask-image:none!important;filter:none!important}
+#site #solo-aqui .sa-card:hover .sa-ph img{transform:scale(1.05)}
+#site #solo-aqui .sa-pies .sa-b{object-position:30% 50%!important}
+#site #solo-aqui .sa-alt .sa-a{object-position:50% 46%!important}
+#site #solo-aqui .sa-alt .sa-b{opacity:0;animation:saAlt 12s ease-in-out infinite}
+@keyframes saAlt{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){#site #solo-aqui .sa-alt .sa-b{animation:none}}
+#site #solo-aqui .sa-steam{z-index:1}
+#site #solo-aqui .sa-txt{position:static!important;top:auto!important;padding:6px 2px 0!important}
+#site #solo-aqui .sa-txt span{display:none!important}
+#site #solo-aqui .sa-txt h3{font:500 clamp(17px,1.35vw,20px)/1.35 'Poppins',sans-serif!important;text-transform:none!important;letter-spacing:0!important;color:#fff!important;margin:0 0 12px!important;padding-top:20px;position:relative;text-shadow:none!important}
+#site #solo-aqui .sa-txt h3::before{content:"";position:absolute;left:0;top:0;width:28px;height:1px;background:#FFD51F}
+#site #solo-aqui .sa-txt p{display:block!important;font:300 15px/1.75 'Poppins',sans-serif!important;color:rgba(255,255,255,.6)!important;text-shadow:none!important}
+@media(max-width:1000px){#site #solo-aqui .sa-grid{grid-template-columns:repeat(2,1fr)!important;row-gap:56px!important}}
+@media(max-width:600px){#site #solo-aqui .sa-h2{font-size:31px!important}#site #solo-aqui .sa-grid{grid-template-columns:1fr!important}}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 </body>
