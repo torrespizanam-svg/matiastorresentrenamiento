@@ -1322,6 +1322,7 @@ html,body{overflow-x:clip}
       <div class="ce-izq">
         <p class="ce-lead">Imagina entrenar donde nadie te mira, nadie te mete prisa y nadie te quita la máquina.</p>
         <p class="ce-y ce-eso">Eso es esta sala.</p>
+        <img class="ce-escudo" src="fotos/escudo-color.webp?v=1" width="2576" height="1230" alt="Escudo Matías Torres, entrenador personal, sobre una explosión de color" loading="lazy" decoding="async">
       </div>
       <div class="ce-der">
         <p>Entras y la temperatura es la justa. La música, baja. El aire, limpio y perfumado. Te descalzas, y tu material ya te está esperando.</p>
@@ -3164,6 +3165,9 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 #centro .ce-sello b{display:block;font:600 clamp(24px,2.4vw,34px)/1.15 'Oswald',sans-serif;color:#fff;letter-spacing:.01em}
 #centro .ce-mural img{-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.12) 6%,rgba(0,0,0,.4) 13%,rgba(0,0,0,.75) 20%,#000 28%,#000 72%,rgba(0,0,0,.75) 80%,rgba(0,0,0,.4) 87%,rgba(0,0,0,.12) 94%,transparent 100%),linear-gradient(180deg,transparent 0,rgba(0,0,0,.35) 7%,rgba(0,0,0,.8) 15%,#000 22%,#000 82%,rgba(0,0,0,.7) 90%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.12) 6%,rgba(0,0,0,.4) 13%,rgba(0,0,0,.75) 20%,#000 28%,#000 72%,rgba(0,0,0,.75) 80%,rgba(0,0,0,.4) 87%,rgba(0,0,0,.12) 94%,transparent 100%),linear-gradient(180deg,transparent 0,rgba(0,0,0,.35) 7%,rgba(0,0,0,.8) 15%,#000 22%,#000 82%,rgba(0,0,0,.7) 90%,transparent 100%);mask-composite:intersect;filter:brightness(.9) contrast(1.04)}
 @media(max-width:900px){#centro .ce-grid{grid-template-columns:1fr;gap:28px}}
+
+#centro .ce-escudo{display:block;width:106%;max-width:600px;height:auto;margin:clamp(28px,3vw,44px) 0 0 -5%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%),linear-gradient(180deg,transparent 0,#000 10%,#000 88%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%),linear-gradient(180deg,transparent 0,#000 10%,#000 88%,transparent 100%);mask-composite:intersect}
+@media(max-width:900px){#centro .ce-escudo{width:100%;margin:22px auto 0}}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 </body>
