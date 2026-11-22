@@ -975,6 +975,12 @@
 .sa-steam i:nth-child(5){left:50%;animation-delay:2.2s;animation-duration:3.4s}
 .sa-steam i:nth-child(6){left:44%;animation-delay:2.75s}
 @keyframes vapor{0%{transform:translateY(30px) translateX(0) scaleX(.5) rotate(0);opacity:0}15%{opacity:.95}40%{transform:translateY(-40px) translateX(14px) scaleX(1) rotate(10deg);opacity:.75}70%{transform:translateY(-110px) translateX(-12px) scaleX(1.5) rotate(-12deg);opacity:.4}100%{transform:translateY(-180px) translateX(10px) scaleX(2.2) rotate(8deg);opacity:0}}
+/* tarjetas "Lo que solo tienes aquí": fotos con borde difuminado en negro */
+#solo-aqui .sa-card{background:transparent;border-radius:0;overflow:hidden}
+#solo-aqui .sa-card img,#solo-aqui .sa-card:hover img{transform:none}
+#solo-aqui .sa-card img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%,#000 76%,transparent 100%),linear-gradient(180deg,transparent 0,#000 20%,#000 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 24%,#000 76%,transparent 100%),linear-gradient(180deg,transparent 0,#000 20%,#000 100%);mask-composite:intersect}
+#solo-aqui .sa-card::after{background:linear-gradient(180deg,rgba(13,13,13,0) 40%,rgba(13,13,13,.8) 66%,#0d0d0d 100%)}
+#solo-aqui .sa-card::before{display:none}
 /* botón infografía suela */
 .sa-suela{margin-top:12px;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:0;border-radius:999px;background:var(--yellow);color:#0d0d0d;font:500 14px 'Poppins',sans-serif;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:transform .25s ease}
 .sa-suela b{font-weight:600}.sa-suela:hover{transform:translateY(-2px)}
@@ -1285,7 +1291,7 @@ html,body{overflow-x:clip}
   </div></section>
 
   <section class="pb2 pb3" data-mt>
-    <img class="pb3-vname" src="fotos/nombre-vertical.webp" width="293" height="1600" alt="" aria-hidden="true" loading="lazy">
+    <img class="pb3-vname" src="fotos/nombre-vertical.webp?v=2" width="293" height="1600" alt="" aria-hidden="true" loading="lazy">
     <div class="wrap">
     <img class="pb3-fig rv" src="fotos/figuras-escudo-hd.webp" width="1159" height="746" alt="" aria-hidden="true" loading="lazy">
     <p class="pb2-eb rv">¿Te suena?</p>
@@ -3117,8 +3123,8 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 /* ===== ¿Te suena? versión premium ===== */
 .pb3{border-bottom:0;padding:clamp(96px,11vw,160px) 0 clamp(96px,10vw,150px);background:radial-gradient(120% 80% at 85% 40%,#17150e 0,#0d0d0d 55%)}
 .pb3 .wrap{max-width:1120px}
-.pb3-vname{position:absolute;right:clamp(18px,3.2vw,64px);top:50%;transform:translateY(-50%);height:min(88%,900px);width:auto;opacity:.92;pointer-events:none}
-.pb3-fig{display:block;width:clamp(96px,9vw,140px);height:auto;margin:0 0 clamp(26px,3vw,38px)}
+.pb3-vname{position:absolute;right:clamp(18px,3.2vw,64px);top:50%;transform:translateY(-50%);height:min(86%,880px);width:auto;opacity:1;pointer-events:none;filter:drop-shadow(0 0 14px rgba(255,255,255,.35)) brightness(1.15)}
+.pb3-fig{display:block;width:clamp(96px,9vw,140px);height:auto;margin:0 0 clamp(26px,3vw,38px);filter:drop-shadow(0 0 6px rgba(255,255,255,.55)) drop-shadow(0 0 22px rgba(255,255,255,.35)) drop-shadow(0 0 48px rgba(255,255,255,.18))}
 .pb3 .pb2-eb{font-size:clamp(15px,1.15vw,18px);letter-spacing:.32em;margin-bottom:clamp(22px,2.6vw,34px)}
 .pb3 .pb2-x{color:#77746c}
 .pb3 .pb2-x i{height:.05em;background:#f5f3ee;opacity:.85;top:54%}
