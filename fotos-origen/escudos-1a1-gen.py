@@ -28,6 +28,7 @@ EXTRA = '''
 <linearGradient id="rainbow" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff2fb3"/><stop offset=".25" stop-color="#b04bff"/><stop offset=".45" stop-color="#18c8ff"/><stop offset=".65" stop-color="#2fe06b"/><stop offset=".82" stop-color="#ffd51f"/><stop offset="1" stop-color="#ff4a3a"/></linearGradient>
 <filter id="emb2" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur in="SourceAlpha" stdDeviation="1.5" result="b"/><feSpecularLighting in="b" surfaceScale="3" specularConstant=".6" specularExponent="35" lighting-color="#fff" result="s"><feDistantLight azimuth="235" elevation="55"/></feSpecularLighting><feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/><feComposite in="SourceGraphic" in2="s2" operator="arithmetic" k2="1" k3=".18" result="e"/><feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#7a5600" flood-opacity=".55"/></filter>
 <radialGradient id="hiH" cx="50%" cy="38%" r="65%"><stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset=".6" stop-color="#fff" stop-opacity=".04"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></radialGradient>
+<filter id="crisp" x="-5%" y="-5%" width="110%" height="110%"><feComponentTransfer in="SourceGraphic" result="c"><feFuncA type="linear" slope="1.6" intercept="-.25"/></feComponentTransfer><feDropShadow dx="1.5" dy="2.5" stdDeviation="1.2" flood-color="#6b4a00" flood-opacity=".45"/></filter>
 <pattern id="carbon" width="16" height="16" patternUnits="userSpaceOnUse"><rect width="16" height="16" fill="#16171a"/><rect width="8" height="8" fill="#26272c"/><rect x="8" y="8" width="8" height="8" fill="#26272c"/><rect width="8" height="3" fill="#33343a"/><rect x="8" y="8" width="3" height="8" fill="#33343a"/></pattern>
 <pattern id="stripes" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="28" height="28" fill="#0b0b0b"/><rect width="14" height="28" fill="#ffd51f"/></pattern>
 <filter id="emboss" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur in="SourceAlpha" stdDeviation="2" result="b"/><feSpecularLighting in="b" surfaceScale="4" specularConstant=".9" specularExponent="30" lighting-color="#fff" result="s"><feDistantLight azimuth="235" elevation="50"/></feSpecularLighting><feComposite in="s" in2="SourceAlpha" operator="in" result="s2"/><feComposite in="SourceGraphic" in2="s2" operator="arithmetic" k2="1" k3=".55" result="e"/><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000" flood-opacity=".5"/></filter>
@@ -54,8 +55,8 @@ def laurel(side):
 
 V = {}
 # E · Scuderia
-m1, f1 = fig_at("#0b0b0b", 813, 468, 640, "emb2")
-m2, o1 = one_at("#0b0b0b", 953, 905, 360, "emb2")
+m1, f1 = fig_at("#000000", 813, 468, 640, "crisp")
+m2, o1 = one_at("#000000", 953, 905, 360, "crisp")
 V['e'] = (m1+m2, f'''<g filter="url(#shadow)">{S(1)} fill="#0b0b0b"/></g>
 {S(.955)} fill="url(#gold)" filter="url(#bevel)"/>
 {S(.912)} fill="#0b0b0b"/>
