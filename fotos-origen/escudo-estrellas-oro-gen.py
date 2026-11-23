@@ -50,6 +50,11 @@ def bevel(a,b,round_=1.0):
     col=np.where(d[...,None]<0.6, DK+(MD-DK)*(d[...,None]/0.6), MD+(LT-MD)*((d[...,None]-0.6)/0.4))
     col=col+sp[...,None]*np.array([90,80,60.])
     return band,np.clip(col,0,255)
+def shade(Hf,k,spec_exp=40,spec_k=1.0):
+    gy_,gx_=np.gradient(Hf)
+    N=np.stack([-gx_*k,-gy_*k,np.ones_like(Hf)],-1); N/=np.linalg.norm(N,axis=-1,keepdims=True)
+    d=np.clip((N*Lv).sum(-1),0,1); fl=Lv[2]
+    return d,np.clip(d,0,1)**spec_exp*spec_k
 yy,xx=np.mgrid[0:H,0:W].astype(np.float32)
 yu=yy/F
 # ---------- fondo interior
@@ -64,7 +69,7 @@ bg=blk*(1-g)+field*g
 # brillo diagonal suave en la zona negra de arriba
 sheen=np.exp(-(((xx/F-cx+120)*0.7+(yu-180))/90)**2)[...,None]*(1-g)
 bg=bg+sheen*np.array([38,34,28.])
-fb=sstep(756,880,yu)[...,None]*0.82
+fb=sstep(745,862,yu)[...,None]*0.95
 bg=bg*(1-fb)+blk*fb
 rng=np.random.default_rng(7)
 nz=cv2.GaussianBlur(rng.standard_normal((H,W)).astype(np.float32),(0,0),sigmaX=F*25,sigmaY=0.7)
@@ -74,7 +79,15 @@ img=np.zeros((H,W,3),np.float32)
 img[:]=bg
 # ---------- anillos: contorno negro, bisel dorado, separación, línea fina
 img[dist<u(30)]=np.array([16,13,9.])
-b1,c1=bevel(u(3.5),u(21)); img[b1]=c1[b1]
+a0,a1=u(3.0),u(24)
+t=np.clip((dist-a0)/(a1-a0),0,1); band=(dist>=a0)&(dist<=a1)
+prof=np.clip(np.sin(np.pi*t),0,1)**0.7-0.45*np.exp(-((t-0.52)/0.07)**2)+0.25*np.exp(-((t-0.25)/0.08)**2)
+prof=cv2.GaussianBlur((prof*band).astype(np.float32),(0,0),1.2)*u(7)
+dif,spc=shade(prof,1.0,45,1.3)
+c=np.where(dif[...,None]<0.62, DK*0.75+(MD-DK*0.75)*(dif[...,None]/0.62)**1.2, MD+(LT-MD)*((dif[...,None]-0.62)/0.38))
+c=c+spc[...,None]*np.array([120,105,80.])
+c=c*(1+0.035*nz[...,None])
+img[band]=np.clip(c,0,255)[band]
 b2,c2=bevel(u(37.5),u(40.5),0.6); img[b2]=c2[b2]
 # sombra interior bajo el aro
 sha=np.clip(1-(dist-u(30))/u(14),0,1)*(dist>=u(30))
@@ -95,10 +108,12 @@ def comp(base,alpha,color):
     return base*(1-alpha[...,None])+color*alpha[...,None]
 def shift(a,dx,dy): return nd.shift(a,(dy,dx),order=1)
 def ink(base,a,deep=False):
-    # sombra proyectada + tinta + bisel claro arriba
-    s=cv2.GaussianBlur(shift(a,0,u(1.6)),(0,0),u(1.8))
-    base=base*(1-0.42*s[...,None])
-    base=comp(base,a,[22,17,10])
+    if deep:
+        halo=np.clip(cv2.GaussianBlur(a,(0,0),u(9))*1.6,0,1)*0.30
+        base=comp(base,halo,[255,236,150])
+    s=cv2.GaussianBlur(shift(a,u(0.6),u(2.2)),(0,0),u(2.2))
+    base=base*(1-(0.62 if deep else 0.45)*s[...,None])
+    base=comp(base,a,[8,6,4] if deep else [22,17,10])
     hi=np.clip(a-shift(a,0,u(0.9)),0,1)*0.55
     base=comp(base,hi,[120,92,40])
     lo=np.clip(a-shift(a,0,-u(0.9)),0,1)*0.6
@@ -111,14 +126,18 @@ arr=np.array(out).astype(np.float32)
 # ---------- MATIAS TORRES en oro metálico
 nm=Image.open(R+'fotos-origen/nombre-escudo.png').split()[-1]
 na=place_mask(nm,(228,196,697,196+469*509/2781),0.8)
-glow=cv2.GaussianBlur(na,(0,0),u(6))*0.18
+glow=cv2.GaussianBlur(na,(0,0),u(7))*0.28
 arr=comp(arr,glow,[200,150,40])
 ol=np.clip(cv2.dilate(na,np.ones((int(u(1.4))*2+1,)*2,np.uint8)),0,1)
 arr=comp(arr,ol,[8,6,3])
 gm=metal_grad(196,282,[(0,(255,247,205)),(.3,(246,210,110)),(.52,(196,140,36)),(.6,(170,118,28)),(.78,(232,184,72)),(1,(255,226,140))])
 gm=gm*(1+0.06*nz[...,None])
-arr=comp(arr,na,gm)
-hi=np.clip(na-shift(na,0,u(1.0)),0,1)*0.7; arr=comp(arr,hi,[255,250,225])
+dl=nd.distance_transform_edt(na>0.5).astype(np.float32)
+hl=sstep(0,u(2.6),dl)*u(3.2); hl=cv2.GaussianBlur(hl,(0,0),0.8)
+dif,spc=shade(hl,1.0,30,1.0)
+diag=0.5+0.5*np.sin((xx+yy*0.55)/u(38))  # destellos diagonales
+gm2=gm*(0.62+0.62*dif[...,None])*(0.93+0.14*diag[...,None])+spc[...,None]*np.array([255,240,190.])*0.85
+arr=comp(arr,na,np.clip(gm2,0,255))
 # ---------- DESDE 2021 + líneas y rombos
 o=Image.fromarray(np.clip(arr,0,255).astype(np.uint8)); d=ImageDraw.Draw(o)
 mont=lambda w,s: (lambda f:(f.set_variation_by_name(w),f)[1])(ImageFont.truetype(R+'../matiastorresentrenamiento/'[:0]+'/usr/share/fonts/truetype/google-fonts/ofl/montserrat/Montserrat[wght].ttf',s))
@@ -126,19 +145,24 @@ def tracked(img,txt,font,cxu,cyu,track,fill):
     d=ImageDraw.Draw(img); ws=[font.getlength(c) for c in txt]; tw=sum(ws)+track*(len(txt)-1)
     x=u(cxu)-tw/2; bb=font.getbbox('D'); y=u(cyu)-(bb[1]+bb[3])/2
     for c,w in zip(txt,ws): d.text((x,y),c,font=font,fill=fill); x+=w+track
-GL=(214,170,78)
-tracked(o,'DESDE 2021',mont('SemiBold',int(u(10.5))),cx,304,u(5.2),GL)
-for x0,x1 in ((235,288),(cx*2-288,cx*2-235)): d.line([(u(x0),u(304)),(u(x1),u(304))],fill=GL,width=int(u(1.3)))
+dm=Image.new('L',(W,H),0); d=ImageDraw.Draw(dm)
+tracked(dm,'DESDE 2021',mont('Bold',int(u(11.5))),cx,304,u(5.4),255)
+for x0,x1 in ((232,287),(cx*2-287,cx*2-232)):
+    d.polygon([(u(x0),u(304)),(u(x1),u(304)-u(0.9)),(u(x1),u(304)+u(0.9))],fill=255) if x0<cx else d.polygon([(u(x1),u(304)),(u(x0),u(304)-u(0.9)),(u(x0),u(304)+u(0.9))],fill=255)
 for xc in (296,cx*2-296):
-    r=u(4.2); d.polygon([(u(xc),u(304)-r),(u(xc)+r,u(304)),(u(xc),u(304)+r),(u(xc)-r,u(304))],fill=(240,200,100))
+    r=u(4.6); d.polygon([(u(xc),u(304)-r),(u(xc)+r,u(304)),(u(xc),u(304)+r),(u(xc)-r,u(304))],fill=255)
+da=np.array(dm).astype(np.float32)/255
 arr=np.array(o).astype(np.float32)
+arr=comp(arr,cv2.GaussianBlur(da,(0,0),u(3))*0.35,[210,150,30])
+dg=metal_grad(298,310,[(0,(255,245,200)),(.45,(240,196,90)),(.6,(184,128,30)),(1,(250,214,120))])
+arr=comp(arr,da,dg)
 # ---------- figuras y 1 A 1 (tinta con relieve)
 fm=Image.open(R+'fotos-origen/fig_mask.png')
 fa=place_mask(fm,(300,324,300+325,324+325*746/1159),1.0)
-arr=ink(arr,fa)
+arr=ink(arr,fa,True)
 om=Image.open(R+'fotos-origen/1a1_mask.png')
 w1=136; oa=place_mask(om,(cx-w1/2,548,cx+w1/2,548+w1*532/840),1.6)
-arr=ink(arr,oa)
+arr=ink(arr,oa,True)
 # ---------- ENTRENADOR PERSONAL y ORIHUELA nítidos
 def text_mask(txt,font,box,track=0):
     ws=[font.getlength(c) for c in txt]; tw=int(sum(ws)+track*(len(txt)-1))+40
