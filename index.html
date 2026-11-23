@@ -1196,6 +1196,25 @@ html,body{overflow-x:clip}
 .phead h1.esc-big{font-size:clamp(40px,5.8vw,66px)}
 .member .cv-air{display:flex;flex-direction:column}.member .cv-air li{flex:1;display:flex;align-items:center;padding:9px 0 9px 18px}.member .cv-air li:before{top:50%;margin-top:-4px}
 </style>
+<style>
+/* Fondo de madera en "Conoce el espacio" con degradado negro alrededor */
+#centro{position:relative}
+#centro .ce-top{position:relative}
+#centro .ce-top::before{content:"";position:absolute;z-index:-1;pointer-events:none;
+  left:calc(50% - 50vw);width:100vw;top:calc(-1 * clamp(70px,9vw,130px));bottom:calc(-1 * clamp(50px,6vw,90px));
+  background:
+    radial-gradient(120% 90% at 70% 50%,transparent 35%,rgba(13,13,13,.55) 70%,#0d0d0d 100%),
+    linear-gradient(90deg,rgba(13,13,13,.78) 0,rgba(13,13,13,.62) 40%,rgba(13,13,13,.25) 70%,rgba(13,13,13,.35) 100%),
+    linear-gradient(180deg,#0d0d0d 0,transparent 16%,transparent 84%,#0d0d0d 100%),
+    url(fotos/textura-madera.webp) center/cover no-repeat;
+  filter:saturate(.95)}
+#centro .ce-top{isolation:isolate}
+#centro .ce-pared::before{display:none}
+#centro .ce-der p{color:#d6d2c9}
+@media(max-width:900px){#centro .ce-top::before{background:
+  linear-gradient(180deg,#0d0d0d 0,rgba(13,13,13,.82) 8%,rgba(13,13,13,.78) 50%,rgba(13,13,13,.3) 62%,rgba(13,13,13,.3) 92%,#0d0d0d 100%),
+  url(fotos/textura-madera.webp) center/cover no-repeat}}
+</style>
 </head>
 <body>
 
