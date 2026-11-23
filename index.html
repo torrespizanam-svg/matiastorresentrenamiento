@@ -1780,21 +1780,26 @@ html,body{overflow-x:clip}
 </div>
 
 <!-- ============ RESERVAR CITA ============ -->
-<div class="view" id="v-reservar">
-  <div class="phead"><div class="wrap"><h1>Solicita tu <span>primera valoración</span></h1><p>Una primera cita de 30 minutos, invitación de la casa y sin compromiso, para conocer tu caso y ver cómo podemos ayudarte. Elige el día y la hora que mejor te vengan.</p></div></div>
+<div class="view rsx" id="v-reservar">
+  <div class="phead rsx-head"><div class="wrap">
+    <p class="mtx-eb">Tu primera valoración</p>
+    <h1>Treinta minutos<span>para conocerte.</span></h1>
+    <p>Un café, tu historia y lo que quieres conseguir. Sin máquinas, sin prisas y sin compromiso. <b>Invitación de la casa.</b></p>
+    <ul class="rsx-steps"><li><b>01</b>Elige el día</li><li><b>02</b>Elige la hora</li><li><b>03</b>Déjanos tu nombre</li></ul>
+  </div></div>
   <main><div class="wrap">
     <div id="rBooking" class="rgrid">
       <div class="box picker">
         <div class="pcol">
-          <h2><span class="nn">1</span> Elige el día</h2>
+          <h2><span class="nn">Paso 01</span>Elige el día</h2>
           <div id="rCal"><div class="spin">Cargando disponibilidad…</div></div>
-          <div class="legend">Los días resaltados tienen huecos libres; el número pequeño indica cuántos. Horario de España (Madrid).</div>
+          <div class="legend">Días en dorado: con huecos libres. El número indica cuántos. Hora de España.</div>
         </div>
         <div class="pcol pcol2" id="rSlotsBox">
-          <h2><span class="nn">2</span> Elige la hora</h2>
+          <h2><span class="nn">Paso 02</span>Elige la hora</h2>
           <div id="rSlotsEmpty">
-            <div class="empty-pick"><span class="arrow">👈</span><p>Elige un día resaltado en el calendario y aquí verás sus horas libres.</p></div>
-            <div class="quick-t">O elige directamente uno de los próximos huecos:</div>
+            <div class="empty-pick"><p>Toca un día en <b>dorado</b> y aquí aparecerán sus horas libres.</p></div>
+            <div class="quick-t">O reserva directamente uno de los próximos huecos</div>
             <div class="quick" id="rQuick"></div>
           </div>
           <div id="rSlotsWrap" style="display:none">
@@ -1805,7 +1810,7 @@ html,body{overflow-x:clip}
         </div>
       </div>
       <form class="box" id="fRes" novalidate>
-        <h2><span class="nn">3</span> Tus datos</h2>
+        <h2><span class="nn">Paso 03</span>Tus datos</h2>
         <div class="chosen" id="rChosen">Elige primero un día y una hora.</div>
         <div class="two">
           <div><label for="rNombre">Nombre y apellidos *</label><input id="rNombre" name="nombre" autocomplete="name" required maxlength="120"></div>
@@ -3569,6 +3574,72 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 .tmx-wa:hover{color:#ffd51f;border-color:#ffd51f}
 .tmx-cta .mtx-small{margin-top:26px!important;color:#8f8b82!important}
 @media(max-width:820px){.tmx-rule{grid-template-columns:1fr}.tmx-rule>div+div{border-left:0;border-top:1px solid rgba(255,255,255,.08)}.tmx-cta{background:linear-gradient(170deg,#0b0b0b 0,#0b0b0b 55%,#3a2c05 75%,#b8862a 100%)}.tmx-cta::before{right:-20%;top:auto;bottom:-10%;transform:none;width:80vw}}
+
+/* ===== Reservar: premium ===== */
+#v-reservar.rsx{background:#0b0b0b!important;color:#f5f3ee}
+.rsx-head{position:relative;overflow:hidden;padding:clamp(110px,12vw,170px) 0 clamp(90px,10vw,140px)!important;
+  background:linear-gradient(115deg,#0b0b0b 0,#0b0b0b 45%,#3a2c05 66%,#b8862a 86%,#ffd51f 100%)!important;border-bottom:0!important}
+.rsx-head::before{content:"";position:absolute;right:-4%;top:50%;width:min(560px,44vw);aspect-ratio:1159/746;transform:translateY(-50%);background:url(fotos/figuras-escudo-hd.webp) center/contain no-repeat;filter:brightness(0);opacity:.22;pointer-events:none}
+.rsx-head .wrap{position:relative}
+.rsx-head h1{font:600 clamp(40px,5.4vw,78px)/1.02 'Oswald',sans-serif!important;color:#fff!important;text-transform:uppercase;margin:0 0 30px!important;display:block!important}
+.rsx-head h1 span{display:block;color:#ffd51f!important;background:none!important;padding:0!important;margin-top:.08em}
+.rsx-head p{max-width:560px;font:400 clamp(17px,1.35vw,20px)/1.75 'Poppins',sans-serif!important;color:#bdb9b0!important;margin:0!important}
+.rsx-head p b{color:#fff;font-weight:600}
+.rsx-steps{list-style:none;display:flex;gap:clamp(22px,3vw,48px);flex-wrap:wrap;margin:clamp(44px,5vw,64px) 0 0;padding:0}
+.rsx-steps li{font:500 13px/1 'Poppins',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#cfcbc2;display:flex;align-items:center;gap:12px}
+.rsx-steps b{font:300 30px/1 'Oswald',sans-serif;letter-spacing:0;background:linear-gradient(180deg,#fff0b8,#d9a92e 55%,#7a5710);-webkit-background-clip:text;background-clip:text;color:transparent}
+#v-reservar main{padding:clamp(80px,9vw,130px) 0 clamp(100px,11vw,150px)!important;background:radial-gradient(50% 40% at 0% 0%,rgba(255,213,31,.07),transparent 70%),#0b0b0b}
+#v-reservar .rgrid{gap:34px!important}
+#v-reservar .box{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012))!important;border:1px solid rgba(255,213,31,.16)!important;border-top:2px solid rgba(255,213,31,.75)!important;border-radius:0!important;box-shadow:0 40px 80px -40px rgba(0,0,0,.9)!important;padding:clamp(30px,3.4vw,48px)!important;color:#f5f3ee}
+#v-reservar .box.picker{padding:0!important}
+#v-reservar .pcol{padding:clamp(30px,3.4vw,48px)!important}
+#v-reservar .pcol2{background:rgba(255,213,31,.025)!important;border-left:1px solid rgba(255,255,255,.07)!important}
+#v-reservar .box h2{display:block!important;font:600 clamp(24px,2.2vw,32px)/1.1 'Oswald',sans-serif!important;color:#fff!important;text-transform:uppercase;margin:0 0 30px!important}
+#v-reservar .nn{display:block!important;width:auto!important;height:auto!important;border-radius:0!important;background:none!important;font:500 11.5px/1 'Poppins',sans-serif!important;letter-spacing:.32em;text-transform:uppercase;color:var(--yellow);margin-bottom:12px}
+#v-reservar .cal-top{margin-bottom:22px!important}
+#v-reservar .cal-top b{font:500 15px 'Poppins',sans-serif!important;letter-spacing:.24em!important;color:#fff}
+#v-reservar .cal-top button{background:transparent!important;border:1px solid rgba(255,213,31,.45)!important;border-radius:0!important;color:var(--yellow)!important;width:42px!important;height:42px!important;transition:.25s}
+#v-reservar .cal-top button:hover:not(:disabled){background:var(--yellow)!important;color:#0b0b0b!important}
+#v-reservar .dow,#v-reservar .days{gap:8px!important}
+#v-reservar .dow span{color:#6f6b63!important;letter-spacing:.2em;font-weight:500!important}
+#v-reservar .d{border-radius:0!important;color:#4a4740!important;font:400 15px 'Poppins'!important}
+#v-reservar .d.free{background:transparent!important;border:1px solid rgba(255,213,31,.55)!important;color:#fff!important;font-weight:600!important;transition:background .25s,transform .25s}
+#v-reservar .d.free small{color:var(--yellow)!important;font-weight:500!important}
+#v-reservar .d.free:hover{background:rgba(255,213,31,.14)!important;transform:translateY(-2px)}
+#v-reservar .d.free.sel,#v-reservar .d.free.sel:hover{background:linear-gradient(180deg,#ffe25a,#ffd51f 55%,#e8b400)!important;border-color:#ffd51f!important;color:#0b0b0b!important}
+#v-reservar .d.free.sel small{color:#0b0b0b!important}
+#v-reservar .legend{color:#6f6b63!important;font-size:12.5px!important;letter-spacing:.04em;margin-top:22px!important}
+#v-reservar .empty-pick{border:1px dashed rgba(255,213,31,.35)!important;border-radius:0!important;background:transparent!important;padding:22px 24px!important;margin-bottom:34px!important}
+#v-reservar .empty-pick p{color:#a9a59c!important;font-size:15px!important}
+#v-reservar .empty-pick b{color:var(--yellow)}
+#v-reservar .quick-t{font:500 11.5px/1.4 'Poppins',sans-serif!important;letter-spacing:.24em;text-transform:uppercase;color:#8f8b82;margin-bottom:16px!important}
+#v-reservar .quick{gap:10px!important}
+#v-reservar .quick button{background:transparent!important;border:1px solid rgba(255,255,255,.16)!important;border-radius:0!important;color:#fff!important;padding:13px 18px!important;font:500 14px 'Poppins'!important;transition:.25s}
+#v-reservar .quick button:hover{border-color:var(--yellow)!important;background:rgba(255,213,31,.1)!important}
+#v-reservar .day-title{color:#fff!important;font:500 14px 'Poppins'!important;letter-spacing:.22em!important;margin-bottom:22px!important}
+#v-reservar .slot-h{color:var(--yellow)!important;letter-spacing:.24em!important}
+#v-reservar .slot-h span{color:#6f6b63!important}
+#v-reservar .slots{gap:10px!important}
+#v-reservar .slot{background:transparent!important;border:1px solid rgba(255,255,255,.16)!important;border-radius:0!important;color:#fff!important;font:500 15px 'Poppins'!important;padding:15px 6px!important;transition:.25s}
+#v-reservar .slot:hover{border-color:var(--yellow)!important;background:rgba(255,213,31,.1)!important}
+#v-reservar .slot.sel{background:linear-gradient(180deg,#ffe25a,#ffd51f 55%,#e8b400)!important;color:#0b0b0b!important;border-color:#ffd51f!important}
+#v-reservar .picked{background:rgba(255,213,31,.08)!important;border:1px solid rgba(255,213,31,.4);border-radius:0!important;padding:18px 20px!important}
+#v-reservar .picked a{border-radius:0!important;background:linear-gradient(180deg,#ffe25a,#ffd51f)!important;letter-spacing:.12em}
+#v-reservar .chosen{background:transparent!important;border:1px dashed rgba(255,213,31,.35)!important;border-radius:0!important;color:#cfcbc2;padding:16px 20px!important;margin-bottom:30px!important}
+#v-reservar .chosen b{color:var(--yellow)}
+#v-reservar label{color:#8f8b82!important;font:500 11.5px/1.4 'Poppins',sans-serif!important;letter-spacing:.22em!important;text-transform:uppercase}
+#v-reservar input:not([type=checkbox]),#v-reservar select,#v-reservar textarea{background:rgba(255,255,255,.03)!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.2)!important;border-radius:0!important;color:#fff!important;font:400 16px 'Poppins'!important;padding:14px 4px!important;transition:border-color .25s}
+#v-reservar input:focus,#v-reservar select:focus,#v-reservar textarea:focus{outline:none!important;border-bottom-color:var(--yellow)!important;background:rgba(255,213,31,.04)!important}
+#v-reservar input::placeholder,#v-reservar textarea::placeholder{color:#55524b!important}
+#v-reservar select option{background:#141414;color:#fff}
+#v-reservar .chk{text-transform:none!important;letter-spacing:0!important;font:400 14px/1.6 'Poppins'!important;color:#a9a59c!important}
+#v-reservar .chk a{color:var(--yellow)}
+#v-reservar input[type=checkbox]{accent-color:#ffd51f}
+#v-reservar .small,#v-reservar #rMissing{color:#6f6b63!important;font-size:13px!important}
+#v-reservar #rSend{width:100%;border-radius:0!important;padding:22px!important;font:600 14px 'Poppins'!important;letter-spacing:.24em!important;text-transform:uppercase;background:linear-gradient(180deg,#ffe25a,#ffd51f 55%,#e8b400)!important;color:#0b0b0b!important;border:0!important;box-shadow:0 18px 40px -14px rgba(255,213,31,.55);margin-top:14px}
+#v-reservar #rSend:disabled{background:transparent!important;border:1px solid rgba(255,213,31,.3)!important;color:#6f6b63!important;box-shadow:none}
+#v-reservar .done h2{color:#fff}#v-reservar .done .ok{background:linear-gradient(180deg,#ffe25a,#ffd51f)!important;color:#0b0b0b!important}#v-reservar .done p{color:#cfcbc2}
+@media(max-width:860px){.rsx-head{background:linear-gradient(170deg,#0b0b0b 0,#0b0b0b 55%,#3a2c05 78%,#b8862a 100%)!important}.rsx-head::before{right:-25%;top:auto;bottom:-8%;transform:none;width:85vw}#v-reservar .pcol2{border-left:0!important;border-top:1px solid rgba(255,255,255,.07)!important}}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 <script>
