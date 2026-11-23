@@ -1215,6 +1215,13 @@ html,body{overflow-x:clip}
   linear-gradient(180deg,#0d0d0d 0,rgba(13,13,13,.82) 8%,rgba(13,13,13,.78) 50%,rgba(13,13,13,.3) 62%,rgba(13,13,13,.3) 92%,#0d0d0d 100%),
   url(fotos/textura-madera.webp) center/cover no-repeat}}
 </style>
+<style>
+/* Los dos escudos 1 a 1 flanqueando la frase */
+#centro .ce-sello2{justify-content:center;gap:clamp(22px,3vw,48px);text-align:center}
+#centro .ce-sello.ce-sello2 img{width:clamp(84px,8vw,120px);filter:drop-shadow(0 10px 24px rgba(0,0,0,.55)) drop-shadow(0 0 22px rgba(255,213,31,.18))}
+#centro .ce-sello2 p{flex:0 1 auto}
+@media(max-width:700px){#centro .ce-sello2{flex-wrap:wrap}#centro .ce-sello2 p{order:3;flex-basis:100%}#centro .ce-sello.ce-sello2 img{width:96px}}
+</style>
 </head>
 <body>
 
@@ -1355,7 +1362,7 @@ html,body{overflow-x:clip}
       <figcaption><span>El photocall</span>Tu foto del primer día. Y la del día que lo consigues.</figcaption>
     </figure>
     </div>
-    <div class="ce-sello"><img src="fotos/escudo-1a1.png" width="560" height="601" alt="" aria-hidden="true" loading="lazy"><p>Aquí no eres una cuota ni una tarjeta.<b>Eres un nombre en nuestra agenda.</b></p></div>
+    <div class="ce-sello ce-sello2"><img class="ce-s-izq" src="fotos/escudo-1a1-scuderia-s.webp?v=1" alt="Escudo 1 a 1 Scuderia" loading="lazy"><p>Aquí no eres una cuota ni una tarjeta.<b>Eres un nombre en nuestra agenda.</b></p><img class="ce-s-der" src="fotos/escudo-1a1-carbono-s.webp?v=1" alt="Escudo 1 a 1 Carbono" loading="lazy"></div>
     <figure class="ce-mural" data-lb>
       <img src="fotos/mural-hd.webp?v=1" width="2576" height="1230" alt="Mural de 9 por 4 metros a la entrada del centro: Matías Torres, entrenador personal, con tres siluetas entrenando sobre una explosión de color" loading="lazy" decoding="async">
       <figcaption class="ce-claim"><span class="ce-c2"><span class="ce-l1">Lo que construyas hoy</span><span class="ce-l2"><span>es lo que tendrás a los 60.</span></span></span></figcaption>
