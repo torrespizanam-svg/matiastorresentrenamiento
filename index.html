@@ -1543,12 +1543,24 @@ html,body{overflow-x:clip}
     <div class="fx-r"><h3 class="fx-wide"><img src="fotos/formacion-escudo.webp?v=1" width="1022" height="240" alt="Formación"></h3><h2 class="fm-t fx-t2">Tú entrenas una hora.<span>Detrás hay una vida entera estudiando.</span></h2><p class="fm-p">Cada diploma de esta pared es estudio que tú no ves, pero notas. Matías nunca ha dejado de formarse en todo lo que rodea al entrenamiento personal: fuerza, movimiento, readaptación de lesiones, pilates y gimnasia, de la mano de referentes del sector como Felipe Isidro y Juan Ramón Heredia. Aprender no se acaba nunca, y eso se nota en cada sesión.</p><p class="fx-sign"><b>Fuerza</b> · Movimiento · Readaptación · Pilates</p></div>
   </section>
 
-  <section><div class="wrap">
-    <div class="eyebrow">Las personas</div><h2 class="title">Conoce al equipo</h2>
-    <p class="lead">Detrás de cada plan hay profesionales que te escuchan. Descubre quién te acompañará.</p>
-    <p style="margin-top:22px"><a class="btn dark" href="#equipo">Ver el equipo</a></p>
+  <section class="mtx eqx"><div class="wrap">
+    <img class="eqx-fig" src="fotos/figuras-oro.webp" width="580" height="373" alt="" aria-hidden="true" loading="lazy">
+    <p class="mtx-eb">Las personas</p>
+    <h2 class="eqx-h">Conoce al <img src="fotos/titulos/equipo.webp?v=1" width="598" height="200" alt="equipo"></h2>
+    <p class="ctx-lead">Aquí no te toca «el que esté libre».<br><b>Te toca alguien que sabe tu nombre, tu lesión y lo que levantaste el martes.</b></p>
+    <a class="eqx-ph" href="#equipo" aria-label="Ver el equipo">
+      <figure><img src="fotos/equipo-matias.webp" width="780" height="975" alt="Matías Torres" loading="lazy"><figcaption>Matías</figcaption></figure>
+      <figure><img src="fotos/equipo-silvia.webp" width="780" height="975" alt="Silvia Lorenzo" loading="lazy"><figcaption>Silvia</figcaption></figure>
+      <figure><img src="fotos/equipo-alejandro.webp" width="780" height="975" alt="Alejandro" loading="lazy"><figcaption>Alejandro</figcaption></figure>
+    </a>
+    <a class="rvx-btn eqx-btn" href="#equipo">Conoce a quien te va a entrenar <span aria-hidden="true">→</span></a>
   </div></section>
-  <div class="cta-band"><div class="wrap"><h2>¿Hablamos de tu caso?</h2><a class="btn dark" href="#reservar">Solicita tu primera valoración</a></div></div>
+  <section class="mtx mtx-cta"><div class="wrap">
+    <img class="mtx-esc" src="fotos/escudo-perlas.webp?v=1" width="900" height="948" alt="" aria-hidden="true" loading="lazy">
+    <h2 class="mtx-h">¿Hablamos de tu caso?<span>Sin prisas. Sin compromiso. Con un café.</span></h2>
+    <a class="mtx-btn" href="#reservar">Reserva tu primera valoración</a>
+    <p class="mtx-small">Invitación de la casa</p>
+  </div></section>
 </div>
 
 <!-- ============ EQUIPO ============ -->
@@ -3457,6 +3469,23 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 .qzx .qz-back{font-size:12px!important;letter-spacing:.2em;text-transform:uppercase}
 .qzx .btn{border-radius:2px!important;letter-spacing:.2em;text-transform:uppercase;background:linear-gradient(180deg,#ffe25a,#ffd51f 55%,#e8b400)!important;color:#0b0b0b!important;border:0!important}
 .qzx .qz-form input[type=text],.qzx .qz-form input[type=tel],.qzx .qz-form input[type=email]{border-radius:2px!important;background:rgba(255,255,255,.03)!important;border:1px solid rgba(255,255,255,.14)!important}
+
+/* ===== Conoce al equipo premium ===== */
+.eqx{position:relative;overflow:hidden;padding:clamp(100px,12vw,170px) 0;background:radial-gradient(60% 50% at 50% 100%,rgba(255,213,31,.08),transparent 70%),#0b0b0b;text-align:center}
+.eqx::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,213,31,.4),transparent)}
+.eqx-fig{display:block;width:clamp(110px,10vw,150px);height:auto;margin:0 auto 34px;filter:drop-shadow(0 0 14px rgba(255,213,31,.3))}
+.eqx .ctx-lead{margin-left:auto!important;margin-right:auto!important;margin-bottom:clamp(64px,7vw,96px)!important}
+.eqx-h{font:600 clamp(34px,4.6vw,62px)/1 'Oswald',sans-serif;color:#fff;text-transform:uppercase;margin:0 0 clamp(36px,4vw,52px);display:flex;align-items:center;justify-content:center;gap:.28em;flex-wrap:wrap}
+.eqx-h img{height:1.25em;width:auto;display:inline-block}
+.eqx-ph{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px);max-width:900px;margin:0 auto;text-decoration:none}
+.eqx-ph figure{position:relative;margin:0;overflow:hidden;aspect-ratio:4/5}
+.eqx-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:grayscale(1) contrast(1.08) brightness(.8);transform:scale(1.02);transition:filter .7s,transform 1.2s cubic-bezier(.2,.7,.2,1);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 12%,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 12%,#000 55%,transparent 100%)}
+.eqx-ph figure:hover img{filter:grayscale(0) contrast(1.02) brightness(1);transform:scale(1.06)}
+.eqx-ph figcaption{position:absolute;left:0;right:0;bottom:14px;font:500 12px/1 'Poppins',sans-serif;letter-spacing:.34em;text-transform:uppercase;color:#fff}
+.eqx-ph figcaption::after{content:"";display:block;width:26px;height:1px;background:var(--yellow);margin:10px auto 0}
+.eqx-btn{margin-top:clamp(56px,6vw,80px)!important}
+@media(max-width:600px){.eqx-ph{grid-template-columns:repeat(3,1fr);gap:8px}.eqx-ph figcaption{font-size:9px;letter-spacing:.2em}}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 <script>
