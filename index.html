@@ -1522,14 +1522,17 @@ html,body{overflow-x:clip}
     <div class="fil-vid"><video id="filVideo" muted loop playsinline preload="none" poster="video/filosofia.jpg?v=8" aria-label="Vídeo de entrenamientos en el centro Matías Torres" disablepictureinpicture><source src="video/filosofia.mp4?v=8" type="video/mp4"></video></div>
   </div></section>
 
-  <section class="alt"><div class="wrap">
-    <div class="eyebrow">El centro</div><h2 class="title">Un espacio hecho para ti</h2>
-    <div class="cards">
-      <div class="card"><h3>Intimidad</h3><p>Máximo dos clientes en toda la sala, cada uno con su entrenador. Tu sesión y tus datos son confidenciales.</p></div>
-      <div class="card"><h3>Material específico</h3><p>Poleas, mancuernas, bandas, plataformas de equilibrio y material de movilidad, todo pensado para trabajo terapéutico y de fuerza.</p></div>
-      <div class="card"><h3>Accesible y seguro</h3><p>Acceso sin barreras, desfibrilador (DEA) y personal formado en primeros auxilios.</p></div>
+  <section class="mtx ctx"><div class="wrap">
+    <p class="mtx-eb">El centro</p>
+    <h2 class="mtx-h">No es un gimnasio.<span>Es tu sitio.</span></h2>
+    <p class="ctx-lead">Aquí no hay colas, ni espejos llenos de gente, ni nadie esperando tu máquina.<br><b>Hay una sala preparada para ti. Y alguien que te conoce.</b></p>
+    <div class="mtx-m3 ctx-3">
+      <div><span>I</span><h3>Nunca más de dos</h3><p>Dos clientes como máximo en toda la sala, cada uno con su entrenador. Lo que pasa aquí, y lo que nos cuentas, se queda aquí.</p></div>
+      <div><span>II</span><h3>Material elegido, no acumulado</h3><p>Poleas, mancuernas, bandas, plataformas de equilibrio. Ni una máquina de adorno: todo tiene un porqué en tu plan.</p></div>
+      <div><span>III</span><h3>Tu seguridad, antes que la intensidad</h3><p>Acceso sin barreras, desfibrilador y personal formado en primeros auxilios. Por si acaso. Siempre.</p></div>
     </div>
-    <div class="note"><b>Valores:</b> honestidad (te decimos lo que sí y lo que no podemos hacer), seguridad (siempre por delante de la intensidad) y constancia (los resultados se construyen semana a semana).</div>
+    <p class="mtx-quote ctx-q">Te diremos lo que podemos hacer por ti.<br><b>Y también lo que no.</b></p>
+    <p class="ctx-sign">Honestidad · Seguridad · Constancia</p>
   </div></section>
 
   <section class="fm fx fx-f">
@@ -3363,6 +3366,19 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 #v-metodologia .mtx-h{margin:0 0 clamp(64px,7vw,104px)!important;line-height:1.06!important}
 #v-metodologia .mtx-cta .mtx-h{margin-bottom:52px!important;font-size:clamp(30px,3.8vw,52px)!important}
 #v-metodologia .mtx-h span{display:block;margin-top:.12em}
+
+/* ===== El centro premium ===== */
+.ctx{position:relative;overflow:hidden;padding:clamp(100px,12vw,170px) 0;color:#f5f3ee;
+  background:radial-gradient(55% 60% at 100% 0%,rgba(255,213,31,.10),transparent 70%),radial-gradient(50% 55% at 0% 100%,rgba(255,170,0,.07),transparent 70%),#0b0b0b}
+.ctx::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,213,31,.45),transparent)}
+.ctx .mtx-h{margin:0 0 clamp(36px,4vw,52px)!important;line-height:1.06!important}
+.ctx .mtx-h span{display:block;margin-top:.12em}
+.ctx-lead{max-width:760px;margin:0 0 clamp(80px,9vw,128px)!important;font:400 clamp(18px,1.5vw,22px)/1.7 'Poppins',sans-serif!important;color:#a9a59c!important}
+.ctx-lead b{color:#fff;font-weight:600}
+.ctx-3>div{position:relative}
+.ctx-3 span{display:block;font:400 13px/1 'Poppins',sans-serif;letter-spacing:.3em;color:var(--yellow);margin:0 0 22px}
+.ctx-q{margin-top:clamp(90px,10vw,140px)!important}
+.ctx-sign{margin-top:28px!important;font:500 12px/1 'Poppins',sans-serif!important;letter-spacing:.38em;text-transform:uppercase;color:#6f6b63!important}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 <script>
