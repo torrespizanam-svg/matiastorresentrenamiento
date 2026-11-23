@@ -1319,7 +1319,7 @@ html,body{overflow-x:clip}
 
   <section class="pb2 pb3" data-mt>
     <div class="wrap">
-    <img class="pb3-shield rv" src="fotos/escudo-perlas.webp?v=1" width="900" height="948" alt="Escudo de Matías Torres, entrenador personal en Orihuela desde 2021" loading="lazy">
+    <img class="pb3-shield rv" src="fotos/escudo-perlas-xl.webp?v=1" width="1600" height="1685" alt="Escudo de Matías Torres, entrenador personal en Orihuela desde 2021" loading="lazy">
     <p class="pb2-eb rv">¿Te suena?</p>
     <h2 class="pb2-h">
       <span class="pb2-x rv" style="--d:.15s">Pagas la cuota.<i class="dr" style="--d:1.6s" aria-hidden="true"></i></span>
@@ -3303,6 +3303,10 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 #site header.mini .brand>img.brand-esc{height:72px!important}
 #site header.mini .brand .lockup b.esc-name img{height:34px!important}
 @media(max-width:480px){#site .brand>img.brand-esc{height:64px!important}#site header.mini .brand>img.brand-esc{height:54px!important}#site .brand .lockup b.esc-name img{height:28px!important}}
+
+/* ¿Te suena?: escudo al doble de tamaño */
+.pb3 .pb3-shield{width:clamp(420px,52vw,800px)!important}
+@media(max-width:900px){.pb3 .pb3-shield{width:min(88vw,480px)!important}}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 <script>
