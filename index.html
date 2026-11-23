@@ -1854,19 +1854,19 @@ html,body{overflow-x:clip}
   </div></div></section>
 </div>
 
-<section class="social" id="instagram" aria-label="Redes sociales"><div class="wrap">
+<section class="social sox" id="instagram" aria-label="Redes sociales"><div class="sox-wm" aria-hidden="true">@MATIASTORRESEP</div><div class="wrap">
   <div>
-    <div class="eyebrow">Redes sociales</div>
-    <h2 class="title">Síguenos en @matiastorresep</h2>
-    <p class="lead">Entrenamientos, consejos y el día a día del centro. Síguenos para no perderte nada.</p>
+    <p class="mtx-eb">Redes sociales</p>
+    <h2 class="sox-h">Lo que pasa en la sala<span>no se queda en la sala.</span></h2>
+    <p class="sox-lead">Técnica, consejos y cambios reales de clientes reales. Cada semana, gratis, en tu móvil.<br><b>Síguenos y empieza a entrenar antes de venir.</b></p>
     <div class="socbtns">
       <a class="soc ig" href="https://www.instagram.com/matiastorresep/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        <span>Instagram<small>@matiastorresep</small></span>
+        <span>Instagram<small>@matiastorresep</small></span><i aria-hidden="true">→</i>
       </a>
       <a class="soc fb" href="https://www.facebook.com/matiastorresEP" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H6v4h3v7h4v-7h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg>
-        <span>Facebook<small>Matias Torres EP</small></span>
+        <span>Facebook<small>Matías Torres EP</small></span><i aria-hidden="true">→</i>
       </a>
     </div>
   </div>
@@ -3486,6 +3486,33 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 .eqx-ph figcaption::after{content:"";display:block;width:26px;height:1px;background:var(--yellow);margin:10px auto 0}
 .eqx-btn{margin-top:clamp(56px,6vw,80px)!important}
 @media(max-width:600px){.eqx-ph{grid-template-columns:repeat(3,1fr);gap:8px}.eqx-ph figcaption{font-size:9px;letter-spacing:.2em}}
+
+/* ===== Redes sociales premium ===== */
+.sox{position:relative;overflow:hidden;padding:clamp(100px,12vw,170px) 0!important;border-top:0!important;
+  background:radial-gradient(60% 70% at 100% 100%,rgba(214,41,118,.10),transparent 65%),radial-gradient(55% 60% at 75% 20%,rgba(255,170,0,.12),transparent 65%),radial-gradient(50% 60% at 0% 0%,rgba(255,213,31,.06),transparent 70%),#0b0b0b!important}
+.sox::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,213,31,.45),transparent)}
+.sox-wm{position:absolute;left:50%;bottom:-.18em;transform:translateX(-50%);white-space:nowrap;font:700 clamp(80px,13vw,220px)/1 'Oswald',sans-serif;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1px rgba(255,213,31,.08);pointer-events:none;user-select:none}
+.sox .wrap{position:relative;max-width:1320px!important;grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr)!important;gap:clamp(48px,6vw,100px)!important}
+.sox-h{font:600 clamp(36px,4vw,58px)/1.04 'Oswald',sans-serif;color:#fff;text-transform:uppercase;margin:0 0 clamp(30px,3vw,44px)}
+.sox-h span{display:block;margin-top:.12em;background:linear-gradient(90deg,#fff0b8,#ffd51f 45%,#fa7e1e 80%,#d62976);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sox-lead{font:400 clamp(17px,1.3vw,20px)/1.75 'Poppins',sans-serif;color:#a9a59c;margin:0 0 clamp(40px,4vw,56px)}
+.sox-lead b{color:#fff;font-weight:600}
+.sox .socbtns{display:grid;gap:16px;margin:0;max-width:460px}
+.sox .soc{display:grid;grid-template-columns:auto 1fr auto;gap:18px;padding:20px 26px 20px 20px;border-radius:2px;font:600 15px 'Poppins';letter-spacing:.14em;text-transform:uppercase;border:1px solid transparent;
+  background:linear-gradient(180deg,#151515,#0e0e0e) padding-box,linear-gradient(90deg,rgba(255,213,31,.8),rgba(250,126,30,.5) 50%,rgba(214,41,118,.5)) border-box}
+.sox .soc.fb{background:linear-gradient(180deg,#151515,#0e0e0e) padding-box,linear-gradient(90deg,rgba(255,213,31,.8),rgba(77,143,245,.55) 55%,rgba(24,119,242,.5)) border-box}
+.sox .soc svg{width:46px;height:46px;padding:11px;flex:none}
+.sox .soc small{font-size:12px;letter-spacing:.08em;text-transform:none;margin-top:4px}
+.sox .soc i{font-style:normal;font-size:20px;color:var(--yellow);transition:transform .3s}
+.sox .soc:hover{transform:translateY(-3px)!important;box-shadow:0 20px 40px -18px rgba(255,170,0,.5)}
+.sox .soc:hover i{transform:translateX(5px);color:inherit}
+.sox .igcard{border-radius:4px!important;padding:1px!important;background:linear-gradient(135deg,#ffd51f,#b8862a 30%,#fa7e1e 60%,#d62976 85%,#962fbf)!important;
+  box-shadow:0 50px 100px -40px rgba(0,0,0,.95),0 0 120px -20px rgba(250,126,30,.25)!important;transform:perspective(1600px) rotateY(-4deg);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.sox .igcard:hover{transform:perspective(1600px) rotateY(0)}
+.sox .igbox{border-radius:3px 3px 0 0!important}
+.sox .igfoot{border-radius:0 0 3px 3px!important;padding:20px 26px!important;font-size:13px!important;letter-spacing:.2em!important;background:#0b0b0b!important}
+.sox .igfoot:hover{background:linear-gradient(90deg,#ffd51f,#fa7e1e)!important}
+@media(max-width:860px){.sox .wrap{grid-template-columns:1fr!important}.sox .igcard{transform:none}.sox .socbtns{max-width:none}}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 <script>
