@@ -1564,11 +1564,16 @@ html,body{overflow-x:clip}
 </div>
 
 <!-- ============ EQUIPO ============ -->
-<div class="view" id="v-equipo">
-  <div class="phead"><div class="wrap"><h1 class="esc-mix esc-big">Nuestro <img src="fotos/titulos/equipo.webp?v=1" width="598" height="200" alt="equipo"></h1><p>Las personas que te acompañan en cada sesión.</p></div></div>
-  <section><div class="wrap">
-    <div class="eyebrow">Quién es quién</div><h2 class="title">Un equipo cercano</h2>
-    <p class="lead">Tres entrenadores, un mismo método y nunca más de dos personas por hora. Por la mañana, un entrenador para cada cliente. Por la tarde, Alejandro atiende a dos a la vez.</p>
+<div class="view tmx" id="v-equipo">
+  <div class="phead"><div class="wrap"><img class="tmx-fig" src="fotos/figuras-oro.webp" width="580" height="373" alt="" aria-hidden="true"><h1 class="esc-mix esc-big">Nuestro <img src="fotos/titulos/equipo.webp?v=1" width="598" height="200" alt="equipo"></h1><p>Las personas que te entrenan en cada sesión.</p></div></div>
+  <section class="tmx-sec"><div class="wrap">
+    <p class="mtx-eb">Quién es quién</p>
+    <h2 class="mtx-h">Tres entrenadores.<span>Un mismo método. Ningún desconocido.</span></h2>
+    <div class="tmx-rule">
+      <div><b>2</b><p>personas por hora,<br>como máximo</p></div>
+      <div><b>1:1</b><p>por la mañana,<br>un entrenador para ti</p></div>
+      <div><b>2:1</b><p>por la tarde, Alejandro<br>con dos personas a la vez</p></div>
+    </div>
     <div class="team">
       <article class="member">
         <div class="ph ph-img"><img src="fotos/equipo-matias.webp?v=9" width="780" height="975" alt="Matías Torres, fundador y entrenador personal, sonriendo en la sala con el polo del centro" loading="lazy" decoding="async"></div>
@@ -1617,9 +1622,17 @@ html,body{overflow-x:clip}
         </div>
       </article>
     </div>
-    <div class="note"><b>Trabajamos en equipo:</b> fisioterapia y nutrición en el mismo centro. Y, siempre con tu permiso, nos coordinamos con tu médico.</div>
+    <p class="mtx-quote tmx-q">Y detrás de los tres, fisioterapia y nutrición en el mismo centro.<br><b>Si hace falta, también hablamos con tu médico.</b></p>
   </div></section>
-  <div class="cta-band"><div class="wrap"><h2>Empieza con una conversación</h2><a class="btn dark" href="#reservar">Solicita tu primera valoración</a></div></div>
+  <section class="tmx-cta"><div class="wrap">
+    <p class="mtx-eb">Tu primera cita</p>
+    <h2>Ya sabes quién te va a entrenar.<span>Ahora queremos conocerte a ti.</span></h2>
+    <div class="tmx-cta-row">
+      <a class="mtx-btn" href="#reservar">Reserva tu primera valoración</a>
+      <a class="tmx-wa" href="https://wa.me/34686728907" target="_blank" rel="noopener">o escríbenos por WhatsApp →</a>
+    </div>
+    <p class="mtx-small">Invitación de la casa · Sin compromiso</p>
+  </div></section>
 </div>
 
 <!-- ============ METODOLOGÍA ============ -->
@@ -3513,6 +3526,49 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 .sox .igfoot{border-radius:0 0 3px 3px!important;padding:20px 26px!important;font-size:13px!important;letter-spacing:.2em!important;background:#0b0b0b!important}
 .sox .igfoot:hover{background:linear-gradient(90deg,#ffd51f,#fa7e1e)!important}
 @media(max-width:860px){.sox .wrap{grid-template-columns:1fr!important}.sox .igcard{transform:none}.sox .socbtns{max-width:none}}
+
+/* ===== Página Nuestro equipo premium ===== */
+#v-equipo.tmx{background:#0b0b0b;color:#f5f3ee}
+#v-equipo .phead{background:radial-gradient(70% 120% at 50% 0%,#2a2108 0,#0b0b0b 65%)!important;text-align:center;padding-top:clamp(90px,10vw,140px)!important;padding-bottom:clamp(70px,8vw,110px)!important;border-bottom:1px solid rgba(255,213,31,.15)}
+#v-equipo .phead h1{justify-content:center}
+#v-equipo .phead p{color:#bdb9b0!important;margin:22px auto 0!important;font-size:clamp(17px,1.4vw,21px)!important;letter-spacing:.04em}
+.tmx-fig{display:block;width:clamp(100px,9vw,140px);height:auto;margin:0 auto 30px;filter:drop-shadow(0 0 14px rgba(255,213,31,.3))}
+.tmx-sec{padding:clamp(96px,11vw,160px) 0;background:radial-gradient(50% 40% at 100% 30%,rgba(255,213,31,.07),transparent 70%),#0b0b0b}
+.tmx .mtx-h{margin:0 0 clamp(48px,5vw,72px)!important;line-height:1.06!important;font-size:clamp(32px,4vw,56px)!important}
+.tmx .mtx-h span{display:block;margin-top:.12em}
+.tmx-rule{display:grid;grid-template-columns:repeat(3,1fr);margin:0 0 clamp(90px,10vw,140px);border-top:1px solid rgba(255,213,31,.4);border-bottom:1px solid rgba(255,255,255,.08)}
+.tmx-rule>div{padding:34px 26px 30px;text-align:center}
+.tmx-rule>div+div{border-left:1px solid rgba(255,255,255,.08)}
+.tmx-rule b{display:block;font:300 clamp(52px,5.4vw,80px)/1 'Oswald',sans-serif;background:linear-gradient(180deg,#fff0b8,#d9a92e 55%,#7a5710);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:14px}
+.tmx-rule p{margin:0!important;font:400 14px/1.6 'Poppins',sans-serif!important;letter-spacing:.12em;text-transform:uppercase;color:#8f8b82!important}
+#v-equipo .team{gap:clamp(28px,3vw,44px)!important}
+#v-equipo .member{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01))!important;border:1px solid rgba(255,213,31,.16)!important;border-top:2px solid rgba(255,213,31,.7)!important;border-radius:0!important;box-shadow:none!important;overflow:hidden;color:#f5f3ee}
+#v-equipo .member .ph,#v-equipo .member .ph-img{border-radius:0!important;background:#0b0b0b!important;overflow:hidden}
+#v-equipo .member .ph img{filter:contrast(1.04) saturate(.9);object-position:50% 25%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1);-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 70%,transparent 100%)}
+#v-equipo .member:hover .ph img{transform:scale(1.04)}
+#v-equipo .member .body{padding:8px clamp(24px,2.4vw,34px) clamp(30px,3vw,40px)!important;background:transparent!important}
+#v-equipo .role{display:block;font:500 11.5px/1.4 'Poppins',sans-serif!important;letter-spacing:.26em!important;text-transform:uppercase;color:var(--yellow)!important;background:none!important;padding:0!important;margin-bottom:10px}
+#v-equipo .member h3{font:600 clamp(22px,1.8vw,28px)/1.1 'Oswald',sans-serif!important;color:#fff!important;text-transform:uppercase;margin:0 0 18px!important}
+#v-equipo .member p{color:#b9b5ab!important;font-size:15.5px!important;line-height:1.8!important}
+#v-equipo .stats{gap:10px!important;margin:0 0 20px!important}
+#v-equipo .stats span{background:transparent!important;border:1px solid rgba(255,213,31,.3)!important;color:#cfcbc2!important;border-radius:0!important}
+#v-equipo .stats b{color:var(--yellow)!important}
+#v-equipo .cv{border-top:1px solid rgba(255,255,255,.08);padding-top:18px!important;margin-top:20px!important}
+#v-equipo .cv li{color:#a9a59c!important;font-size:14px!important;line-height:1.7}
+#v-equipo .cv li::marker,#v-equipo .cv li::before{color:var(--yellow)!important}
+#v-equipo .member .btn{border-radius:2px!important;background:linear-gradient(180deg,#ffe25a,#ffd51f 55%,#e8b400)!important;color:#0b0b0b!important;border:0!important;letter-spacing:.16em;margin-top:24px}
+.tmx-q{margin-top:clamp(90px,10vw,140px)!important}
+.tmx-cta{position:relative;overflow:hidden;padding:clamp(110px,13vw,190px) 0;color:#fff;
+  background:linear-gradient(115deg,#0b0b0b 0,#0b0b0b 42%,#3a2c05 62%,#b8862a 82%,#ffd51f 100%)}
+.tmx-cta::before{content:"";position:absolute;right:-6%;top:50%;width:min(560px,46vw);aspect-ratio:1159/746;transform:translateY(-50%);background:url(fotos/figuras-escudo-hd.webp) center/contain no-repeat;filter:brightness(0);opacity:.22;pointer-events:none}
+.tmx-cta .wrap{position:relative}
+.tmx-cta h2{font:600 clamp(34px,4.4vw,62px)/1.06 'Oswald',sans-serif;text-transform:uppercase;margin:0 0 clamp(44px,5vw,64px);max-width:760px}
+.tmx-cta h2 span{display:block;margin-top:.12em;color:#ffd51f}
+.tmx-cta-row{display:flex;align-items:center;gap:34px;flex-wrap:wrap}
+.tmx-wa{color:#fff;text-decoration:none;font:500 14px 'Poppins',sans-serif;letter-spacing:.12em;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:4px}
+.tmx-wa:hover{color:#ffd51f;border-color:#ffd51f}
+.tmx-cta .mtx-small{margin-top:26px!important;color:#8f8b82!important}
+@media(max-width:820px){.tmx-rule{grid-template-columns:1fr}.tmx-rule>div+div{border-left:0;border-top:1px solid rgba(255,255,255,.08)}.tmx-cta{background:linear-gradient(170deg,#0b0b0b 0,#0b0b0b 55%,#3a2c05 75%,#b8862a 100%)}.tmx-cta::before{right:-20%;top:auto;bottom:-10%;transform:none;width:80vw}}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 <script>
