@@ -1,0 +1,20 @@
+exec(open('gen.py').read().split("SV = {}")[0])
+P = 'M600,85 L1095,290 L1040,815 C1005,1040 825,1205 600,1315 C375,1205 195,1040 160,815 L105,290 Z'
+b = []
+b.append(f'<g filter="url(#drop)">{sc(P,1,extra="fill=\"#0b0b0b\"")}</g>')
+b.append(sc(P, .975, extra='fill="url(#gold)" filter="url(#bevel)"'))
+b.append(sc(P, .945, extra='fill="#0b0b0b"'))
+b.append(sc(P, .93, extra='fill="url(#yel)"'))
+b.append(sc(P, .93, extra='fill="url(#yelHi)"'))
+b.append(enamel_overlays(P, .93, 'c1'))
+b.append(f'<clipPath id="cb">{sc(P,.93)}</clipPath>')
+b.append('<g clip-path="url(#cb)"><rect x="0" y="0" width="1200" height="395" fill="url(#ink)"/><rect x="0" y="0" width="1200" height="395" fill="url(#inkHi)"/>'
+         '<rect x="0" y="395" width="1200" height="12" fill="url(#gold)" filter="url(#bevelS)"/></g>')
+m, h = art('name', 'url(#goldV)', 600, 255, 650, 'bevelS'); b.append(m)
+m, h = art('fig', '#0b0b0b', 600, 445, 500, 'sink'); b.append(m)
+m, h = art('one', '#0b0b0b', 600, 790, 190, 'sink'); b.append(m)
+b.append(txt('ENTRENADOR PERSONAL', 600, 1030, 70, '#0b0b0b', 1.5, fam='Anton', weight=400, extra='filter="url(#sink)"'))
+b.append('<rect x="420" y="1056" width="360" height="3" fill="#0b0b0b" opacity=".75"/>')
+b.append(txt('ORIHUELA', 600, 1105, 32, '#0b0b0b', 16, fam='Montserrat', weight=700, extra='filter="url(#sink)"'))
+b.append(sheen(P, .93))
+open(D+'7-modena-original.html','w').write('<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:transparent}svg{display:block}</style></head><body>'+svg(''.join(b))+'</body></html>')
