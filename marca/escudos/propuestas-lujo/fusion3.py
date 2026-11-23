@@ -37,9 +37,9 @@ for mode,k,nm in [('deg','A','9a-degradado'),('humo','B','9b-humo')]:
     m,h=art('name','url(#goldV)',600,372,560,'bevelS'); b.append(m)
     m,h=art('fig','#0b0b0b',600,522,380,'sink'); b.append(m)
     m,h=art('one','#0b0b0b',600,786,150,'sink'); b.append(m)
-    b.append(txt('ENTRENADOR PERSONAL',600,952,56,'#0b0b0b',1.5,fam='Anton',weight=400,extra='filter="url(#sink)"'))
-    b.append('<rect x="460" y="972" width="280" height="3" fill="#0b0b0b" opacity=".7"/>')
-    b.append(txt('ORIHUELA',600,1014,26,'#0b0b0b',14,fam='Montserrat',weight=700,extra='filter="url(#sink)"'))
+    b.append(txt('ENTRENADOR PERSONAL',600,958,62,'#0b0b0b',1.5,fam='Anton',weight=400,extra='filter="url(#sink)"'))
+    b.append('<rect x="450" y="979" width="300" height="3" fill="#0b0b0b" opacity=".75"/>')
+    b.append(txt('ORIHUELA',600,1028,33,'#0b0b0b',12,fam='Montserrat',weight=800,extra='filter="url(#sink)"'))
     finish(b,nm)
 
 for mode,k,nm in [('deg','C','9c-degradado-invertido'),('humo','D','9d-humo-invertido')]:
