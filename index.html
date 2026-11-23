@@ -1316,19 +1316,26 @@ html,body{overflow-x:clip}
 
 
   <section class="alt" id="centro"><div class="wrap">
+    <div class="ce-top">
+    <div class="ce-main">
     <div class="ce-eb">Tu centro de entrenamiento personal en Orihuela</div>
     <h2 class="title ce-title">Conoce el espacio donde <span class="ce-hl ce-esc"><img src="fotos/titulos/entrenas.webp?v=1" width="938" height="200" alt="entrenas"></span></h2>
     <div class="ce-txt ce-grid">
       <div class="ce-izq">
         <p class="ce-lead">Imagina entrenar donde nadie te mira, nadie te mete prisa y nadie te quita la máquina.</p>
         <p class="ce-y ce-eso">Eso es esta sala.</p>
-        <img class="ce-escudo" src="fotos/escudo-color.webp?v=1" width="2576" height="1230" alt="Escudo Matías Torres, entrenador personal, sobre una explosión de color" loading="lazy" decoding="async">
       </div>
       <div class="ce-der">
         <p>Entras y la temperatura es la justa. La música, baja. El aire, limpio y perfumado. Te descalzas, y tu material ya te está esperando.</p>
         <p>Pero lo mejor no es la sala. Es que aquí te llaman por tu nombre. Se acuerdan de esa rodilla que te molestaba el martes. Y te dicen la verdad, aunque no sea lo que quieres oír.</p>
         <p>Lo que nos cuentas, se queda aquí. Tú solo vienes a lo tuyo: <strong>estar más fuerte, con menos grasa y más músculo.</strong> Y, si hace falta, a dejar atrás el dolor.</p>
       </div>
+    </div>
+    </div>
+    <figure class="ce-pared" data-lb>
+      <img src="fotos/pared-madera.webp?v=1" srcset="fotos/pared-madera-m.webp?v=1 720w, fotos/pared-madera.webp?v=1 1200w" sizes="(max-width:900px) 72vw, 42vw" width="1200" height="2667" alt="Pared de madera natural de la sala con el nombre MATÍAS TORRES en letras blancas en relieve, en vertical" loading="lazy" decoding="async">
+      <figcaption><span>Nuestra pared</span>Aquí nos hacemos la foto con cada cliente.</figcaption>
+    </figure>
     </div>
     <div class="ce-sello"><img src="fotos/escudo-1a1.png" width="560" height="601" alt="" aria-hidden="true" loading="lazy"><p>Aquí no eres una cuota ni una tarjeta.<b>Eres un nombre en nuestra agenda.</b></p></div>
     <figure class="ce-mural" data-lb>
@@ -3169,6 +3176,34 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 #centro .ce-escudo{display:block;width:106%;max-width:600px;height:auto;margin:clamp(28px,3vw,44px) 0 0 -5%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%),linear-gradient(180deg,transparent 0,#000 10%,#000 88%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%),linear-gradient(180deg,transparent 0,#000 10%,#000 88%,transparent 100%);mask-composite:intersect}
 @media(max-width:900px){#centro .ce-escudo{width:100%;margin:22px auto 0}}
 
+/* ===== Conoce el espacio: la pared de madera con el nombre (foto real de la sala) =====
+   Fondo negro en toda la web; la madera aparece solo aquí, como foto, a la derecha.
+   Bordes fundidos a negro para que la pared "emerja" de la página, sin marco ni sombra. */
+#centro .ce-top{display:grid;grid-template-columns:minmax(0,1fr) clamp(280px,29vw,420px);gap:clamp(40px,6vw,110px);align-items:center;max-width:1120px}
+#centro .ce-top .ce-grid{grid-template-columns:1fr;gap:clamp(26px,2.6vw,36px);max-width:600px}
+#centro .ce-top .ce-title{margin-bottom:clamp(34px,4vw,56px)}
+#centro .ce-pared{position:relative;margin:0;cursor:zoom-in;isolation:isolate}
+#centro .ce-pared::before{content:"";position:absolute;inset:6% -14% 6% -14%;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(196,150,96,.16),rgba(196,150,96,.05) 55%,transparent 100%)}
+#centro .ce-pared img{display:block;width:100%;height:auto;aspect-ratio:1200/2667;object-fit:cover;
+  transform:scale(var(--ce-z,1.06));transform-origin:58% 50%;will-change:transform;
+  filter:brightness(.94) contrast(1.03) saturate(.96);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 9%,#000 22%,#000 84%,rgba(0,0,0,.6) 94%,transparent 100%),linear-gradient(180deg,transparent 0,rgba(0,0,0,.6) 5%,#000 12%,#000 86%,rgba(0,0,0,.55) 94%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.55) 9%,#000 22%,#000 84%,rgba(0,0,0,.6) 94%,transparent 100%),linear-gradient(180deg,transparent 0,rgba(0,0,0,.6) 5%,#000 12%,#000 86%,rgba(0,0,0,.55) 94%,transparent 100%);
+  mask-composite:intersect}
+#centro .ce-pared figcaption{position:relative;margin:10px 0 0 14%;padding-left:16px;border-left:1px solid var(--yellow);font:400 14px/1.55 'Poppins',sans-serif;color:#a9a59c}
+#centro .ce-pared figcaption span{display:block;font:500 11px/1.4 'Poppins',sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--yellow);margin-bottom:2px}
+/* Entrada suave al aparecer */
+#centro .ce-pared{opacity:0;transform:translateY(24px);transition:opacity 1.4s cubic-bezier(.2,.7,.2,1),transform 1.4s cubic-bezier(.2,.7,.2,1)}
+#centro .ce-pared.in{opacity:1;transform:none}
+@media(max-width:900px){
+  #centro .ce-top{display:block}
+  #centro .ce-pared{width:min(78vw,380px);margin:clamp(40px,9vw,60px) auto 0}
+  #centro .ce-pared figcaption{margin:8px 0 0 12%}
+}
+@media(prefers-reduced-motion:reduce){#centro .ce-pared,#centro .ce-pared img{transition:none;transform:none;opacity:1}}
+
 /* tarjetas detalles: sin números, texto alineado, fotos más luminosas */
 #solo-aqui .sa-txt span{display:none}
 #solo-aqui .sa-card{height:clamp(440px,56vh,540px)}
@@ -3229,5 +3264,23 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 @media(max-width:900px){.pb3-shield{width:240px!important}}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
+<script>
+/* Pared de madera: aparece suave y se acerca muy despacio al hacer scroll (de 1.06 a 1.00) */
+(function(){
+  var f=document.querySelector('#centro .ce-pared'); if(!f) return;
+  var img=f.querySelector('img');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){f.classList.add('in');return;}
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es,o){es.forEach(function(e){if(e.isIntersecting){f.classList.add('in');o.disconnect();}})},{threshold:.15}).observe(f);
+  } else f.classList.add('in');
+  var tick=false;
+  function upd(){tick=false;var r=f.getBoundingClientRect(),vh=innerHeight;
+    if(r.bottom<0||r.top>vh) return;
+    var p=Math.min(1,Math.max(0,(vh-r.top)/(vh+r.height)));
+    img.style.setProperty('--ce-z',(1.06-0.06*p).toFixed(4));}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});
+  addEventListener('resize',upd); upd();
+})();
+</script>
 </body>
 </html>
