@@ -19,7 +19,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="fotos/escudo-premium-cab.webp?v=1">
+<link rel="preload" as="image" href="fotos/escudo-premium-cab.png?v=2">
 <link rel="preload" as="image" href="fotos/sala.webp?v=7" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -1231,7 +1231,7 @@ html,body{overflow-x:clip}
 <header>
   <div class="wrap nav">
     <a class="brand" href="#inicio">
-      <img src="fotos/escudo-premium-cab.webp?v=1" width="260" height="274" alt="Escudo de Matías Torres, entrenador personal">
+      <img class="brand-esc" src="fotos/escudo-premium-cab.png?v=2" width="320" height="338" alt="Escudo de Matías Torres, entrenador personal">
       <span class="lockup"><b class="esc-name"><img src="fotos/titulos/matias-torres.webp?v=1" width="656" height="120" alt="Matías Torres"></b><small>Entrenamiento personal · Orihuela</small></span>
     </a>
     <button class="burger" id="burger" aria-label="Menú">☰</button>
@@ -3288,6 +3288,13 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 .pb3-shield{width:clamp(260px,28vw,400px)!important;filter:drop-shadow(0 0 4px rgba(255,213,31,.95)) drop-shadow(0 0 18px rgba(255,213,31,.8)) drop-shadow(0 0 40px rgba(255,213,31,.5)) drop-shadow(0 0 70px rgba(255,213,31,.3))!important}
 .pb3 .pb2-eb{font-size:clamp(22px,1.9vw,30px)!important;letter-spacing:.28em!important;text-shadow:0 0 10px rgba(255,213,31,.7),0 0 26px rgba(255,213,31,.45),0 0 50px rgba(255,213,31,.25)}
 @media(max-width:900px){.pb3-shield{width:240px!important}}
+
+/* Escudo premium en cabecera: más grande y nítido */
+#site .brand>img.brand-esc{height:78px!important;width:auto;image-rendering:auto}
+#site header.mini .brand>img.brand-esc{height:62px!important}
+@media(max-width:480px){#site .brand>img.brand-esc{height:60px!important}#site header.mini .brand>img.brand-esc{height:50px!important}}
+/* ¿Te suena?: escudo sin resplandor amarillo, solo sombra */
+.pb3-shield{filter:drop-shadow(0 18px 30px rgba(0,0,0,.6))!important}
 </style>
 <script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 <script>
