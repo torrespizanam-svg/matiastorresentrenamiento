@@ -539,7 +539,7 @@
   #admin th:first-child{border-radius:8px 0 0 8px}#admin th:last-child{border-radius:0 8px 8px 0}
   #admin td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
   #admin tr:hover td{background:#fffbe6}
-  #admin .name{font-weight:600}#admin .notes{color:#444;max-width:360px}
+  #admin .name{font-weight:600}#admin td.num{text-align:right;color:#888;font-variant-numeric:tabular-nums;width:1%;white-space:nowrap}#admin .cexp{margin-left:auto;display:flex;gap:8px}#admin .notes{color:#444;max-width:360px}
   #admin .empty{padding:26px;text-align:center;color:var(--muted)}
   #admin .pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:600}
   #admin .p-ok{background:#dff5e8;color:#157a42}#admin .p-pen{background:#fff2c2;color:#8a6a00}#admin .p-can{background:#fde0e0;color:#a52a2a}
@@ -2009,8 +2009,8 @@ html,body{overflow-x:clip}
     <div class="card sub-panel on" id="c-lista">
       <h2>Lista de clientes</h2><p class="sub">Todo lo que hay ahora mismo en la base de datos. Haz clic en un cliente para ver su ficha.</p>
       <div class="solchips" id="cfil" role="tablist" aria-label="Filtrar clientes"><button type="button" role="tab" data-f="act">Activos <span class="n"></span></button><button type="button" role="tab" data-f="ina">Inactivos <span class="n"></span></button><button type="button" role="tab" data-f="all">Todos <span class="n"></span></button></div>
-      <div class="tools"><input id="q" placeholder="Buscar por nombre, teléfono, email o nota…"><button class="btn ghost" id="reload">↻ Actualizar</button><span class="count" id="ccount"></span></div>
-      <div style="overflow-x:auto"><table><thead><tr><th>Nombre</th><th>Móvil</th><th>Email</th><th style="text-align:center">Activo</th><th>Turno</th><th></th></tr></thead><tbody id="ctbody"></tbody></table></div>
+      <div class="tools"><input id="q" placeholder="Buscar por nombre, teléfono, email o nota…"><button class="btn ghost" id="reload">↻ Actualizar</button><span class="count" id="ccount"></span><span class="cexp"><button type="button" class="btn ghost" id="cPrint" title="Imprimir la lista que estás viendo">🖨 Imprimir</button><button type="button" class="btn ghost" id="cExcel" title="Descargar la lista que estás viendo en Excel">⬇ Excel</button></span></div>
+      <div style="overflow-x:auto"><table><thead><tr><th style="text-align:right">Nº</th><th>Nombre</th><th>Móvil</th><th>Email</th><th style="text-align:center">Activo</th><th>Turno</th><th></th></tr></thead><tbody id="ctbody"></tbody></table></div>
     </div>
     <div class="card sub-panel" id="c-add">
       <h2>Añadir cliente</h2><p class="sub">Nombre y apellidos son obligatorios.</p>
@@ -2481,16 +2481,35 @@ $$("#ctabs button").forEach(b=>b.addEventListener("click",()=>{
 /* clientes */
 let clients=[];
 async function loadClients(){
-  try{clients=await api("/clients?select=*&order=surname.asc,first_name.asc");renderClients()}
+  try{clients=await api("/clients?select=*&order=first_name.asc,surname.asc");renderClients()}
   catch(e){toast("Error al cargar clientes: "+e.message,true)}
 }
-let cFil="act";
+let cFil="act", cRows=[];
+const FIL_TXT={act:"activos",ina:"inactivos",all:"totales"};
+function cExportRows(){return cRows.map(c=>[c._n,(c.first_name+" "+(c.surname||"")).trim(),c.mobile_number||"",c.email||"",c.activo===false?"No":"Sí",c.turno||""])}
+const C_HEAD=["Nº","Nombre","Móvil","Email","Activo","Turno"];
+function cTitulo(){return "Clientes "+FIL_TXT[cFil]+" · "+new Date().toLocaleDateString("es-ES")}
+$("#cPrint").addEventListener("click",()=>{
+  const w=window.open("","_blank"); if(!w){toast("Permite las ventanas emergentes para imprimir",true);return}
+  const td=v=>"<td>"+esc(v)+"</td>";
+  w.document.write(`<!doctype html><html lang="es"><head><meta charset="utf-8"><title>${esc(cTitulo())}</title><style>@page{size:A4;margin:12mm}body{font:11pt Arial,sans-serif;color:#000}h1{font-size:15pt;margin:0 0 4px}p{margin:0 0 10px;font-size:9pt}table{width:100%;border-collapse:collapse}th,td{border:1px solid #999;padding:4px 6px;text-align:left;font-size:10pt}th{background:#eee}td:first-child,th:first-child{text-align:right;width:32px}tr{page-break-inside:avoid}</style></head><body><h1>Matías Torres · ${esc(cTitulo())}</h1><p>${cRows.length} clientes</p><table><thead><tr>${C_HEAD.map(h=>"<th>"+h+"</th>").join("")}</tr></thead><tbody>${cExportRows().map(r=>"<tr>"+r.map(td).join("")+"</tr>").join("")}</tbody></table><script>onload=()=>{print();setTimeout(()=>close(),500)}<\/script></body></html>`);
+  w.document.close();
+});
+$("#cExcel").addEventListener("click",()=>{
+  const q=v=>{v=String(v);return /[";\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+  const csv="\ufeff"+[C_HEAD,...cExportRows()].map(r=>r.map(q).join(";")).join("\r\n");
+  const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));
+  a.download="Clientes "+FIL_TXT[cFil]+" "+new Date().toISOString().slice(0,10)+".csv"; document.body.appendChild(a); a.click(); a.remove();
+});
 function renderClients(){
   const q=$("#q").value.trim().toLowerCase();
   const fil=cFil;
   $$("#cfil button").forEach(b=>{b.classList.toggle("on",b.dataset.f===fil);b.setAttribute("aria-selected",b.dataset.f===fil);b.querySelector(".n").textContent=b.dataset.f==="all"?clients.length:clients.filter(c=>(b.dataset.f==="ina")===(c.activo===false)).length});
-  const rows=clients.filter(c=>(fil==="all"||(fil==="ina")===(c.activo===false))&&(!q||[c.first_name,c.surname,c.mobile_number,c.email,c.profile_notes,c.turno].join(" ").toLowerCase().includes(q)));
-  $("#ctbody").innerHTML=rows.length?rows.map(c=>`<tr class="click${c.activo===false?" off":""}" data-id="${c.id}" tabindex="0" title="Haz clic para ver la ficha"><td class="name">${esc(c.first_name)} ${esc(c.surname)}</td><td>${esc(c.mobile_number)}</td><td>${esc(c.email)}</td><td class="tgl"><button type="button" class="sw" role="switch" data-act="toggle" aria-checked="${c.activo!==false}" title="${c.activo!==false?"Cliente activo: clic para desactivar":"Cliente inactivo: clic para activar"}" aria-label="Activo: ${esc(c.first_name)} ${esc(c.surname)}"></button></td><td class="turno">${c.turno?`<span class="tn ${/^Mañana/.test(c.turno)?"m":/^Tarde/.test(c.turno)?"t":"s"}">${esc(c.turno)}</span>`:""}</td><td class="act"><button type="button" class="ibtn edit" data-act="edit" title="Editar" aria-label="Editar ${esc(c.first_name)} ${esc(c.surname)}">${IC.edit}</button><button type="button" class="ibtn del" data-act="del" title="Eliminar" aria-label="Eliminar ${esc(c.first_name)} ${esc(c.surname)}">${IC.trash}</button></td></tr>`).join(""):`<tr><td colspan="6" class="empty">No hay clientes que mostrar.</td></tr>`;
+  const base=clients.filter(c=>fil==="all"||(fil==="ina")===(c.activo===false));
+  base.forEach((c,i)=>c._n=i+1);
+  const rows=base.filter(c=>!q||[c.first_name,c.surname,c.mobile_number,c.email,c.profile_notes,c.turno].join(" ").toLowerCase().includes(q));
+  cRows=rows;
+  $("#ctbody").innerHTML=rows.length?rows.map(c=>`<tr class="click${c.activo===false?" off":""}" data-id="${c.id}" tabindex="0" title="Haz clic para ver la ficha"><td class="num">${c._n}</td><td class="name">${esc(c.first_name)} ${esc(c.surname)}</td><td>${esc(c.mobile_number)}</td><td>${esc(c.email)}</td><td class="tgl"><button type="button" class="sw" role="switch" data-act="toggle" aria-checked="${c.activo!==false}" title="${c.activo!==false?"Cliente activo: clic para desactivar":"Cliente inactivo: clic para activar"}" aria-label="Activo: ${esc(c.first_name)} ${esc(c.surname)}"></button></td><td class="turno">${c.turno?`<span class="tn ${/^Mañana/.test(c.turno)?"m":/^Tarde/.test(c.turno)?"t":"s"}">${esc(c.turno)}</span>`:""}</td><td class="act"><button type="button" class="ibtn edit" data-act="edit" title="Editar" aria-label="Editar ${esc(c.first_name)} ${esc(c.surname)}">${IC.edit}</button><button type="button" class="ibtn del" data-act="del" title="Eliminar" aria-label="Eliminar ${esc(c.first_name)} ${esc(c.surname)}">${IC.trash}</button></td></tr>`).join(""):`<tr><td colspan="7" class="empty">No hay clientes que mostrar.</td></tr>`;
   $("#ccount").textContent=rows.length+" de "+clients.length+" clientes";
   const opts=clients.map(c=>`<option value="${c.id}">${esc(c.first_name)} ${esc(c.surname)}</option>`).join("");
   const ke=$("#selEdit").value,kc=$("#selCita").value;
