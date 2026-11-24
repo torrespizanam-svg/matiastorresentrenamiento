@@ -1369,7 +1369,7 @@ html,body{overflow-x:clip}
     </figure>
   </div>
   <div class="gx">
-    <figure class="gx-v"><video id="gxVideo" muted loop playsinline preload="none" poster="video/portada-centro.jpg?v=6" aria-label="Recorrido en vídeo por la sala del centro Matías Torres" disablepictureinpicture><source src="video/portada-centro.mp4?v=6" type="video/mp4"></video><figcaption><span class="gx-k">En vídeo</span>Recorre la sala</figcaption></figure>
+    <figure class="gx-v"><video id="gxVideo" muted loop playsinline preload="none" poster="video/portada-centro.jpg?v=7" aria-label="Recorrido en vídeo por la sala del centro Matías Torres" disablepictureinpicture><source src="video/portada-centro.mp4?v=7" type="video/mp4"></video><figcaption><span class="gx-k">En vídeo</span>Recorre la sala</figcaption></figure>
     <figure class="gx-a" data-lb><img src="fotos/centro-sala.webp?v=2" width="1800" height="1350" alt="Vista general de la sala de 140 m² con el mural Matías Torres, racks, banco y cinta junto a la cristalera" loading="lazy" decoding="async"><figcaption><span class="gx-k">140 m²</span>Nunca más de dos personas entrenando</figcaption></figure>
     <figure class="gx-b" data-lb><img src="fotos/centro-prensa.webp?v=2" width="1600" height="1200" alt="Prensa de piernas, mancuernas y plataforma vibratoria frente al mural del centro" loading="lazy" decoding="async"><figcaption><span class="gx-k">Fuerza</span>Maquinaria de gama alta</figcaption></figure>
     <figure class="gx-c" data-lb><img src="fotos/centro-airbike.webp?v=2" width="1200" height="1600" alt="Bicicleta de aire, cajón pliométrico y la pared de madera con el nombre Matías Torres" loading="lazy" decoding="async"><figcaption><span class="gx-k">Funcional</span>Readaptación y cardio</figcaption></figure>
@@ -2146,7 +2146,7 @@ document.querySelectorAll("[data-bg]").forEach(d=>{d.style.backgroundImage="url(
   const jugar=v=>{const p=v.play(); if(p&&p.catch) p.catch(()=>{});};
   vs.forEach(v=>{
     const n=v.dataset.v;
-    v.poster="video/portada-"+n+".jpg?v=6"; v.src="video/portada-"+n+".mp4?v=6"; v.muted=true; v.preload="auto"; v.load();
+    v.poster="video/portada-"+n+".jpg?v=7"; v.src="video/portada-"+n+".mp4?v=7"; v.muted=true; v.preload="auto"; v.load();
   });
   /* en el vídeo de la sala, saltamos el tramo del vinilo de la cristalera (se lee al revés desde dentro) */
   const sala=vs.find(v=>v.dataset.v==="centro");
