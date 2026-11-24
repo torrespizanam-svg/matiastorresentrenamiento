@@ -2495,10 +2495,10 @@ $("#cPrint").addEventListener("click",()=>{
   const tipo={act:"Clientes activos",ina:"Clientes inactivos",all:"Todos los clientes"}[cFil];
   const total="Total: "+cRows.length+" clientes"+(cFil==="act"?" activos":cFil==="ina"?" inactivos":"");
   const logo=new URL("fotos/escudo-estrellas-oro-cab.png?v=3",location.href).href;
-  const cls=t=>!t?"":/^Mañana/.test(t)?"m":/^Tarde/.test(t)?"t":"s";
+  const cls=t=>!t?"":/^Mañana/.test(t)?"m":t==="Tarde"?"t":"s";
   const tt=t=>!t?"":t==="Mañana y sábado"?"Mañ. y sáb.":t==="Tarde y sábado"?"Tarde y sáb.":t;
   const body=cRows.map(c=>`<tr class="${cls(c.turno)}"><td class="n">${c._n}</td><td>${esc((c.first_name+" "+(c.surname||"")).trim())}</td><td class="tel">${esc(c.mobile_number||"")}</td><td>${esc(c.email||"")}</td><td class="c">${c.activo===false?"No":"Sí"}</td><td class="tu">${esc(tt(c.turno))}</td></tr>`).join("");
-  w.document.write(`<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Matías Torres · ${esc(tipo)} · ${hoy}</title><!-- v4 --><style>
+  w.document.write(`<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Matías Torres · ${esc(tipo)} · ${hoy}</title><!-- v5 --><style>
 @page{size:A4;margin:10mm 12mm}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box}
 body{margin:0;font:10pt Arial,Helvetica,sans-serif;color:#111}
