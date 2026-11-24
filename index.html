@@ -2497,13 +2497,19 @@ $("#cPrint").addEventListener("click",()=>{
   const logo=new URL("fotos/escudo-estrellas-oro-cab.png?v=3",location.href).href;
   const cls=t=>!t?"":/^Mañana/.test(t)?"m":t==="Tarde"?"t":"s";
   const tt=t=>!t?"":t==="Mañana y sábado"?"Mañ. y sáb.":t==="Tarde y sábado"?"Tarde y sáb.":t;
-  const body=cRows.map(c=>`<tr class="${cls(c.turno)}"><td class="n">${c._n}</td><td>${esc((c.first_name+" "+(c.surname||"")).trim())}</td><td class="tel">${esc(c.mobile_number||"")}</td><td>${esc(c.email||"")}</td><td class="c">${c.activo===false?"No":"Sí"}</td><td class="tu">${esc(tt(c.turno))}</td></tr>`).join("");
-  w.document.write(`<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Matías Torres · ${esc(tipo)} · ${hoy}</title><!-- v6 --><style>
+  const body=cRows.map(c=>`<tr class="${cls(c.turno)}"><td class="n">${c._n}</td><td>${esc((c.first_name+" "+(c.surname||"")).trim())}</td><td class="tel">${esc(c.mobile_number||"")}</td><td>${esc(c.email||"")}</td><td class="c">${c.activo===false?"No":"Sí"}</td><td class="tu">${esc(tt(c.turno))}</td></tr>`);
+  const POR=38, pags=[]; for(let i=0;i<body.length||i===0;i+=POR) pags.push(body.slice(i,i+POR).join(""));
+  const cab=`<div class="hd"><img src="${logo}" alt="" loading="eager" decoding="sync"><div><div class="t1">MATÍAS TORRES</div><div class="t2">Gestión · ${esc(tipo)} · ${hoy}</div><div class="t3">${esc(total)}</div></div></div>`;
+  const thead=`<colgroup><col class="n"><col class="nom"><col class="tel"><col class="em"><col class="ac"><col class="tu"></colgroup><thead><tr><th class="h n">Nº</th><th class="h">Nombre</th><th class="h">Móvil</th><th class="h">Email</th><th class="h c">Activo</th><th class="h">Turno</th></tr></thead>`;
+  w.document.write(`<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Matías Torres · ${esc(tipo)} · ${hoy}</title><!-- v9 --><style>
 @page{size:A4;margin:10mm 12mm}
+.pg{height:276mm;position:relative;page-break-after:always;break-after:page;overflow:hidden}.pg:last-child{page-break-after:auto;break-after:auto}
+.pie{position:absolute;bottom:0;left:0;right:0;text-align:center;font:10pt Arial,Helvetica,sans-serif;color:#333}
+td{height:5.6mm}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box}
 body{margin:0;font:10pt Arial,Helvetica,sans-serif;color:#111}
 table{width:100%;border-collapse:collapse;table-layout:fixed}
-col.n{width:8mm}col.nom{width:66mm}col.tel{width:26mm}col.em{width:50mm}col.ac{width:13mm}col.tu{width:23mm}
+col.n{width:10mm}col.nom{width:64mm}col.tel{width:26mm}col.em{width:50mm}col.ac{width:13mm}col.tu{width:23mm}
 .band{padding:0}
 .hd{display:flex;align-items:center;gap:5mm;background:#fff;padding:0 0 3mm 0;margin-bottom:1mm;text-align:left}
 .hd img{height:24mm;width:auto;display:block}
@@ -2515,10 +2521,7 @@ td{border:1px solid #aaa;padding:3.5px 5px;font-size:10pt;overflow:hidden;white-
 td.n,th.n{text-align:right;padding-right:3px}td.c,th.c{text-align:center;padding-left:2px;padding-right:2px}td.tu{font-size:9pt;padding-left:4px;padding-right:2px}
 tr.m td{background:#dcefff}tr.t td{background:#fff5c7}tr.s td{background-color:#fff5c7;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M0 0L10 10M10 0L0 10' stroke='%23b8960a' stroke-width='0.9' stroke-opacity='0.55' fill='none'/%3E%3C/svg%3E");background-size:10px 10px;background-repeat:repeat}
 tr{page-break-inside:avoid;break-inside:avoid}thead{display:table-header-group}th.band{border:0;background:#fff}
-</style></head><body><table><colgroup><col class="n"><col class="nom"><col class="tel"><col class="em"><col class="ac"><col class="tu"></colgroup>
-<thead><tr><th colspan="6" class="band"><div class="hd"><img src="${logo}" alt=""><div><div class="t1">MATÍAS TORRES</div><div class="t2">Gestión · ${esc(tipo)} · ${hoy}</div><div class="t3">${esc(total)}</div></div></div></th></tr>
-<tr><th class="h n">Nº</th><th class="h">Nombre</th><th class="h">Móvil</th><th class="h">Email</th><th class="h c">Activo</th><th class="h">Turno</th></tr></thead>
-<tbody>${body}</tbody></table><script>onload=()=>{print();setTimeout(()=>close(),500)}<\/script></body></html>`);
+</style></head><body>${pags.map((b,i)=>`<section class="pg">${cab}<table>${thead}<tbody>${b}</tbody></table><div class="pie">-&nbsp;&nbsp;&nbsp;${i+1}&nbsp;&nbsp;&nbsp;-</div></section>`).join("")}<script>onload=()=>{print();setTimeout(()=>close(),500)}<\/script></body></html>`);
   w.document.close();
 });
 $("#cExcel").addEventListener("click",()=>{
