@@ -894,6 +894,7 @@
 .meet .meet-eb{color:var(--yellow);font-size:calc(clamp(34px,4.6vw,56px)/2);letter-spacing:.1em;line-height:1.2;margin:0}
 .meet .meet-name{display:block;margin-top:14px}
 .meet .meet-name img{display:block;width:100%;max-width:640px;height:auto}
+.tn{display:inline-block;padding:3px 10px;border-radius:999px;font:600 12px/1.4 Poppins,sans-serif;white-space:nowrap}.tn.m{background:#FFD51F;color:#111}.tn.t{background:#1f2a44;color:#fff}.tn.s{background:#e9e9e9;color:#111}
 </style>
 <style>
 .fil-dark{background:var(--black);padding:96px 0}
@@ -2009,7 +2010,7 @@ html,body{overflow-x:clip}
       <h2>Lista de clientes</h2><p class="sub">Todo lo que hay ahora mismo en la base de datos. Haz clic en un cliente para ver su ficha.</p>
       <div class="solchips" id="cfil" role="tablist" aria-label="Filtrar clientes"><button type="button" role="tab" data-f="act">Activos <span class="n"></span></button><button type="button" role="tab" data-f="ina">Inactivos <span class="n"></span></button><button type="button" role="tab" data-f="all">Todos <span class="n"></span></button></div>
       <div class="tools"><input id="q" placeholder="Buscar por nombre, teléfono, email o nota…"><button class="btn ghost" id="reload">↻ Actualizar</button><span class="count" id="ccount"></span></div>
-      <div style="overflow-x:auto"><table><thead><tr><th>Nombre</th><th>Móvil</th><th>Email</th><th style="text-align:center">Activo</th><th>Perfil / Notas</th><th></th></tr></thead><tbody id="ctbody"></tbody></table></div>
+      <div style="overflow-x:auto"><table><thead><tr><th>Nombre</th><th>Móvil</th><th>Email</th><th style="text-align:center">Activo</th><th>Turno</th><th></th></tr></thead><tbody id="ctbody"></tbody></table></div>
     </div>
     <div class="card sub-panel" id="c-add">
       <h2>Añadir cliente</h2><p class="sub">Nombre y apellidos son obligatorios.</p>
@@ -2020,6 +2021,7 @@ html,body{overflow-x:clip}
         <div><label>Email</label><input name="email" type="email"></div>
         <div><label>Sesiones por semana</label><input name="sessions_per_week" type="number" min="0" max="14" step="1" inputmode="numeric" placeholder="Ej.: 2"></div>
         <div><label>Precio por sesión (€)</label><input name="price_per_session" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Ej.: 45"></div>
+        <div><label>Turno</label><select name="turno"><option value="">—</option><option>Mañana</option><option>Tarde</option><option>Sábado</option><option>Mañana y sábado</option><option>Tarde y sábado</option></select></div>
         <div class="full"><label>Perfil / Notas</label><textarea name="profile_notes" placeholder="Objetivos, lesiones, rehabilitación…"></textarea></div>
         <div class="full row" style="margin-top:0"><button class="btn" type="submit">Guardar cliente</button><button class="btn ghost" type="reset">Limpiar</button></div>
       </form>
@@ -2034,6 +2036,7 @@ html,body{overflow-x:clip}
         <div><label>Email</label><input name="email" type="email"></div>
         <div><label>Sesiones por semana</label><input name="sessions_per_week" type="number" min="0" max="14" step="1" inputmode="numeric" placeholder="Ej.: 2"></div>
         <div><label>Precio por sesión (€)</label><input name="price_per_session" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Ej.: 45"></div>
+        <div><label>Turno</label><select name="turno"><option value="">—</option><option>Mañana</option><option>Tarde</option><option>Sábado</option><option>Mañana y sábado</option><option>Tarde y sábado</option></select></div>
         <div class="full"><label>Perfil / Notas</label><textarea name="profile_notes"></textarea></div>
         <div class="full row" style="margin-top:0"><button class="btn" type="submit">Guardar cambios</button></div>
       </form>
@@ -2486,8 +2489,8 @@ function renderClients(){
   const q=$("#q").value.trim().toLowerCase();
   const fil=cFil;
   $$("#cfil button").forEach(b=>{b.classList.toggle("on",b.dataset.f===fil);b.setAttribute("aria-selected",b.dataset.f===fil);b.querySelector(".n").textContent=b.dataset.f==="all"?clients.length:clients.filter(c=>(b.dataset.f==="ina")===(c.activo===false)).length});
-  const rows=clients.filter(c=>(fil==="all"||(fil==="ina")===(c.activo===false))&&(!q||[c.first_name,c.surname,c.mobile_number,c.email,c.profile_notes].join(" ").toLowerCase().includes(q)));
-  $("#ctbody").innerHTML=rows.length?rows.map(c=>`<tr class="click${c.activo===false?" off":""}" data-id="${c.id}" tabindex="0" title="Haz clic para ver la ficha"><td class="name">${esc(c.first_name)} ${esc(c.surname)}</td><td>${esc(c.mobile_number)}</td><td>${esc(c.email)}</td><td class="tgl"><button type="button" class="sw" role="switch" data-act="toggle" aria-checked="${c.activo!==false}" title="${c.activo!==false?"Cliente activo: clic para desactivar":"Cliente inactivo: clic para activar"}" aria-label="Activo: ${esc(c.first_name)} ${esc(c.surname)}"></button></td><td class="notes">${esc(c.profile_notes)}</td><td class="act"><button type="button" class="ibtn edit" data-act="edit" title="Editar" aria-label="Editar ${esc(c.first_name)} ${esc(c.surname)}">${IC.edit}</button><button type="button" class="ibtn del" data-act="del" title="Eliminar" aria-label="Eliminar ${esc(c.first_name)} ${esc(c.surname)}">${IC.trash}</button></td></tr>`).join(""):`<tr><td colspan="6" class="empty">No hay clientes que mostrar.</td></tr>`;
+  const rows=clients.filter(c=>(fil==="all"||(fil==="ina")===(c.activo===false))&&(!q||[c.first_name,c.surname,c.mobile_number,c.email,c.profile_notes,c.turno].join(" ").toLowerCase().includes(q)));
+  $("#ctbody").innerHTML=rows.length?rows.map(c=>`<tr class="click${c.activo===false?" off":""}" data-id="${c.id}" tabindex="0" title="Haz clic para ver la ficha"><td class="name">${esc(c.first_name)} ${esc(c.surname)}</td><td>${esc(c.mobile_number)}</td><td>${esc(c.email)}</td><td class="tgl"><button type="button" class="sw" role="switch" data-act="toggle" aria-checked="${c.activo!==false}" title="${c.activo!==false?"Cliente activo: clic para desactivar":"Cliente inactivo: clic para activar"}" aria-label="Activo: ${esc(c.first_name)} ${esc(c.surname)}"></button></td><td class="turno">${c.turno?`<span class="tn ${/^Mañana/.test(c.turno)?"m":/^Tarde/.test(c.turno)?"t":"s"}">${esc(c.turno)}</span>`:""}</td><td class="act"><button type="button" class="ibtn edit" data-act="edit" title="Editar" aria-label="Editar ${esc(c.first_name)} ${esc(c.surname)}">${IC.edit}</button><button type="button" class="ibtn del" data-act="del" title="Eliminar" aria-label="Eliminar ${esc(c.first_name)} ${esc(c.surname)}">${IC.trash}</button></td></tr>`).join(""):`<tr><td colspan="6" class="empty">No hay clientes que mostrar.</td></tr>`;
   $("#ccount").textContent=rows.length+" de "+clients.length+" clientes";
   const opts=clients.map(c=>`<option value="${c.id}">${esc(c.first_name)} ${esc(c.surname)}</option>`).join("");
   const ke=$("#selEdit").value,kc=$("#selCita").value;
@@ -2496,7 +2499,7 @@ function renderClients(){
   if(clients.some(c=>c.id===kc))$("#selCita").value=kc;
   fillEdit();
 }
-function fillEdit(){const c=clients.find(x=>x.id===$("#selEdit").value),f=$("#fEdit");["first_name","surname","mobile_number","email","sessions_per_week","price_per_session","profile_notes"].forEach(k=>f[k].value=c?c[k]??"":"")}
+function fillEdit(){const c=clients.find(x=>x.id===$("#selEdit").value),f=$("#fEdit");["first_name","surname","mobile_number","email","sessions_per_week","price_per_session","turno","profile_notes"].forEach(k=>f[k].value=c?c[k]??"":"")}
 $("#fAdd").addEventListener("submit",async e=>{e.preventDefault();try{await api("/clients",{method:"POST",...MIN,body:JSON.stringify(clean(e.target))});e.target.reset();toast("Cliente añadido ✓");loadClients()}catch(er){toast("Error: "+er.message,true)}});
 $("#fEdit").addEventListener("submit",async e=>{e.preventDefault();const id=$("#selEdit").value;if(!id)return;try{await api("/clients?id=eq."+id,{method:"PATCH",...MIN,body:JSON.stringify(clean(e.target))});toast("Cambios guardados ✓");loadClients();$('#ctabs button[data-st="c-lista"]').click()}catch(er){toast("Error: "+er.message,true)}});
 async function askDelClient(id){
@@ -2549,6 +2552,7 @@ async function openClient(id){
     <div class="cl-row">${IC.mail}<div><small>Email</small>${c.email?`<a href="mailto:${esc(c.email)}">${esc(c.email)}</a>`:none}</div></div>
     <div class="cl-row">${IC.cal}<div><small>Sesiones por semana</small>${c.sessions_per_week!=null?esc(c.sessions_per_week)+(c.sessions_per_week===1?" sesión":" sesiones"):none}</div></div>
     <div class="cl-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 7a6 6 0 1 0 0 10M4 10h9M4 14h9"/></svg><div><small>Precio por sesión</small>${c.price_per_session!=null?esc(eur(c.price_per_session)):none}</div></div>
+    <div class="cl-row">${IC.cal}<div><small>Turno</small>${c.turno?esc(c.turno):none}</div></div>
     <div class="cl-row">${IC.tag}<div><small>Perfil / Notas</small><div class="cl-notes">${c.profile_notes?esc(c.profile_notes):none}</div></div></div>
     <h4>Emails</h4><div id="clMails"><span class="small">Cargando…</span></div>`;
   $("#clCitasBtn").innerHTML=IC.cal+"Citas"; $("#clCitasBtn").onclick=()=>verCitasDe(id);
