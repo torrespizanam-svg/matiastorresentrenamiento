@@ -2498,7 +2498,7 @@ $("#cPrint").addEventListener("click",()=>{
   const cls=t=>!t?"":/^Mañana/.test(t)?"m":t==="Tarde"?"t":"s";
   const tt=t=>!t?"":t==="Mañana y sábado"?"Mañ. y sáb.":t==="Tarde y sábado"?"Tarde y sáb.":t;
   const body=cRows.map(c=>`<tr class="${cls(c.turno)}"><td class="n">${c._n}</td><td>${esc((c.first_name+" "+(c.surname||"")).trim())}</td><td class="tel">${esc(c.mobile_number||"")}</td><td>${esc(c.email||"")}</td><td class="c">${c.activo===false?"No":"Sí"}</td><td class="tu">${esc(tt(c.turno))}</td></tr>`).join("");
-  w.document.write(`<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Matías Torres · ${esc(tipo)} · ${hoy}</title><!-- v5 --><style>
+  w.document.write(`<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Matías Torres · ${esc(tipo)} · ${hoy}</title><!-- v6 --><style>
 @page{size:A4;margin:10mm 12mm}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box}
 body{margin:0;font:10pt Arial,Helvetica,sans-serif;color:#111}
@@ -2513,7 +2513,7 @@ col.n{width:8mm}col.nom{width:66mm}col.tel{width:26mm}col.em{width:50mm}col.ac{w
 th.h{background:#fff;border:1px solid #999;border-bottom:2px solid #FFD51F;padding:4px 5px;text-align:left;font-size:9.5pt;font-weight:700}
 td{border:1px solid #aaa;padding:3.5px 5px;font-size:10pt;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 td.n,th.n{text-align:right;padding-right:3px}td.c,th.c{text-align:center;padding-left:2px;padding-right:2px}td.tu{font-size:9pt;padding-left:4px;padding-right:2px}
-tr.m td{background:#dcefff}tr.t td{background:#fff5c7}tr.s td{background-color:#fff5c7;background-image:repeating-linear-gradient(45deg,rgba(190,150,0,.38) 0 .6px,transparent .6px 7px),repeating-linear-gradient(-45deg,rgba(190,150,0,.38) 0 .6px,transparent .6px 7px)}
+tr.m td{background:#dcefff}tr.t td{background:#fff5c7}tr.s td{background-color:#fff5c7;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M0 0L10 10M10 0L0 10' stroke='%23b8960a' stroke-width='0.9' stroke-opacity='0.55' fill='none'/%3E%3C/svg%3E");background-size:10px 10px;background-repeat:repeat}
 tr{page-break-inside:avoid;break-inside:avoid}thead{display:table-header-group}th.band{border:0;background:#fff}
 </style></head><body><table><colgroup><col class="n"><col class="nom"><col class="tel"><col class="em"><col class="ac"><col class="tu"></colgroup>
 <thead><tr><th colspan="6" class="band"><div class="hd"><img src="${logo}" alt=""><div><div class="t1">MATÍAS TORRES</div><div class="t2">Gestión · ${esc(tipo)} · ${hoy}</div><div class="t3">${esc(total)}</div></div></div></th></tr>
