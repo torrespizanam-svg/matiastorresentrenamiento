@@ -249,28 +249,12 @@
   /* ---------- presentación de Matías (inicio) ---------- */
   .meet{position:relative;overflow:hidden}
   .meet::before{content:"";position:absolute;right:-180px;top:-180px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(255,213,31,.16),transparent 68%);pointer-events:none}
-  .meet .wrap{position:relative;display:grid;grid-template-columns:5fr 6fr;gap:64px;align-items:center}
-  .meet-ph{position:relative;margin:0}
-  .meet-ph img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:62% 50%;border-radius:16px;box-shadow:16px 16px 0 var(--yellow)}
-  .meet-ph figcaption{position:absolute;left:-14px;bottom:-6px;background:var(--black);border:2px solid var(--yellow);border-left-width:6px;border-radius:0 8px 8px 0;padding:7px 14px 7px 11px;box-shadow:0 8px 24px rgba(0,0,0,.5)}
-  .meet-ph figcaption b{display:block;font:700 16px 'Oswald';letter-spacing:.06em;text-transform:uppercase;color:var(--yellow);line-height:1.1}
-  .meet-ph figcaption span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#cfcfc8}
-  /* "Mi nombre es": en ordenador, foto a media pantalla pegada a la izquierda y texto en la otra mitad */
-  @media(min-width:861px){
-    .meet{padding:0 0 34px}
-    .meet .wrap{max-width:none;padding:0;grid-template-columns:1fr 1fr;gap:0;align-items:center}
-    .meet-ph{max-width:none;margin:0}
-    .meet-ph img{border-radius:0 18px 18px 0;box-shadow:16px 16px 0 var(--yellow)}
-    .meet-ph figcaption{left:0}
-    .meet .wrap>div{max-width:780px;padding:72px clamp(40px,5vw,96px)}
-  }
   .meet h2{color:#fff;font-size:clamp(30px,4.4vw,50px);margin:6px 0 20px}
   .meet h2 span{color:var(--yellow)}
   .meet .intro{font-size:19px;line-height:1.6;color:#fff;font-weight:500;margin:0 0 16px;padding-left:18px;border-left:4px solid var(--yellow)}
   .meet p{color:#c9c9c1;font-size:16px;line-height:1.7;margin:0 0 20px}
   .meet .meet-silvia{color:var(--yellow);font-size:1.25em;font-weight:700}
   .meet .thanks{font:600 26px 'Oswald';letter-spacing:.06em;text-transform:uppercase;color:var(--yellow);margin:20px 0 22px}
-  @media(max-width:860px){.meet .wrap{grid-template-columns:1fr;gap:44px}.meet-ph{max-width:460px;margin:0 auto 0 0}.meet-ph figcaption{left:0}.meet-ph img{box-shadow:12px 12px 0 var(--yellow)}.meet .intro{font-size:17px}}
 
   /* ---------- fotos del centro ---------- */
   .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center 45%;z-index:0}
@@ -1215,6 +1199,40 @@ html,body{overflow-x:clip}
 #centro .ce-sello2 p{flex:0 1 auto}
 #centro .ce-sello.ce-sello2 b{font-size:clamp(28px,3.1vw,44px)}
 @media(max-width:700px){#centro .ce-sello2{flex-wrap:wrap}#centro .ce-sello2 p{order:3;flex-basis:100%}#centro .ce-sello.ce-sello2 img{width:120px}}
+
+/* ===== Eén doorlopende pagina: gedeeld ritme, naadloze overgangen, merk in elke kop ===== */
+#v-inicio>section+section{padding-top:clamp(28px,3.4vw,52px)!important;box-shadow:inset 0 1px 0 rgba(255,213,31,.14)}
+#v-inicio>section.dark-sec,#v-inicio>section.alt{background-color:#0b0b0b}
+#site .eyebrow::before,#site .mtx-eb::before,#site .pb2-eb::before{content:"";display:inline-block;width:.95em;height:1em;margin-right:.7em;vertical-align:-.14em;background:url(fotos/escudo-estrellas-oro-cab.png?v=3) center/contain no-repeat}
+#site .meet-eb::before{display:none}
+.ce-sello img{max-height:64px;width:auto}
+
+/* ===== Conoce a tu entrenador: foto in schildvorm, tekst loopt eromheen ===== */
+#matias.meet{background:#0b0b0b}
+#matias .mt2{max-width:1040px;margin:0 auto;padding:0 clamp(22px,4vw,40px)}
+#matias .meet-eb{margin-bottom:6px!important}
+#matias .meet-h2{margin:0 0 clamp(26px,3vw,40px)!important}
+#matias .mt2-body{display:flow-root}
+#matias .mt2-ph{float:left;margin:4px 0 6px 0;width:clamp(250px,29vw,340px);aspect-ratio:.86;padding:5px;
+  background:linear-gradient(155deg,#FFE680,#FFD51F 45%,#B88A00);
+  clip-path:polygon(50% 0,100% 9%,100% 62%,92% 78%,50% 100%,8% 78%,0 62%,0 9%);
+  shape-outside:polygon(50% 0,100% 9%,100% 62%,92% 78%,50% 100%,8% 78%,0 62%,0 9%) border-box;shape-margin:clamp(24px,3vw,40px);
+  margin-right:clamp(10px,1.4vw,18px)}
+#matias .mt2-ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:44% 30%;
+  clip-path:polygon(50% 0,100% 9%,100% 62%,92% 78%,50% 100%,8% 78%,0 62%,0 9%)}
+#matias .mt2-body p{max-width:none;font-size:clamp(16px,1.2vw,18px);line-height:1.75;margin:0 0 20px}
+#matias .mt2-body .intro{border-left:0;padding-left:0;font-size:clamp(20px,1.7vw,25px);line-height:1.45;font-weight:600;color:#fff;margin:0 0 22px}
+#matias .mt2-body .colab{border-left:0;padding-left:0;margin-bottom:20px}
+#matias .mt2-body .thanks{clear:both;margin:28px 0 22px}
+@media(max-width:720px){
+  #matias .mt2-ph{float:none;display:block;width:min(74vw,300px);margin:0 auto 26px;shape-outside:none}
+}
+
+/* ===== Vier ritual-foto's: scherp, licht en met het schild van Matías Torres ===== */
+#site #solo-aqui .sa-card .sa-ph img,#site #solo-aqui .sa-cafe .sa-ph img,#site #solo-aqui .sa-pies .sa-b{filter:none!important}
+#site #solo-aqui .sa-pies .sa-b{object-position:50% 50%!important}
+#site #solo-aqui .sa-card .sa-ph img.sa-logo{position:absolute;inset:auto;left:clamp(12px,5%,20px);top:clamp(12px,4%,18px);width:clamp(42px,15%,58px);height:auto;object-fit:contain;z-index:3;opacity:.95;
+  filter:drop-shadow(0 3px 8px rgba(0,0,0,.65))!important;transform:none;pointer-events:none}
 </style>
 </head>
 <body>
@@ -1287,19 +1305,17 @@ html,body{overflow-x:clip}
     <h2 class="title sa-h2">Vienes con lo puesto.<span>Sales listo para tu día.</span></h2>
     <p class="lead sa-lead">Tú traes las ganas. Del resto nos ocupamos nosotros.</p>
     <div class="sa-grid">
-      <article class="sa-card sa-pies"><div class="sa-ph sa-alt"><img class="sa-a" src="fotos/suela-calle.webp?v=1" width="1200" height="1500" alt="Suela de un zapato de calle con colillas, aceite, bacterias y restos de excrementos" loading="lazy" decoding="async"><img class="sa-b" src="fotos/ritual-1.webp?v=3" width="1200" height="1020" alt="Calcetines de pilates y zapatillas minimalistas de uso exclusivo en sala sobre un banco de madera" loading="lazy" decoding="async"></div><div class="sa-txt"><h3>La calle se queda en el baúl</h3><p>Al llegar, guardas tus zapatos en el baúl de la entrada. Entrenas en calcetines o con barefoot de sala: más higiene y unos pies más fuertes.</p><button type="button" class="sa-suela" data-suela="fotos/suela-sucia.webp?v=2">¿Qué traes en la suela? <b>Míralo →</b></button></div></article>
-      <article class="sa-card sa-cafe"><div class="sa-ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3LKdWAwD4AuD7se4yAJwOUo08PC/hf_20261119_184341_bd212c0e-9466-4832-bdb4-b334db8f39eb.png" width="1200" height="1600" alt="Taza de café recién hecho junto a una cafetera profesional" loading="lazy" decoding="async"><div class="sa-steam sa-bg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="sa-steam" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="sa-txt"><h3>Tu café, recién hecho</h3><p>Te lo preparamos al llegar. Si lo prefieres, agua, una infusión o un chocolate.</p></div></article>
-      <article class="sa-card"><div class="sa-ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3LKdWAwD4AuD7se4yAJwOUo08PC/hf_20261119_184601_430fff5d-307e-4201-a40b-a38df4e8a00f.png" width="900" height="1200" alt="Estantería con toallas limpias para la sala y toallas blancas en el aseo" loading="lazy" decoding="async"></div><div class="sa-txt"><h3>Tu toalla, limpia cada día</h3><p>Lavada a diario y guardada en un armario climatizado.</p></div></article>
-      <article class="sa-card"><div class="sa-ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3LKdWAwD4AuD7se4yAJwOUo08PC/hf_20261119_184648_d6999514-35e3-4082-adb9-6d0b098674cb.png" width="900" height="1200" alt="Ducha con toallas, champú, gel y desodorante" loading="lazy" decoding="async"></div><div class="sa-txt"><h3>Una ducha con todo listo</h3><p>Toalla, champú, gel y desodorante. Solo tienes que entrar.</p></div></article>
+      <article class="sa-card sa-pies"><div class="sa-ph sa-alt"><img class="sa-a" src="fotos/suela-calle.webp?v=1" width="1200" height="1500" alt="Suela de un zapato de calle con colillas, aceite, bacterias y restos de excrementos" loading="lazy" decoding="async"><img class="sa-b" src="fotos/ritual-baul.webp?v=1" width="900" height="1125" alt="Baúl de roble abierto con zapatillas dentro y, sobre un banco de madera, calcetines y zapatillas barefoot de uso exclusivo en sala" loading="lazy" decoding="async"><img class="sa-logo" src="fotos/escudo-mini.webp?v=1" width="220" height="234" alt="" aria-hidden="true" decoding="async"></div><div class="sa-txt"><h3>La calle se queda en el baúl</h3><p>Al llegar, guardas tus zapatos en el baúl de la entrada. Entrenas en calcetines o con barefoot de sala: más higiene y unos pies más fuertes.</p><button type="button" class="sa-suela" data-suela="fotos/suela-sucia.webp?v=2">¿Qué traes en la suela? <b>Míralo →</b></button></div></article>
+      <article class="sa-card sa-cafe"><div class="sa-ph"><img src="fotos/ritual-cafe.webp?v=1" width="900" height="1125" alt="Capuchino recién hecho, una infusión y un vaso de agua sobre la barra, junto a la cafetera profesional" loading="lazy" decoding="async"><img class="sa-logo" src="fotos/escudo-mini.webp?v=1" width="220" height="234" alt="" aria-hidden="true" decoding="async"></div><div class="sa-txt"><h3>Tu café, recién hecho</h3><p>Te lo preparamos al llegar. Si lo prefieres, agua, una infusión o un chocolate.</p></div></article>
+      <article class="sa-card"><div class="sa-ph"><img src="fotos/ritual-toalla.webp?v=1" width="900" height="1125" alt="Armario climatizado con toallas blancas y grises dobladas y una toalla limpia sobre el banco" loading="lazy" decoding="async"><img class="sa-logo" src="fotos/escudo-mini.webp?v=1" width="220" height="234" alt="" aria-hidden="true" decoding="async"></div><div class="sa-txt"><h3>Tu toalla, limpia cada día</h3><p>Lavada a diario y guardada en un armario climatizado.</p></div></article>
+      <article class="sa-card"><div class="sa-ph"><img src="fotos/ritual-ducha.webp?v=1" width="900" height="1125" alt="Ducha con toallero, toalla, gel, champú y desodorante en la balda y un taburete de teca con otra toalla" loading="lazy" decoding="async"><img class="sa-logo" src="fotos/escudo-mini.webp?v=1" width="220" height="234" alt="" aria-hidden="true" decoding="async"></div><div class="sa-txt"><h3>Una ducha con todo listo</h3><p>Toalla, champú, gel y desodorante. Solo tienes que entrar.</p></div></article>
     </div>
   </div></section>
-  <section class="dark-sec meet" id="matias"><div class="wrap">
-    <figure class="meet-ph">
-      <img src="fotos/matias-silvia.webp?v=7" width="1599" height="2295" alt="Matías Torres y Silvia Lorenzo sonriendo en la sala del centro, bajo el escudo Matías Torres" loading="lazy">
-    </figure>
-    <div class="meet-tx">
-      <div class="eyebrow meet-eb">Conoce a tu entrenador</div>
-      <h2 class="meet-h2">Mi nombre es <span class="meet-name"><img src="fotos/nombre-escudo.webp?v=1" width="1600" height="293" alt="Matías Torres" decoding="async"></span></h2>
+  <section class="dark-sec meet" id="matias"><div class="wrap mt2">
+    <div class="eyebrow meet-eb">Conoce a tu entrenador</div>
+    <h2 class="meet-h2">Mi nombre es <span class="meet-name"><img src="fotos/nombre-escudo.webp?v=1" width="1600" height="293" alt="Matías Torres" decoding="async"></span></h2>
+    <div class="mt2-body">
+      <figure class="mt2-ph"><img src="fotos/matias-silvia.webp?v=7" width="1599" height="2295" alt="Matías Torres y Silvia Lorenzo sonriendo en la sala del centro, bajo el escudo Matías Torres" loading="lazy"></figure>
       <p class="intro">Llevo 25 años viendo a gente dejar de entrenar. No por falta de ganas. Porque nadie se ocupaba de ellos.</p>
       <p>Fui de los primeros en Orihuela en dedicarme solo al entrenamiento personal. Abrí mi centro el 4 de enero de 2021, en plena pandemia. Entonces hacía falta entrenar de uno en uno, con la máxima higiene y seguridad. <b class="meet-wh">Lo hemos mantenido así desde el primer día.</b></p>
       <p class="meet-promesa">No te prometo un cuerpo de revista.<br><b>Te prometo algo más difícil: que esta vez no lo vas a dejar.</b></p>
@@ -3222,7 +3238,7 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 #site .hero-proof:hover{color:#fff!important}
 
 /* Ritmo general de secciones */
-#site section{padding-top:clamp(84px,11vw,144px)!important;padding-bottom:clamp(84px,11vw,144px)!important}
+#site section{padding-top:clamp(56px,6.5vw,92px)!important;padding-bottom:clamp(56px,6.5vw,92px)!important}
 #site section h2{line-height:1.04!important;letter-spacing:.015em!important;margin-bottom:24px!important}
 #site .eyebrow{font-size:11px!important;font-weight:500!important;letter-spacing:.32em!important;margin-bottom:18px!important}
 #site .lead{font-size:17px!important;line-height:1.75!important;max-width:680px!important}
@@ -3260,9 +3276,6 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 @media(max-width:900px){#site .hv-l,#site .hv-r{top:0!important;bottom:auto!important;left:0!important;width:100%!important;height:64%!important;object-position:50% 35%!important}}
 
 /* ===== Conoce a tu entrenador: foto a sangre con fundido (estilo portada) ===== */
-#matias.meet{padding:0;background:#0d0d0d}
-#matias .meet-ph img{box-shadow:none;border-radius:0}
-#matias .meet-ph figcaption{display:none}
 #matias .meet .intro,#matias .intro{font-size:clamp(19px,1.45vw,22px);line-height:1.55;margin:0 0 30px}
 #matias p{max-width:34em;line-height:1.8;margin:0 0 26px}
 #matias .meet-promesa{font-size:clamp(18px,1.35vw,21px);color:#d8d8d0;line-height:1.55;margin:8px 0 32px}
@@ -3270,22 +3283,6 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 #matias .colab{padding-left:18px;margin-bottom:26px}
 #matias .meet-fin b,#matias .meet-wh{color:#fff;font-weight:600}
 #matias .thanks{margin:34px 0 26px}
-@media(min-width:901px){
-  #matias .wrap{max-width:none;padding:0;display:grid;grid-template-columns:53% 47%;gap:0;align-items:stretch}
-  #matias .meet-ph{position:relative;margin:0;min-height:100%}
-  #matias .meet-ph img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:72% 8%;
-    -webkit-mask-image:linear-gradient(90deg,#000 82%,rgba(0,0,0,.55) 93%,transparent 100%),linear-gradient(0deg,transparent 0,#000 14%,#000 98%,transparent 100%);
-    -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,#000 82%,rgba(0,0,0,.55) 93%,transparent 100%),linear-gradient(0deg,transparent 0,#000 14%,#000 98%,transparent 100%);mask-composite:intersect}
-  #matias .meet-tx{max-width:760px;padding:clamp(96px,12vh,140px) clamp(28px,3.5vw,64px) clamp(96px,12vh,140px) clamp(24px,3vw,48px)}
-}
-@media(max-width:900px){
-  #matias .wrap{display:block;padding:0}
-  #matias .meet-ph{max-width:none;margin:0}
-  #matias .meet-ph img{width:100%;aspect-ratio:4/5;height:auto;object-fit:cover;object-position:60% 12%;
-    -webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 100%);mask-image:linear-gradient(180deg,#000 70%,transparent 100%)}
-  #matias .meet-tx{position:relative;margin-top:-56px;padding:0 24px 64px}
-}
-
 /* ===== ¿Te suena? versión premium ===== */
 .pb3{border-bottom:0;padding:clamp(96px,11vw,160px) 0 clamp(96px,10vw,150px);background:radial-gradient(120% 80% at 85% 40%,#17150e 0,#0d0d0d 55%)}
 .pb3 .wrap{max-width:1120px}
