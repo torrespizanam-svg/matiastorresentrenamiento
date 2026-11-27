@@ -242,29 +242,6 @@
   .soc.fb:hover{color:#fff}
   .soc.fb:hover small{color:#e4eeff}
   .soc.fb:hover svg{background:#fff;color:#1877F2}
-  /* tarjeta de Instagram: marco con el degradado de los botones, altura que sigue al ancho (sin hueco en blanco) */
-  .social .igcard{--ih:calc(150px + 66.7cqw);container-type:inline-size;position:relative;padding:2px;border-radius:22px;overflow:hidden;
-    background:linear-gradient(135deg,#FFD51F 0%,#FFD51F 12%,#fa7e1e 38%,#d62976 70%,#962fbf 100%);
-    box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 80px rgba(214,41,118,.14)}
-  .social .igbox{background:#fff;border-radius:20px 20px 0 0;overflow:hidden;height:var(--ih);min-height:300px;position:relative}
-  .social .igbox iframe{display:block;width:100%;height:100%;border:0}
-  .social .igbox.ig-wait{background:#121212}
-  .igph{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center}
-  .igph-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:3px;padding:3px;opacity:.9}
-  .igph-grid i{display:block;background:linear-gradient(145deg,#232323,#171717);border-radius:3px;position:relative}
-  .igph-grid i:nth-child(odd)::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 25%,rgba(255,213,31,.14),transparent 60%)}
-  .igph-grid i:nth-child(even)::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 70%,rgba(214,41,118,.14),transparent 60%)}
-  .igph::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,13,13,.92) 30%,rgba(13,13,13,.55) 100%)}
-  .igph-cta{position:relative;max-width:320px}
-  .igph-ic{width:60px;height:60px;border-radius:18px;margin:0 auto 14px;display:grid;place-items:center;color:#0d0d0d;background:linear-gradient(135deg,#FFD51F 0%,#fa7e1e 42%,#d62976 75%,#962fbf 100%)}
-  .igph-ic svg{width:30px;height:30px}
-  .igph-cta b{display:block;font:600 20px 'Oswald';letter-spacing:.06em;text-transform:uppercase;color:#fff;margin-bottom:6px}
-  .igph-cta p{color:#bdbdb5;font-size:14px;margin:0 0 18px}
-  .igph-cta small{display:block;margin-top:14px;color:#8d8d86;font-size:11.5px;line-height:1.5}
-  .igph-cta small a{color:#cfcfc8}
-  .igfoot{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#0d0d0d;color:#fff;text-decoration:none;padding:14px 20px;border-radius:0 0 20px 20px;font:600 12.5px 'Poppins';letter-spacing:.08em;text-transform:uppercase;transition:.2s}
-  .igfoot b{color:var(--yellow);font-weight:600;transition:.2s}
-  .igfoot:hover{background:var(--yellow);color:#0d0d0d}.igfoot:hover b{color:#0d0d0d}
   @media(max-width:860px){.social .wrap{grid-template-columns:1fr;gap:28px}}
 
 
@@ -371,12 +348,24 @@
   .wa-float{width:auto!important;height:auto!important;background:none!important;box-shadow:none!important;border-radius:0!important;display:flex!important;align-items:center;gap:10px;right:20px!important;bottom:20px!important;text-decoration:none;animation:waIn .6s .8s both}
   .wa-btn{position:relative;width:70px;height:70px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 28px rgba(37,211,102,.45),0 4px 12px rgba(0,0,0,.25);border:3px solid #fff;transition:transform .2s}
   .wa-btn::before{content:"";position:absolute;inset:-3px;border-radius:50%;border:3px solid #25D366;animation:waPulse 2.2s ease-out infinite}
-  .wa-label{background:#fff;color:#0d0d0d;font:600 14px 'Poppins',sans-serif;padding:10px 16px;border-radius:99px;box-shadow:0 6px 20px rgba(0,0,0,.18);white-space:nowrap}
+  .wa-btn img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 30%;display:block}
+  .wa-badge{position:absolute;right:-6px;bottom:-5px;width:28px;height:28px;border-radius:50%;background:#25D366;color:#fff;border:2px solid #fff;display:grid;place-items:center;box-shadow:0 3px 8px rgba(0,0,0,.25)}
+  .wa-bubble{position:relative;width:250px;background:#fff;color:#0d0d0d;border-radius:16px 16px 4px 16px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+  .wa-bubble::after{content:"";position:absolute;right:-6px;bottom:20px;width:14px;height:14px;background:#fff;border-radius:2px;transform:rotate(45deg)}
+  .wa-msg{position:relative;z-index:1;display:block;padding:14px 18px 15px 16px;color:inherit;text-decoration:none}
+  .wa-who{display:block;font:600 13.5px 'Poppins',sans-serif;color:#0b6b57}
+  .wa-who small{display:block;font:400 11.5px 'Poppins',sans-serif;color:#7b7b74;margin-top:1px}
+  .wa-txt{display:block;margin-top:7px;font:400 13.5px/1.5 'Poppins',sans-serif;color:#1d1d1b}
+  .wa-x{position:absolute;z-index:2;top:-10px;left:-10px;width:26px;height:26px;padding:0;border:0;border-radius:50%;background:#0d0d0d;color:#fff;font:400 17px/26px 'Poppins',sans-serif;text-align:center;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,.3)}
+  .wa-x:hover{background:#333}
+  .wa-float.wa-min .wa-bubble{display:none}
+  .wa-float.wa-on:not(.wa-min) .wa-bubble{animation:waMsg .5s .9s both}
+  @keyframes waMsg{from{opacity:0;transform:translateX(14px) scale(.96)}to{opacity:1;transform:none}}
   .wa-float:hover .wa-btn{transform:scale(1.08)}
   @keyframes waPulse{0%{transform:scale(1);opacity:.85}100%{transform:scale(1.55);opacity:0}}
   @keyframes waIn{from{opacity:0;transform:translateY(20px) scale(.8)}to{opacity:1;transform:none}}
-  @media(max-width:600px){.wa-label{display:none}.wa-btn{width:62px;height:62px}.wa-float{right:14px!important;bottom:14px!important}}
-  @media(prefers-reduced-motion:reduce){.wa-btn::before,.wa-float{animation:none}}
+  @media(max-width:600px){.wa-btn{width:62px;height:62px}.wa-float{right:14px!important;bottom:14px!important;gap:12px}.wa-bubble{width:min(228px,calc(100vw - 118px))}.wa-txt{font-size:13px}.wa-x{width:30px;height:30px;line-height:30px;top:-12px;left:-12px}}
+  @media(prefers-reduced-motion:reduce){.wa-btn::before,.wa-float,.wa-float.wa-on:not(.wa-min) .wa-bubble{animation:none}}
   .ph.ph-img{height:auto!important;aspect-ratio:4/5;padding:0!important;background:#0d0d0d}
   .ph.ph-img img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
   .ph.ph-logo{height:auto!important;aspect-ratio:4/5;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#2a2a2a,#0d0d0d)}
@@ -1889,22 +1878,14 @@ html,body{overflow-x:clip}
       </a>
     </div>
   </div>
-  <div class="igcard">
-    <div class="igbox ig-wait" id="igBox">
-      <div class="igph">
-        <div class="igph-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="igph-cta">
-          <div class="igph-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></div>
-          <b>Últimas publicaciones</b>
-          <p>Mira el día a día del centro directamente desde nuestro Instagram.</p>
-          <button class="btn" type="button" id="igLoad">Ver publicaciones</button>
-          <small>Al cargarlas, Instagram puede usar cookies. <a href="#" data-dlg="d-cook">Más información</a></small>
-        </div>
-      </div>
-    </div>
-    <a class="igfoot" href="https://www.instagram.com/matiastorresep/" target="_blank" rel="noopener"><span>Ver perfil completo</span><b>@matiastorresep ↗</b></a>
+</div>
+  <div class="igband no-arrows" id="igBand">
+    <div class="igrail" id="igRail" tabindex="0" role="region" aria-label="Últimas publicaciones de Instagram"></div>
+    <button class="igarr prev" id="igPrev" type="button" aria-label="Publicaciones anteriores">‹</button>
+    <button class="igarr next" id="igNext" type="button" aria-label="Publicaciones siguientes">›</button>
   </div>
-</div></section>
+  <div class="wrap"><a class="igfoot" href="https://www.instagram.com/matiastorresep/" target="_blank" rel="noopener"><span>Ver perfil completo</span><b>@matiastorresep ↗</b></a></div>
+</section>
 
 <div class="sellos"><div class="wrap">
   <img src="kit-digital.webp?v=7" width="768" height="107" alt="Financiado por la Unión Europea, NextGenerationEU. Plan de Recuperación, Transformación y Resiliencia" loading="lazy" decoding="async">
@@ -1914,7 +1895,7 @@ html,body{overflow-x:clip}
   <span>© 2026 Matías Torres · Entrenamiento personal en Orihuela<br><small class="nap">Travesía José Ávila, s/n, bajo (Gym), 03300 Orihuela (Alicante) · Frente a la plaza del Colegio Oleza<br>L-V 8:00-21:00 · Sáb 8:00-13:00 · <a href="tel:+34686728907">686 72 89 07</a></small></span>
   <span><a href="#contacto">Contacto</a><a href="https://www.instagram.com/matiastorresep/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/matiastorresEP" target="_blank" rel="noopener">Facebook</a><a data-dlg="d-legal">Aviso legal</a><a data-dlg="d-priv">Privacidad</a><a data-dlg="d-cook">Cookies</a><a class="gest-foot" href="#gestion" aria-label="Acceso del equipo">🔒 Gestión</a></span>
 </div></footer>
-<a class="wa-float" href="https://wa.me/34686728907?text=Hola%20Mat%C3%ADas%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20primera%20valoraci%C3%B3n" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><span class="wa-label">¿Hablamos?</span><span class="wa-btn"><svg viewBox="0 0 24 24" width="38" height="38" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1c-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.7.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg></span></a>
+<div class="wa-float" id="waFloat"><div class="wa-bubble"><button type="button" class="wa-x" id="waX" aria-label="Cerrar mensaje">×</button><a class="wa-msg" href="https://wa.me/34686728907?text=Hola%20Mat%C3%ADas%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20primera%20valoraci%C3%B3n" target="_blank" rel="noopener"><span class="wa-who">Matías Torres<small>Entrenador personal</small></span><span class="wa-txt">¡Hola! 👋 Soy Matías. ¿Quieres saber cómo es la primera valoración gratuita? Escríbeme por WhatsApp y lo vemos.</span></a></div><a class="wa-btn" href="https://wa.me/34686728907?text=Hola%20Mat%C3%ADas%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20primera%20valoraci%C3%B3n" target="_blank" rel="noopener" aria-label="Escribir a Matías por WhatsApp"><img src="fotos/matias-avatar.webp?v=1" width="96" height="96" alt="Matías Torres" decoding="async"><span class="wa-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1c-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3 1 2.6 1.1 2.7.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg></span></a></div>
 
 <dialog id="d-img" class="lb"><img id="lbImg" alt=""><button type="button" aria-label="Cerrar" id="lbX">×</button></dialog>
 <div class="cookiebar" id="cookieBar" role="region" aria-label="Cookies" hidden><p>Usamos Instagram para mostrarte nuestras últimas publicaciones; Instagram (Meta) puede instalar cookies. ¿Las aceptas? <a href="#" data-dlg="d-cook">Más información</a></p><div><button type="button" class="btn ghost" id="ckNo">Solo necesarias</button><button type="button" class="btn" id="ckOk">Aceptar</button></div></div>
@@ -2328,12 +2309,51 @@ $$("[data-dlg]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();do
 const CK="mtCookiesIG";
 const ckGet=()=>{try{return localStorage.getItem(CK)}catch(_){return null}};
 const ckSet=v=>{try{v?localStorage.setItem(CK,v):localStorage.removeItem(CK)}catch(_){}};
-function loadIG(){
-  const box=$("#igBox"); if(box.querySelector("iframe")) return;
-  box.classList.remove("ig-wait");
-  box.innerHTML='<iframe src="https://www.instagram.com/matiastorresep/embed/" title="Instagram @matiastorresep" loading="lazy" scrolling="yes"></iframe>';
+/* Lint de Instagram: pega aquí los enlaces de las publicaciones que quieras mostrar (las más recientes primero) */
+const IG_POSTS=[
+  // "https://www.instagram.com/p/XXXXXXXXXXX/",
+  // "https://www.instagram.com/reel/XXXXXXXXXXX/",
+];
+const IG_ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
+const igBand=$("#igBand"), igRail=$("#igRail");
+const igList=IG_POSTS.map(u=>{const m=/instagram\.com\/(p|reel|tv)\/([\w-]+)/i.exec(u||"");return m?"https://www.instagram.com/"+m[1].toLowerCase()+"/"+m[2]+"/":null}).filter(Boolean);
+function igArrows(){
+  const max=igRail.scrollWidth-igRail.clientWidth;
+  igBand.classList.toggle("can-prev",igRail.scrollLeft>8);
+  igBand.classList.toggle("can-next",igRail.scrollLeft<max-8);
 }
-$("#igLoad").addEventListener("click",loadIG);
+function igStep(d){
+  const t=igRail.querySelector(".igtile"); if(!t) return;
+  const w=t.offsetWidth+18, n=Math.max(1,Math.floor(igRail.clientWidth/w));
+  igRail.scrollBy({left:d*w*n,behavior:"smooth"});
+}
+$("#igPrev").addEventListener("click",()=>igStep(-1));
+$("#igNext").addEventListener("click",()=>igStep(1));
+igRail.addEventListener("scroll",igArrows,{passive:true});
+addEventListener("resize",igArrows);addEventListener("load",igArrows);
+if(window.ResizeObserver) new ResizeObserver(igArrows).observe(igRail);
+(function igBuild(){
+  if(!igList.length){
+    igRail.innerHTML='<div class="igtile cta wide"><div><div class="igph-ic">'+IG_ICON+'</div><b>Síguenos en Instagram</b><p>Mira el día a día del centro, técnica y consejos de entrenamiento.</p><a class="btn" href="https://www.instagram.com/matiastorresep/" target="_blank" rel="noopener">Ver Instagram</a></div></div>';
+    return;
+  }
+  igBand.classList.remove("no-arrows");
+  igRail.innerHTML='<div class="igtile cta" id="igCta"><div><div class="igph-ic">'+IG_ICON+'</div><b>Últimas publicaciones</b><p>Mira el día a día del centro directamente desde nuestro Instagram.</p><button class="btn" type="button" id="igLoad">Ver publicaciones</button><small>Al cargarlas, Instagram puede usar cookies. <a href="#" data-dlg="d-cook">Más información</a></small></div></div>'
+    +igList.map(u=>'<div class="igtile ph" data-u="'+u+'"><div class="igph-ic">'+IG_ICON+'</div><a class="igtile-link" href="'+u+'" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"></a></div>').join("");
+  igRail.querySelectorAll("[data-dlg]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();document.getElementById(a.dataset.dlg).showModal()}));
+  $("#igLoad").addEventListener("click",loadIG);
+  igArrows();
+})();
+function loadIG(){
+  if(!igList.length||igRail.querySelector("iframe")) return;
+  const cta=$("#igCta"); if(cta) cta.remove();
+  igRail.querySelectorAll(".igtile.ph").forEach(t=>{
+    const f=document.createElement("iframe");
+    f.src=t.dataset.u+"embed/"; f.title="Publicación de Instagram @matiastorresep"; f.loading="lazy"; f.scrolling="no"; f.tabIndex=-1;
+    t.classList.add("on"); t.querySelector(".igph-ic").remove(); t.insertBefore(f,t.firstChild);
+  });
+  igRail.scrollLeft=0; igArrows();
+}
 $("#ckOk").addEventListener("click",()=>{ckSet("ok");$("#cookieBar").hidden=true;loadIG()});
 $("#ckNo").addEventListener("click",()=>{ckSet("no");$("#cookieBar").hidden=true});
 $("#ckChange").addEventListener("click",()=>{ckSet(null);$("#d-cook").close();location.reload()});
@@ -3563,12 +3583,13 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
   background:radial-gradient(60% 70% at 100% 100%,rgba(214,41,118,.10),transparent 65%),radial-gradient(55% 60% at 75% 20%,rgba(255,170,0,.12),transparent 65%),radial-gradient(50% 60% at 0% 0%,rgba(255,213,31,.06),transparent 70%),#0b0b0b!important}
 .sox::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,213,31,.45),transparent)}
 .sox-wm{position:absolute;left:50%;bottom:-.18em;transform:translateX(-50%);white-space:nowrap;font:700 clamp(80px,13vw,220px)/1 'Oswald',sans-serif;letter-spacing:.02em;color:transparent;-webkit-text-stroke:1px rgba(255,213,31,.08);pointer-events:none;user-select:none}
-.sox .wrap{position:relative;max-width:1320px!important;grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr)!important;gap:clamp(48px,6vw,100px)!important}
+.sox .wrap{position:relative;max-width:1320px!important;grid-template-columns:minmax(0,1fr)!important;gap:0!important;align-items:start!important}
 .sox-h{font:600 clamp(36px,4vw,58px)/1.04 'Oswald',sans-serif;color:#fff;text-transform:uppercase;margin:0 0 clamp(30px,3vw,44px)}
 .sox-h span{display:block;margin-top:.12em;background:linear-gradient(90deg,#fff0b8,#ffd51f 45%,#fa7e1e 80%,#d62976);-webkit-background-clip:text;background-clip:text;color:transparent}
 .sox-lead{font:400 clamp(17px,1.3vw,20px)/1.75 'Poppins',sans-serif;color:#a9a59c;margin:0 0 clamp(40px,4vw,56px)}
 .sox-lead b{color:#fff;font-weight:600}
-.sox .socbtns{display:grid;gap:16px;margin:0;max-width:460px}
+.sox .socbtns{display:flex;flex-wrap:wrap;gap:16px;margin:0;max-width:none}
+.sox .socbtns .soc{flex:0 1 340px}
 .sox .soc{display:grid;grid-template-columns:auto 1fr auto;gap:18px;padding:20px 26px 20px 20px;border-radius:2px;font:600 15px 'Poppins';letter-spacing:.14em;text-transform:uppercase;border:1px solid transparent;
   background:linear-gradient(180deg,#151515,#0e0e0e) padding-box,linear-gradient(90deg,rgba(255,213,31,.8),rgba(250,126,30,.5) 50%,rgba(214,41,118,.5)) border-box}
 .sox .soc.fb{background:linear-gradient(180deg,#151515,#0e0e0e) padding-box,linear-gradient(90deg,rgba(255,213,31,.8),rgba(77,143,245,.55) 55%,rgba(24,119,242,.5)) border-box}
@@ -3577,13 +3598,51 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 .sox .soc i{font-style:normal;font-size:20px;color:var(--yellow);transition:transform .3s}
 .sox .soc:hover{transform:translateY(-3px)!important;box-shadow:0 20px 40px -18px rgba(255,170,0,.5)}
 .sox .soc:hover i{transform:translateX(5px);color:inherit}
-.sox .igcard{border-radius:4px!important;padding:1px!important;background:linear-gradient(135deg,#ffd51f,#b8862a 30%,#fa7e1e 60%,#d62976 85%,#962fbf)!important;
-  box-shadow:0 50px 100px -40px rgba(0,0,0,.95),0 0 120px -20px rgba(250,126,30,.25)!important;transform:perspective(1600px) rotateY(-4deg);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.sox .igcard:hover{transform:perspective(1600px) rotateY(0)}
-.sox .igbox{border-radius:3px 3px 0 0!important}
-.sox .igfoot{border-radius:0 0 3px 3px!important;padding:20px 26px!important;font-size:13px!important;letter-spacing:.2em!important;background:#0b0b0b!important}
-.sox .igfoot:hover{background:linear-gradient(90deg,#ffd51f,#fa7e1e)!important}
-@media(max-width:860px){.sox .wrap{grid-template-columns:1fr!important}.sox .igcard{transform:none}.sox .socbtns{max-width:none}}
+/* ----- Lint de publicaciones de Instagram (scroll horizontal) ----- */
+.sox{--igpad:max(22px,calc((100vw - 1320px)/2 + 22px))}
+.igband{position:relative;margin-top:clamp(56px,6vw,88px)}
+.igband::before,.igband::after{content:"";position:absolute;top:0;bottom:26px;width:clamp(28px,6vw,90px);z-index:3;pointer-events:none;opacity:0;transition:opacity .3s}
+.igband::before{left:0;background:linear-gradient(90deg,#0b0b0b,rgba(11,11,11,0))}
+.igband::after{right:0;background:linear-gradient(270deg,#0b0b0b,rgba(11,11,11,0))}
+.igband.can-prev::before,.igband.can-next::after{opacity:1}
+.igrail{display:flex;gap:18px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  padding:6px var(--igpad) 26px;scroll-padding-inline:var(--igpad)}
+.igrail::-webkit-scrollbar{display:none}
+.igrail:focus-visible{outline:2px solid var(--yellow);outline-offset:-2px}
+.igtile{position:relative;flex:0 0 auto;width:min(328px,76vw);height:min(540px,128vw);scroll-snap-align:start;overflow:hidden;border-radius:4px;background:#121212;
+  box-shadow:0 0 0 1px rgba(255,213,31,.22),0 30px 60px -30px rgba(0,0,0,.9);transition:box-shadow .3s,transform .3s}
+.igtile:hover{box-shadow:0 0 0 1px rgba(255,213,31,.7),0 30px 70px -30px rgba(250,126,30,.45);transform:translateY(-4px)}
+.igtile.on{background:#fff}
+.igtile iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;pointer-events:none}
+.igtile-link{position:absolute;inset:0;z-index:2;border-radius:inherit}
+.igtile-link:focus-visible{outline:3px solid var(--yellow);outline-offset:-3px}
+.igtile.ph{background:linear-gradient(150deg,#1d1d1d,#101010)}
+.igtile.ph::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 20%,rgba(255,213,31,.14),transparent 55%),radial-gradient(circle at 80% 85%,rgba(214,41,118,.16),transparent 55%)}
+.igtile.ph .igph-ic{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;opacity:.35}
+.igtile.cta{display:grid;place-items:center;text-align:center;padding:28px 26px;background:linear-gradient(150deg,#1d1d1d,#101010)}
+.igtile.cta.wide{width:min(520px,86vw);height:auto;min-height:300px}
+.igtile.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 15%,rgba(255,213,31,.16),transparent 55%),radial-gradient(circle at 85% 90%,rgba(214,41,118,.2),transparent 55%)}
+.igtile.cta>div{position:relative}
+.igph-ic{width:60px;height:60px;border-radius:18px;margin:0 auto 16px;display:grid;place-items:center;color:#0d0d0d;background:linear-gradient(135deg,#FFD51F 0%,#fa7e1e 42%,#d62976 75%,#962fbf 100%)}
+.igph-ic svg{width:30px;height:30px}
+.igtile.cta b{display:block;font:600 21px 'Oswald',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin-bottom:8px}
+.igtile.cta p{color:#bdbdb5;font-size:14px;line-height:1.6;margin:0 0 20px}
+.igtile.cta small{display:block;margin-top:14px;color:#8d8d86;font-size:11.5px;line-height:1.5}
+.igtile.cta small a{color:#cfcfc8}
+.igtile.cta .btn{display:inline-block;text-decoration:none}
+.igarr{position:absolute;top:calc(50% - 13px);transform:translateY(-50%);z-index:4;width:54px;height:54px;border-radius:50%;border:1px solid rgba(255,213,31,.55);background:rgba(13,13,13,.88);color:var(--yellow);font:400 30px/1 'Poppins',sans-serif;
+  display:grid;place-items:center;padding:0 0 4px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s,background .2s,color .2s,transform .2s;backdrop-filter:blur(6px)}
+.igarr.prev{left:clamp(10px,2.4vw,34px)}.igarr.next{right:clamp(10px,2.4vw,34px)}
+.igband.can-prev .igarr.prev,.igband.can-next .igarr.next{opacity:1;pointer-events:auto}
+.igarr:hover{background:var(--yellow);color:#0d0d0d;transform:translateY(-50%) scale(1.06)}
+.igarr:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.igband.no-arrows .igarr{display:none}
+@media(hover:none){.igarr{display:none}}
+.sox .igfoot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px;padding:22px 0;border-top:1px solid rgba(255,213,31,.25);color:#fff;text-decoration:none;font:600 13px 'Poppins',sans-serif;letter-spacing:.2em;text-transform:uppercase;transition:color .2s,border-color .2s}
+.sox .igfoot b{color:var(--yellow);font-weight:600;transition:transform .2s}
+.sox .igfoot:hover{color:var(--yellow);border-color:var(--yellow)}.sox .igfoot:hover b{transform:translateX(4px)}
+@media(max-width:860px){.sox .socbtns .soc{flex:1 1 100%}.sox .igfoot{font-size:11.5px;letter-spacing:.14em}}
+@media(prefers-reduced-motion:reduce){.igrail{scroll-behavior:auto}.igtile,.igarr{transition:none}.igtile:hover{transform:none}}
 
 /* ===== Página Nuestro equipo premium ===== */
 #v-equipo.tmx{background:#0b0b0b;color:#f5f3ee}
@@ -3694,7 +3753,7 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 #v-reservar .done h2{color:#fff}#v-reservar .done .ok{background:linear-gradient(180deg,#ffe25a,#ffd51f)!important;color:#0b0b0b!important}#v-reservar .done p{color:#cfcbc2}
 @media(max-width:860px){.rsx-head{background:linear-gradient(170deg,#0b0b0b 0,#0b0b0b 55%,#3a2c05 78%,#b8862a 100%)!important}.rsx-head::before{right:-25%;top:auto;bottom:-8%;transform:none;width:85vw}#v-reservar .pcol2{border-left:0!important;border-top:1px solid rgba(255,255,255,.07)!important}}
 </style>
-<script>(function(){var w=document.querySelector(".wa-float");if(!w)return;function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
+<script>(function(){var w=document.querySelector(".wa-float");if(!w)return;try{if(sessionStorage.getItem("mtWaMin")==="1")w.classList.add("wa-min")}catch(_){}var x=document.getElementById("waX");if(x)x.addEventListener("click",function(){w.classList.add("wa-min");try{sessionStorage.setItem("mtWaMin","1")}catch(_){}});function f(){w.classList.toggle("wa-on",scrollY>innerHeight*.6)}addEventListener("scroll",f,{passive:true});f()})();</script>
 <script>
 /* Pared de madera: aparece suave y se acerca muy despacio al hacer scroll (de 1.06 a 1.00) */
 (function(){
