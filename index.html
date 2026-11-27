@@ -320,6 +320,9 @@
 
   .hero-eyebrow{font:600 12px/1 'Poppins',sans-serif;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:18px;text-shadow:0 1px 10px rgba(0,0,0,.6)}
   .hero h1{margin-bottom:12px}
+.hero-hrow{display:flex;align-items:center;gap:clamp(20px,2.4vw,36px)}
+.hero-esc{flex:none;width:clamp(96px,8.6vw,138px);height:auto;filter:drop-shadow(0 10px 24px rgba(0,0,0,.55))}
+@media(max-width:900px){.hero-hrow{flex-direction:column;align-items:flex-start;gap:16px}.hero-esc{width:72px}}
   .hero-proof{display:inline-flex;align-items:center;gap:8px;font:600 clamp(24px,4.2vw,32px)/1.3 'Poppins',sans-serif;text-transform:none;letter-spacing:0;color:#fff;text-decoration:none;margin:0 auto;max-width:none;flex-wrap:wrap;justify-content:center;gap:12px}
   .hero-proof .stars{color:var(--yellow);letter-spacing:.08em;font-size:clamp(26px,4.5vw,34px)}
   .hero-proof:hover{text-decoration:underline;text-underline-offset:4px}
@@ -1250,7 +1253,7 @@ html,body{overflow-x:clip}
 <div class="view on" id="v-inicio">
   <div class="hero"><div class="hero-bg" data-bg="sala" role="img" aria-label="Sala de entrenamiento del centro Matías Torres en Orihuela"><video class="hero-video hv-l" data-v="chica" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture></video><video class="hero-video hv-r" data-v="centro" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1" disablepictureinpicture></video></div><div class="wrap">
     <div class="hero-eyebrow">Entrenamiento personal · Orihuela</div>
-    <h1>Solo tú y tu entrenador.</h1>
+    <div class="hero-hrow"><img class="hero-esc" src="fotos/escudo-estrellas-oro-cab.png?v=3" width="512" height="544" alt="" aria-hidden="true" decoding="async"><h1>Solo tú y tu entrenador.</h1></div>
     <p class="hero-sub">Entras y te llaman por tu nombre. Tu café ya está en marcha. Durante una hora, nadie te mira ni te mete prisa.</p>
     <div class="cta"><a class="btn btn-hero" href="#reservar">Solicita tu primera valoración</a></div>
     <div class="hero-note">Invitación de la casa</div>
@@ -1309,7 +1312,6 @@ html,body{overflow-x:clip}
 
   <section class="pb2 pb3" data-mt>
     <div class="wrap">
-    <img class="pb3-shield rv" src="fotos/escudo-estrellas-oro-xl.webp?v=3" width="1600" height="1699" alt="Escudo de Matías Torres, entrenador personal en Orihuela desde 2021" loading="lazy">
     <p class="pb2-eb rv">¿Te suena?</p>
     <h2 class="pb2-h">
       <span class="pb2-x rv" style="--d:.15s">Pagas la cuota.<i class="dr" style="--d:1.6s" aria-hidden="true"></i></span>
@@ -1879,11 +1881,12 @@ html,body{overflow-x:clip}
     </div>
   </div>
 </div>
-  <div class="igband no-arrows" id="igBand">
+  <div class="igband" id="igBand">
     <div class="igrail" id="igRail" tabindex="0" role="region" aria-label="Últimas publicaciones de Instagram"></div>
     <button class="igarr prev" id="igPrev" type="button" aria-label="Publicaciones anteriores">‹</button>
     <button class="igarr next" id="igNext" type="button" aria-label="Publicaciones siguientes">›</button>
   </div>
+  <dialog class="vdlg" id="vDlg" aria-label="Vídeo del centro"><button type="button" class="vdlg-x" id="vDlgX" aria-label="Cerrar vídeo">×</button><video id="vDlgV" controls playsinline preload="none"></video><a class="vdlg-ig" href="https://www.instagram.com/matiastorresep/" target="_blank" rel="noopener"><span>Más vídeos en Instagram</span><b>@matiastorresep ↗</b></a></dialog>
   <div class="wrap"><a class="igfoot" href="https://www.instagram.com/matiastorresep/" target="_blank" rel="noopener"><span>Ver perfil completo</span><b>@matiastorresep ↗</b></a></div>
 </section>
 
@@ -2309,14 +2312,18 @@ $$("[data-dlg]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();do
 const CK="mtCookiesIG";
 const ckGet=()=>{try{return localStorage.getItem(CK)}catch(_){return null}};
 const ckSet=v=>{try{v?localStorage.setItem(CK,v):localStorage.removeItem(CK)}catch(_){}};
-/* Lint de Instagram: pega aquí los enlaces de las publicaciones que quieras mostrar (las más recientes primero) */
-const IG_POSTS=[
-  // "https://www.instagram.com/p/XXXXXXXXXXX/",
-  // "https://www.instagram.com/reel/XXXXXXXXXXX/",
+/* Lint de vídeos: están en la propia web (video/ig/NN.mp4); sin Instagram embebido, sin cookies de terceros */
+const IG_VIDEOS=[
+  {n:"01",t:"Alguien que ve lo que tú no ves"},
+  {n:"02",t:"Propiocepción: el GPS de tus pies"},
+  {n:"03",t:"En Orihuela hay un centro al que vienes a que te cuiden"},
+  {n:"04"},{n:"05"},{n:"06"},{n:"07"},
+  {n:"08",t:"Esto no es un gimnasio: es donde tu cuerpo se recupera"},
+  {n:"09"},{n:"10"},{n:"11"},{n:"12"}
 ];
 const IG_ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
+const IG_PLAY='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg>';
 const igBand=$("#igBand"), igRail=$("#igRail");
-const igList=IG_POSTS.map(u=>{const m=/instagram\.com\/(p|reel|tv)\/([\w-]+)/i.exec(u||"");return m?"https://www.instagram.com/"+m[1].toLowerCase()+"/"+m[2]+"/":null}).filter(Boolean);
 function igArrows(){
   const max=igRail.scrollWidth-igRail.clientWidth;
   igBand.classList.toggle("can-prev",igRail.scrollLeft>8);
@@ -2332,32 +2339,35 @@ $("#igNext").addEventListener("click",()=>igStep(1));
 igRail.addEventListener("scroll",igArrows,{passive:true});
 addEventListener("resize",igArrows);addEventListener("load",igArrows);
 if(window.ResizeObserver) new ResizeObserver(igArrows).observe(igRail);
-(function igBuild(){
-  if(!igList.length){
-    igRail.innerHTML='<div class="igtile cta wide"><div><div class="igph-ic">'+IG_ICON+'</div><b>Síguenos en Instagram</b><p>Mira el día a día del centro, técnica y consejos de entrenamiento.</p><a class="btn" href="https://www.instagram.com/matiastorresep/" target="_blank" rel="noopener">Ver Instagram</a></div></div>';
-    return;
-  }
-  igBand.classList.remove("no-arrows");
-  igRail.innerHTML='<div class="igtile cta" id="igCta"><div><div class="igph-ic">'+IG_ICON+'</div><b>Últimas publicaciones</b><p>Mira el día a día del centro directamente desde nuestro Instagram.</p><button class="btn" type="button" id="igLoad">Ver publicaciones</button><small>Al cargarlas, Instagram puede usar cookies. <a href="#" data-dlg="d-cook">Más información</a></small></div></div>'
-    +igList.map(u=>'<div class="igtile ph" data-u="'+u+'"><div class="igph-ic">'+IG_ICON+'</div><a class="igtile-link" href="'+u+'" target="_blank" rel="noopener" aria-label="Ver publicación en Instagram"></a></div>').join("");
-  igRail.querySelectorAll("[data-dlg]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();document.getElementById(a.dataset.dlg).showModal()}));
-  $("#igLoad").addEventListener("click",loadIG);
-  igArrows();
-})();
-function loadIG(){
-  if(!igList.length||igRail.querySelector("iframe")) return;
-  const cta=$("#igCta"); if(cta) cta.remove();
-  igRail.querySelectorAll(".igtile.ph").forEach(t=>{
-    const f=document.createElement("iframe");
-    f.src=t.dataset.u+"embed/"; f.title="Publicación de Instagram @matiastorresep"; f.loading="lazy"; f.scrolling="no"; f.tabIndex=-1;
-    t.classList.add("on"); t.querySelector(".igph-ic").remove(); t.insertBefore(f,t.firstChild);
-  });
-  igRail.scrollLeft=0; igArrows();
+igRail.innerHTML=IG_VIDEOS.map(v=>'<button type="button" class="igtile" data-n="'+v.n+'" aria-label="Ver vídeo: '+(v.t||"el día a día del centro")+'">'
+  +'<video muted loop playsinline preload="none" poster="video/ig/'+v.n+'.webp" data-src="video/ig/'+v.n+'-p.mp4" aria-hidden="true" tabindex="-1"></video>'
+  +'<span class="ig-badge">'+IG_ICON+'</span><span class="ig-play">'+IG_PLAY+'</span></button>').join("");
+igArrows();
+/* vista previa en bucle solo mientras la tarjeta está a la vista */
+const igReduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+if(!igReduce&&"IntersectionObserver" in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    const v=e.target;
+    if(e.isIntersecting){ if(!v.src) v.src=v.dataset.src; v.muted=true; const p=v.play(); if(p&&p.catch) p.catch(()=>{}); }
+    else v.pause();
+  }),{root:igRail,rootMargin:"0px 120px",threshold:.25});
+  igRail.querySelectorAll("video").forEach(v=>io.observe(v));
 }
-$("#ckOk").addEventListener("click",()=>{ckSet("ok");$("#cookieBar").hidden=true;loadIG()});
+/* al pulsar, el vídeo completo con sonido */
+const vDlg=$("#vDlg"), vDlgV=$("#vDlgV");
+function vClose(){vDlgV.pause();vDlgV.removeAttribute("src");vDlgV.load();if(vDlg.open)vDlg.close()}
+igRail.addEventListener("click",e=>{
+  const t=e.target.closest(".igtile"); if(!t) return;
+  vDlgV.src="video/ig/"+t.dataset.n+".mp4"; vDlgV.poster="video/ig/"+t.dataset.n+".webp";
+  vDlg.showModal(); const p=vDlgV.play(); if(p&&p.catch) p.catch(()=>{});
+});
+$("#vDlgX").addEventListener("click",vClose);
+vDlg.addEventListener("close",()=>{vDlgV.pause()});
+vDlg.addEventListener("click",e=>{if(e.target===vDlg)vClose()});
+$("#ckOk").addEventListener("click",()=>{ckSet("ok");$("#cookieBar").hidden=true});
 $("#ckNo").addEventListener("click",()=>{ckSet("no");$("#cookieBar").hidden=true});
 $("#ckChange").addEventListener("click",()=>{ckSet(null);$("#d-cook").close();location.reload()});
-if(ckGet()==="ok") loadIG(); else if(ckGet()!=="no") $("#cookieBar").hidden=false;
+/* los vídeos del lint son propios: ya no se pide consentimiento para Instagram */
 
 /* ============ formulario de contacto ============ */
 $("#fContact").addEventListener("submit",async e=>{
@@ -3397,21 +3407,15 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 .fv-fig{overflow:visible}
 .fv-fig img{filter:drop-shadow(0 0 4px rgba(0,0,0,.95)) drop-shadow(0 0 18px rgba(0,0,0,.85)) drop-shadow(0 0 40px rgba(0,0,0,.6)) drop-shadow(0 0 70px rgba(0,0,0,.35))}
 
-/* escudo 1 a 1 grande y centrado en ¿Te suena? */
-.pb3-shield{display:block;width:clamp(200px,22vw,320px);height:auto;margin:0 auto clamp(48px,5vw,72px);filter:drop-shadow(0 0 30px rgba(255,213,31,.28)) drop-shadow(0 24px 40px rgba(0,0,0,.6))}
-@media(max-width:900px){.pb3-shield{width:200px;margin-bottom:40px}}
 
 /* ¿Te suena?: escudo más grande con resplandor amarillo y eyebrow más grande */
-.pb3-shield{width:clamp(260px,28vw,400px)!important;filter:drop-shadow(0 0 4px rgba(255,213,31,.95)) drop-shadow(0 0 18px rgba(255,213,31,.8)) drop-shadow(0 0 40px rgba(255,213,31,.5)) drop-shadow(0 0 70px rgba(255,213,31,.3))!important}
 .pb3 .pb2-eb{font-size:clamp(22px,1.9vw,30px)!important;letter-spacing:.28em!important;text-shadow:0 0 10px rgba(255,213,31,.7),0 0 26px rgba(255,213,31,.45),0 0 50px rgba(255,213,31,.25)}
-@media(max-width:900px){.pb3-shield{width:240px!important}}
 
 /* Escudo premium en cabecera: más grande y nítido */
 #site .brand>img.brand-esc{height:84px!important;width:auto;image-rendering:auto}
 #site header.mini .brand>img.brand-esc{height:62px!important}
 @media(max-width:480px){#site .brand>img.brand-esc{height:60px!important}#site header.mini .brand>img.brand-esc{height:50px!important}}
 /* ¿Te suena?: escudo sin resplandor amarillo, solo sombra */
-.pb3-shield{filter:drop-shadow(0 18px 30px rgba(0,0,0,.6))!important}
 
 /* Cabecera: nombre más grande, subtítulo blanco luminoso, escudo proporcionado */
 #site .brand .lockup b.esc-name img{height:42px!important}
@@ -3422,8 +3426,6 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
 @media(max-width:480px){#site .brand>img.brand-esc{height:64px!important}#site header.mini .brand>img.brand-esc{height:54px!important}#site .brand .lockup b.esc-name img{height:28px!important}}
 
 /* ¿Te suena?: escudo al doble de tamaño */
-.pb3 .pb3-shield{width:clamp(260px,31.2vw,480px)!important}
-@media(max-width:900px){.pb3 .pb3-shield{width:min(56vw,288px)!important}}
 
 /* ===== Metodología premium (negro, oro, oxígeno) ===== */
 #v-metodologia.mtx{background:#0b0b0b;color:#f5f3ee}
@@ -3609,27 +3611,24 @@ window.addEventListener('load',eq);window.addEventListener('resize',eq);window.a
   padding:6px var(--igpad) 26px;scroll-padding-inline:var(--igpad)}
 .igrail::-webkit-scrollbar{display:none}
 .igrail:focus-visible{outline:2px solid var(--yellow);outline-offset:-2px}
-.igtile{position:relative;flex:0 0 auto;width:min(328px,76vw);height:min(540px,128vw);scroll-snap-align:start;overflow:hidden;border-radius:4px;background:#121212;
+.igtile{position:relative;flex:0 0 auto;width:min(232px,60vw);aspect-ratio:9/16;scroll-snap-align:start;overflow:hidden;border-radius:4px;border:0;padding:0;background:#121212;cursor:pointer;font:inherit;color:#fff;
   box-shadow:0 0 0 1px rgba(255,213,31,.22),0 30px 60px -30px rgba(0,0,0,.9);transition:box-shadow .3s,transform .3s}
 .igtile:hover{box-shadow:0 0 0 1px rgba(255,213,31,.7),0 30px 70px -30px rgba(250,126,30,.45);transform:translateY(-4px)}
-.igtile.on{background:#fff}
-.igtile iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;pointer-events:none}
-.igtile-link{position:absolute;inset:0;z-index:2;border-radius:inherit}
-.igtile-link:focus-visible{outline:3px solid var(--yellow);outline-offset:-3px}
-.igtile.ph{background:linear-gradient(150deg,#1d1d1d,#101010)}
-.igtile.ph::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 20%,rgba(255,213,31,.14),transparent 55%),radial-gradient(circle at 80% 85%,rgba(214,41,118,.16),transparent 55%)}
-.igtile.ph .igph-ic{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;opacity:.35}
-.igtile.cta{display:grid;place-items:center;text-align:center;padding:28px 26px;background:linear-gradient(150deg,#1d1d1d,#101010)}
-.igtile.cta.wide{width:min(520px,86vw);height:auto;min-height:300px}
-.igtile.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 15%,rgba(255,213,31,.16),transparent 55%),radial-gradient(circle at 85% 90%,rgba(214,41,118,.2),transparent 55%)}
-.igtile.cta>div{position:relative}
-.igph-ic{width:60px;height:60px;border-radius:18px;margin:0 auto 16px;display:grid;place-items:center;color:#0d0d0d;background:linear-gradient(135deg,#FFD51F 0%,#fa7e1e 42%,#d62976 75%,#962fbf 100%)}
-.igph-ic svg{width:30px;height:30px}
-.igtile.cta b{display:block;font:600 21px 'Oswald',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#fff;margin-bottom:8px}
-.igtile.cta p{color:#bdbdb5;font-size:14px;line-height:1.6;margin:0 0 20px}
-.igtile.cta small{display:block;margin-top:14px;color:#8d8d86;font-size:11.5px;line-height:1.5}
-.igtile.cta small a{color:#cfcfc8}
-.igtile.cta .btn{display:inline-block;text-decoration:none}
+.igtile:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.igtile video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#121212}
+.igtile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28) 0,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 70%,rgba(0,0,0,.5) 100%);pointer-events:none}
+.igtile .ig-badge,.igtile .ig-play{position:absolute;z-index:2;display:grid;place-items:center;color:#fff;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5))}
+.igtile .ig-badge{top:12px;left:12px;width:26px;height:26px}.igtile .ig-badge svg{width:24px;height:24px}
+.igtile .ig-play{right:12px;bottom:12px;width:40px;height:40px;border-radius:50%;background:rgba(13,13,13,.62);border:1px solid rgba(255,255,255,.5);backdrop-filter:blur(4px);transition:background .2s,color .2s}
+.igtile .ig-play svg{width:16px;height:16px;margin-left:2px}
+.igtile:hover .ig-play{background:var(--yellow);color:#0d0d0d;border-color:var(--yellow)}
+dialog.vdlg{padding:0;border:1px solid rgba(255,213,31,.4);border-radius:6px;background:#0b0b0b;width:min(420px,94vw);max-width:none;max-height:94vh;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.8)}
+dialog.vdlg::backdrop{background:rgba(0,0,0,.82)}
+dialog.vdlg video{display:block;width:100%;max-height:calc(94vh - 56px);background:#000;object-fit:contain}
+.vdlg-x{position:absolute;top:10px;right:10px;z-index:3;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(13,13,13,.7);color:#fff;font:400 22px/1 'Poppins',sans-serif;cursor:pointer;display:grid;place-items:center;padding:0 0 2px}
+.vdlg-x:hover{background:var(--yellow);color:#0d0d0d}
+.vdlg-ig{display:flex;justify-content:space-between;gap:10px;padding:16px 18px;color:#fff;text-decoration:none;font:600 12px 'Poppins',sans-serif;letter-spacing:.16em;text-transform:uppercase;border-top:1px solid rgba(255,213,31,.25)}
+.vdlg-ig b{color:var(--yellow);font-weight:600}.vdlg-ig:hover{color:var(--yellow)}
 .igarr{position:absolute;top:calc(50% - 13px);transform:translateY(-50%);z-index:4;width:54px;height:54px;border-radius:50%;border:1px solid rgba(255,213,31,.55);background:rgba(13,13,13,.88);color:var(--yellow);font:400 30px/1 'Poppins',sans-serif;
   display:grid;place-items:center;padding:0 0 4px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s,background .2s,color .2s,transform .2s;backdrop-filter:blur(6px)}
 .igarr.prev{left:clamp(10px,2.4vw,34px)}.igarr.next{right:clamp(10px,2.4vw,34px)}
