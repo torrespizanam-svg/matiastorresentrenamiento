@@ -2100,7 +2100,7 @@ $("#logoutBtn").addEventListener("click",()=>{
 });
 
 $("#burger").onclick=()=>$("#nav").classList.toggle("open");
-$$("[data-dlg]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();document.getElementById(a.dataset.dlg).showModal()}));
+$$("[data-dlg]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();const d=document.getElementById(a.dataset.dlg);d.showModal();d.scrollTop=0;requestAnimationFrame(()=>{d.scrollTop=0})}));
 
 /* ============ instagram: automático si se aceptan las cookies; si no, tras un clic ============ */
 const CK="mtCookiesIG";

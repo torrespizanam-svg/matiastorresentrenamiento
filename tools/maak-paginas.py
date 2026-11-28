@@ -77,7 +77,7 @@ JS="""<script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 $("#burger").onclick=()=>$("#nav").classList.toggle("open");
 const hd=$("#site header");const f=()=>hd.classList.toggle("mini",scrollY>40);addEventListener("scroll",f,{passive:true});f();
-$$("[data-dlg]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();document.getElementById(a.dataset.dlg).showModal()}));
+$$("[data-dlg]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();const d=document.getElementById(a.dataset.dlg);d.showModal();d.scrollTop=0;requestAnimationFrame(()=>{d.scrollTop=0})}));
 const ck=$("#ckChange");if(ck)ck.addEventListener("click",()=>{try{localStorage.removeItem("mtCookiesIG")}catch(_){}$("#d-cook").close()});
 function prog(){const k=location.hash.slice(1);if(!k)return;const d=document.getElementById("prog-"+k);if(d){d.open=true;setTimeout(()=>d.scrollIntoView({behavior:"smooth",block:"start"}),60)}}
 prog();addEventListener("hashchange",prog);
