@@ -1248,6 +1248,14 @@ html,body{overflow-x:clip}
 .mt-div img{width:30px;height:auto;filter:drop-shadow(0 4px 10px rgba(0,0,0,.6));opacity:.92}
 #v-inicio>section{box-shadow:none!important}
 @media(max-width:700px){.mt-div img{width:26px}}
+
+/* ===== Eén kolom: elke sectie van de homepage start op dezelfde plek ===== */
+#site{--mtw:1320px;--mtpad:clamp(22px,4vw,40px)}
+#site header .wrap,#site header .nav{max-width:var(--mtw)}
+#site #v-inicio .wrap{max-width:var(--mtw)!important;margin-left:auto!important;margin-right:auto!important;padding-left:var(--mtpad)!important;padding-right:var(--mtpad)!important;box-sizing:border-box}
+#site #v-inicio .wrap.mt2{max-width:var(--mtw)!important}
+#site #v-inicio .mt2-body{max-width:min(100%,940px)}
+#site #v-inicio .gx{max-width:var(--mtw);margin-left:auto;margin-right:auto;padding-left:var(--mtpad);padding-right:var(--mtpad);width:100%}
 </style>
 </head>
 <body>
