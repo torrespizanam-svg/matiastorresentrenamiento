@@ -14,7 +14,7 @@ B=S.index("<body")
 # nombre de vista -> (carpeta, title, description, nav activo)
 PAGES={
  "sobre":("el-centro","El centro de entrenamiento personal · Matías Torres, Orihuela","Conoce el centro de entrenamiento personal de Matías Torres en Orihuela: un entrenador, una sala privada y toda la atención para ti. Pide tu primera valoración de 30 min.","sobre"),
- "equipo":("equipo","Equipo · Matías Torres, entrenador personal en Orihuela","Conoce al equipo del centro de Matías Torres en Orihuela: entrenador personal, readaptación y recuperación trabajando juntos por tu objetivo.","sobre"),
+ "equipo":("equipo","Equipo · Matías Torres, entrenador personal en Orihuela","Conoce al equipo del centro de Matías Torres en Orihuela: entrenador personal, readaptación y recuperación trabajando juntos por tu objetivo.","equipo"),
  "metodologia":("como-trabajo","Cómo trabajo · Método de entrenamiento personal en Orihuela","Así trabajamos en Orihuela: primera valoración, plan a medida y seguimiento uno a uno. Entrenamiento personal privado con Matías Torres.","metodologia"),
  "servicios":("servicios","Servicios de entrenamiento personal en Orihuela · Matías Torres","Pierde grasa, gana fuerza, recupera tu espalda o vuelve a entrenar tras una lesión. Servicios de entrenamiento personal privado en Orihuela.","servicios"),
  "programas":("programas","Programas de entrenamiento personal en Orihuela · Matías Torres","Programas a medida en Orihuela: pérdida de grasa, fuerza, Mamá en Forma, readaptación de lesiones y Espalda en Forma.","servicios"),
